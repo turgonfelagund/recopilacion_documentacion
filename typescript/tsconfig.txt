@@ -1,0 +1,142 @@
+El archivo tsconfig.json permite establecer opciones de compilación
+
+Debe ser creado en la raíz del proyecto
+
+Para ejecutarlo, escribir en la consola en el directorio actual según corresponda
+
+tsc
+
+o
+
+npx tsc
+
+Tambien se puede utilizar el argumento -w o --watch para seguir y compilar tras cada cambio
+
+-------CREAR TSCONFIG.JSON-------
+Puede hacerse manualmente, o mediante el comando en consola
+
+Si está instalado globalmente
+
+tsc -init
+
+si está instalado locamente o no está instalado en nuestro proyecto ni globlamente
+
+npx tsc -init
+
+-------OPCIONES DE COMPILACIÓN-------
+Se definen dentro de la propiedad "compilerOptions".
+
+A continuación, algunas de las propiedades de "compilerOptions"
+
+---alwaysStrict---
+Indica si los archivos transpilados usan el modo estricto
+
+Puede tomar los valores true o false
+
+---removeComments---
+Elimina los compentarios cuando transpila archivos a javaScript
+
+Puede ser true o false
+
+---noImplicityAny---
+Cuando no hay anotaciones de tipo para ciertas, TypeScript trata
+de inferir su tipo, pero si no lo consigue, asigna tipo "any".
+
+Si esta propiedad toma el valor "true", el compilador lanzará un 
+cada vez que haya inferido en la compilación "any".
+
+---noEmitOnError---
+Hace que no emita archivos de salida del compilador como código fuente de 
+JavaScript, sourceMaps o declaraciones si se informa algún error.
+
+El valor predeterminado es false, lo que facilita el trabajo con 
+TypeScript en un entorno similar a un reloj en el que es posible 
+que desee ver los resultados de los cambios en su código en otro 
+entorno antes de asegurarse de que se resuelvan todos los errores.
+
+
+---noUnusedLocals---
+Devuelve errores si hay variables locales sin usar
+
+
+---noUnusedParameters---
+Devuelve errores si hay parámetros sin usar en funciones
+
+Toma valores true o false
+
+---sourceMap---
+Indica si genera archivos sourceMap
+
+
+---target---
+Indica el entorno de javascript utilizado
+
+--ejemplo
+
+"target" : "ES6"
+
+---rootDir---
+Indica la carpeta en la que están situados los archivos 
+que van a ser compilados. En princio, no necesario
+si la propiedad "include" los define
+
+--ejemplo
+
+"rootDir" : "./src"
+
+---outDir---
+Especifíca la carpeta de salida para los archivos transpilados,
+es decir, la localización de nuestro build
+
+--ejemplo
+
+"outDir" : "dist"
+
+-------INCLUIR ARCHIVOS-------
+Para decidir los archivos que se van a compilar mediante tsc,
+se usa la propiedad include
+
+---include---
+Su valor es un array, e indica la ruta de los archivos que van a ser compilados.
+
+Si los archivos se encuentran en diferentes carpetas, se pueden
+incluir todas mediante el carácter "*", de manera que se representa
+todo el contenido presente en un nivel del directorio
+
+Si queremos incluir diferentes rutas, simplemente, añadirla al array
+
+--ejemplo
+
+"include" : "[
+    "core/**/*.ts",
+    "src/*"
+]"
+
+
+-------EXCLUIR ARCHIVOS-------
+Se definen en la propiedad "exclude", que toma un array
+
+Funciona igual que "include"
+
+
+-------USO DE ASTERISCOS-------
+Sobre todo se usan en las propiedades "include" y "exclude" y
+son muy útiles.
+
+--"*"
+incluye todos los archivos o extensiones
+
+-ejemplo 
+
+Incluye todos los archivos de src
+"include" : "src/*"
+
+Incluye todos los archivos con extension ."ts"
+"include" : "src/*.ts"
+
+--"**/"
+Incluye todos los subdirectorios de forma recursiva
+
+-ejemplo
+Incluye todos los ts de los subdirectorios de "src"
+"include" : "src/**/*.ts"

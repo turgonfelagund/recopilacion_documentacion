@@ -1,0 +1,44 @@
+
+Las fuentes se encuentran en la web:
+
+https://www.nerdfonts.com/font-downloads
+
+
+O el siguiente repositorio:
+https://github.com/ryanoasis/nerd-fonts
+
+las fuentes se encuentran en patched-fonts. Una ve elegida una, se puede elegir su estilo (regular, bold, italic...)
+y dentro de estos, el archivo que nos interesa se encuentra en la carpeta complete bajo 
+el nombre "nombre de la fuente Complete.tff".
+
+
+A continuación se sigue una metodología para instalar la fuente, pero hay muchas mas descritas en el repositorio
+mencionado.
+
+1.Crear carpeta siguiente ruta:
+mkdir -p ~/.local/share/fonts
+
+2.bajar fuente
+cd ~/.local/share/fonts && curl -flo "nombre que se le va a poner a la fuente entre comillas" urlFuenteEnRepositorio
+
+3. Limpiar cache
+fc-cache -vf
+*NOTA. Si queremos saber las fuentes que tenemos, ejecutar:
+fc-list
+
+*NOTA. Para usar la herramienta fc, se usa fontconfig. Puede ser necesario instalar fontconfig mediante
+apt -y install fontconfig.
+
+Si devuelve un error, comprobar en /etc/fonts, que haya un archivo "fonts.conf". Si dicho archivo se llama
+"fonts.conf.dpkg-new", renombrarlo "fonts.conf" (sin comillas)
+
+En caso de no funcionar ejecutar:
+
+dpkg --configure -a
+
+apt-get install -f
+
+apt-get remove --purge package_name
+
+apt autoremove		*Esto borra paquetes no utlizados porque estan desactualizados
+

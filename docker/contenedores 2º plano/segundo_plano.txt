@@ -1,0 +1,12 @@
+El segundo plano permite que se pueda salir de la consola del contenedor
+
+Un contenedor puede ejecutarse en 2º plano si cuando se crea se utiliza el argumento "-d" o se le da
+el valor "true", tal que -d = true.
+
+docker attach --name [nombre contendor]
+
+o
+
+docker attach [id contenedor]
+
+Para salir de un contenedor sin detenerlo se pulsa ctrl + p seguido de ctrl + q

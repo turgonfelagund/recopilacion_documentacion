@@ -1,0 +1,28 @@
+Metodo 1.
+1. Abrir powershell o simbolo del sistema (cmd) como administrador y escribir:
+
+wsl --install
+
+2. Instalar una distribucion.
+
+Para ver las distribuciones disponibles escribir:
+
+wsl --list --online
+
+o
+
+wsl -l -o
+
+Para instalar una distribucion
+
+wsl --install -d nombreDistribucion
+
+Metodo 2.
+Docker lo hara durante la instalación
+
+*nota.
+Esto es para docker, pero no instalar una distribucion para el WSL del host
+
+IMPORTANTE
+Si no funciona aun, abrir a traves del buscador "caracteristicas de windows" y habilitar
+"Subsistema de Windows para Linux"

@@ -1,0 +1,43 @@
+
+Para Maven 2.0
+
+-mvn version
+Devuelve la version instalada de maven
+
+-mvn clean.
+Borra el directorio de salida (target)
+
+-mvn install
+guarda el proyecto en el repositorio
+
+CREAR UN PROYECTO
+
+-mvn archetype:create -DgroupId=com.ejemplo.nombreGrupoDeProyecto -DartifactId=NombreProyecto
+crea un proyecto, el grupoid que es el paquete donde se localizan las clases de java y artifactid que es el nombre de proyecto
+
+-mvn archetype:create -DgroupId=com.ejemplo.nombreGrupoDeProyecto -DartifactId=NombreProyecto DarchetypertifactId=maven-archetype-webapp
+crea el proyecto y además indica el tipo de plantilla usada; en este caso web.
+
+*Ademas de los arquetipos de maven, se pueden crear arquetipos propios. Más información en achivo /archetiposMaven
+o en https://maven.apache.org/guides/mini/guide-creating-archetypes.html
+
+COMPILACIÓN
+-mvn test
+compila los test y los ejecuta
+
+-mvn compile
+compila el proyecto y deja el resultado en target/classes
+
+-mvn package
+empaqueta el proyecto y lo deja en target/nombreProyectoYVersion.jar
+Para esto se ejecutará antes la compilacion de test y clases, como si hubieramos escrito:
+
+mvn compile
+mvn test
+
+Esto es debido a que maven necestia completar el ciclo del proyecto.
+
+ACTUALIZACION
+
+-mvn clean intall -u
+Limpia el directorio de salida y actualiza dependencias

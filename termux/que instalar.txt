@@ -1,0 +1,25 @@
+neovim (con sus plugins)
+
+nodejs
+
+python
+
+curl
+
+wget
+
+git
+
+neovim para python
+pip install neovim
+
+neovim para node
+npm i -g neovim
+
+
+Ngrok (este último no siempre)
+
+apache2 (opcional)
+
+
+unzip (puede que ya este incuido)

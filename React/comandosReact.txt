@@ -1,0 +1,30 @@
+
+Los comandos para react empiezan por npx
+
+----CREAR PROYECTO----
+-npx create-react-app nombreDelProyecto
+Descargar y preparar aplicación
+
+*Nota.
+Si da error, puede que haya que usar una versión diferente de npx (más abajo)
+
+-npx create-react-app@versionNpx nombreDelProyecto
+Descargar y preparar aplicación con una versión de npx, ejemplo:
+
+npx create-react-app@latest nombreDelProyecto
+
+----INICIAR SERVIDOR PROYECTO----
+En la carpeta del proyecto
+
+-npm start
+Arranca el servidor de desarrollo
+
+----EMPAQUETAR PROYECTO----
+
+-npm run build
+Empaqueta los archivos para producción
+
+----EJECUTAR TESTS----
+
+-npm test
+Ejecuta los tests

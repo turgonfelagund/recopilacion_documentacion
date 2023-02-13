@@ -1,0 +1,254 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "de1062aa-8e5e-41ed-ac47-52d88dc76f17",
+   "metadata": {},
+   "source": [
+    "### Excepciones múltiples e invocación de excepciones. Vid 63"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4a18ac8b-eabc-4aee-b942-a53a4d27c0cc",
+   "metadata": {},
+   "source": [
+    "Podemos almaccenar el error generado en una varaible y controlarlo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c36f0fcf-275c-454e-bfb3-5c4d71fe1b99",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "numero d\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "TypeError\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Ejemplo con el tipo de variable usada en el error\n",
+    "try:\n",
+    "    a = input(\"numero\")\n",
+    "    10/a\n",
+    "except Exception as x :\n",
+    "    print(type(x).__name__) # imprimimos el nombre del tipo de la variable x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "4e11593f-296c-4c03-b0bf-1e9ae378bb9c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "numero j\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "unsupported operand type(s) for /: 'int' and 'str'\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Ejemplo con el mensaje de la variable del error\n",
+    "try:\n",
+    "    a = input(\"numero\")\n",
+    "    10/a\n",
+    "except Exception as x :\n",
+    "    print(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d5082f9e-31de-4ac5-8c82-7b43f8299853",
+   "metadata": {},
+   "source": [
+    "Pero también podemos utilizar múltiples excepciones pues hay diferentes tipos\n",
+    "De esta manera, según el tipo de error que cometamos, se lanza una excepción u otra.\n",
+    "Se ejecutara la excepción correspondiente al error disparado. Si el error concuerda con 2 excepciones, se lanza la primera de las 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "b2a1e1d4-d41e-4f07-9843-e865ab0ed2ec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "numero g\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "La cadena debe ser un numero yeah!\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    a = float(input(\"numero\"))\n",
+    "    10/a\n",
+    "# Se ejecuta por errores de tipo\n",
+    "except TypeError:\n",
+    "    print(\"Esto es una cadena chathorr\")\n",
+    "# Se ejecuta por errores con los valores\n",
+    "except ValueError:\n",
+    "    print(\"La cadena debe ser un numero yeah!\")\n",
+    "# Se ejecuta al dividir un numero entre 0\n",
+    "except ZeroDivisionError:\n",
+    "    print(\"No puedes dividir un número entre 0\")\n",
+    "# Se ejecuta al producirse una excepcion cualquiera\n",
+    "except Exception as x :\n",
+    "    print(type(x).__name__) # imprimimos el tipo del error"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3abab894-9472-4855-9c33-f69721bdfa56",
+   "metadata": {},
+   "source": [
+    "Otra forma de controlar errores es gestionandolos manualmente"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "a28f23d4-3b2c-4c3d-ae0f-26a2248a2b02",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Controlamos error en argumentos con valor por defecto\n",
+    "def test(check=None):\n",
+    "    #Controlamos valor nulo con condicional\n",
+    "    if check is None:\n",
+    "        print(\"Escribe algo con esta función\")\n",
+    "        return\n",
+    "    print(\"exito\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "6f51baec-edeb-4575-9efe-b06acf031bb6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "exito\n"
+     ]
+    }
+   ],
+   "source": [
+    "test(2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed253c9c-0d32-4974-a911-a661e2b993bd",
+   "metadata": {},
+   "source": [
+    "Por último, con \"raise\" podemos disparar selectivamente un error, o modificar parte del error que lanza el propio intérprete"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "64873c29-cce3-4c2b-a454-93624e8805c5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "El valor nulo no se permite\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Observar como raise redirige a la excepcion ValueError\n",
+    "def test(check=None):\n",
+    "    try:\n",
+    "        if check is None:\n",
+    "            raise ValueError\n",
+    "            return\n",
+    "    except ValueError:\n",
+    "        print(\"El valor nulo no se permite\")\n",
+    "test()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "28078db9-af62-4d12-aff0-f1a8a81d0472",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "Escribe algo con esta función",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[26], line 6\u001b[0m\n\u001b[0;32m      4\u001b[0m         \u001b[38;5;28;01mif\u001b[39;00m check \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m      5\u001b[0m             \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mEscribe algo con esta función\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m----> 6\u001b[0m \u001b[43mtest\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n",
+      "Cell \u001b[1;32mIn[26], line 5\u001b[0m, in \u001b[0;36mtest\u001b[1;34m(check)\u001b[0m\n\u001b[0;32m      3\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mtest\u001b[39m(check\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mNone\u001b[39;00m):\n\u001b[0;32m      4\u001b[0m         \u001b[38;5;28;01mif\u001b[39;00m check \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m----> 5\u001b[0m             \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mEscribe algo con esta función\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n",
+      "\u001b[1;31mValueError\u001b[0m: Escribe algo con esta función"
+     ]
+    }
+   ],
+   "source": [
+    "# En este ejemplo se dispara error del intérprete\n",
+    "# Poner atencion al apartado \"ValueError\" del error resultante\n",
+    "def test(check=None):\n",
+    "        if check is None:\n",
+    "            raise ValueError(\"Escribe algo con esta función\")\n",
+    "test()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,2 @@
+Para renderizar, se usa el método render() del módulo ReactDOM, que recibe el componente o elemento a renderizar,
+y el elemento del DOM dentro del cual se va situar.

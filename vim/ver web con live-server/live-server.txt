@@ -1,0 +1,36 @@
+-------INSTALACIÓN-------
+
+Se puede instalar de varias maneras. En este caso:
+
+npm i -g live-sever
+
+-------EJECUCIÓN-------
+Para ejecutar live-server:
+
+live-server nombreArchivo
+
+*nota
+Si hay un archivo html, live-server lo cogerá por defecto sin usar su nombre
+
+IMPORTANTE
+Para que funcione con Docker, el contenedor debe tener un puerto asignado (tanto host como contenedor).
+Para ello ejecutar:
+
+docker ps -a
+y observar "PORTS" para dicho contenedor
+
+después, ejecutar
+
+live-server --port=puertoContenedor nombreArchivo
+
+En el nagador debe introducirse el puerto del host y live-server debe desplegar en el puerto del contenedor
+ejemplo:
+
+PORTS
+3000:2000
+
+En el terminal de Docker:
+live-server --port=2000 index.html
+
+En el navegador:
+127.0.0.1:3000

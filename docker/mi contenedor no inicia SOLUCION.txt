@@ -1,0 +1,35 @@
+-----PROBLEMA-----
+Hay veces que al crear un contenedor, este no inicia y no genera ningun log.
+
+-----CAUSA-----
+Esto es debido a que se necesita un proceso corriendo en segundo plano para que en contenedor
+se mantenga activo.
+
+-----SOLUCION-----
+
+Utilizar Pseudo-TTYs que son comandos que se ejecutan dentro de un contenedor. Para iniciar una pseudo-TTY
+basta con añadir el argumento -t. El contenedor no parara hasta que la sesion termine.
+Si queremos interactuar con el contenedor añadimos el argumento -i. Esto nos permitira ejecutar comandos
+al usar el terminal dentro del contenedor.
+
+Un ejemplo del comando seria:
+
+docker run -it nombreImagen
+
+o
+
+docker run -it --name nombreContenedor nombreImagen
+
+o
+
+Cualquier otra variante
+
+
+Una vez creado así, el contenedor podra iniciar normalmente con:
+
+docker start nombreContenedor
+
+
+MAS INFORMACION
+
+https://www.baeldung.com/ops/running-docker-containers-indefinitely

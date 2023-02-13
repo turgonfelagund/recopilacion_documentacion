@@ -1,0 +1,9 @@
+instalar proot-distro
+
+$pkg proot-distro
+
+instalar distribucion
+$ proot-distro install nombreDistribucion
+
+Ejecutar distribución
+$ proot-distro login nombreDistribución

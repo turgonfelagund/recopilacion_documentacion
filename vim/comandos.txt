@@ -1,0 +1,74 @@
+
+Los comandos se inician al final del documento y permiten realizar ciertas acciones sobre los archivos.
+
+IMPORTANTE. Los comandos estan asistidos por tabulador
+
+salir sin guardar (sin haber hecho cambios)
+:q 
+
+
+Salir sin guardar
+:q!
+
+
+Guardar archivo
+:w
+
+Guardar archivo con nombre
+
+:w nombreArchivo
+
+Abrir archivo
+
+:e nombreArchivo
+
+Crear archivo
+
+:e nombreArchivoQueNoExiste
+
+Mostrar todos los archivos cargados por vim
+
+:scriptnames
+
+Volver a cargar el achivo actual
+
+:source %
+
+Mostrar opciones de configuración y donde está la carpeta
+
+neovim
+:help nvim-configuration
+
+vim
+:help vim-configuration
+
+Abrir terminal
+:terminal
+:ter
+
+Dar talla/tamaño al termina
+:resize numero
+
+Hacer un split vertical
+:vsp
+
+Hacer un split horizontal
+:sp
+
+Crear una nueva ventana
+:tabe
+
+Moverse al siguiente buffer
+:bnext
+:bn
+
+Moverse al buffer anterior
+:bprevious
+:bp
+
+Cerrar buffer actual
+:bdelete
+:bd
+
+IMPORTANTE. Si se abre el terminal con un archivo que no existe en nuestro archivos aun(no se ha guardado),
+al tratar de volver a cargarlo, el editor nos lanzará un error porque no lo encontrará

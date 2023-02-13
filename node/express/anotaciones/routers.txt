@@ -1,0 +1,138 @@
+Los router son formas de agrupar url's que vamos a usar de forma
+recurrente para reutilizarlas
+
+-------ROUTING-------
+La ruta se almacena en una variable declarada como ruta
+
+---Declarar e inicializar una ruta---
+
+const routerProgramacion = express.Router();
+
+Después, se asocia una ruta a dicha variable dentro de una 
+aplicación Express
+
+---Declarar la ruta---
+
+app.use('/api/cursos/programacion', routerProgramacion);
+
+donde:
+-"app" es la aplicacion Express que asociara una ruta a una variable de routing
+-"/api/cursos/programacion" es la ruta que se va a reutilizarla
+-"routerProgramacion" la variable que almacena una ruta
+
+---Usar la variable de routing---
+La variable de routing, en este caso "routerProgramacion", se usa
+en lugar de la aplicacion Express "app", y la ruta definida
+comienza al final de la ruta declarada "routerProgramacion";
+es decir, "/api/cursos/programacion"
+
+-Ejemplo
+
+routerProgramacion.get('/info', (req, res)=>{
+    console.log(`Estás utilizando la ruta base: ${req.baseUrl}`);
+})
+
+La función anterior se ejecuta con la URL:
+
+/api/cursos/programacion/info
+
+---Reutilizando una variable de ruta---
+Una misma variable de ruta puede reutilizarse de manera que guarde
+una ruta diferente para dos o más aplicaciones de Express
+
+Cada aplicación Express es accedida a través de un puerto diferente,
+así que no habrá conflict entre la variable ruta de ambas aplicaciones
+
+-Ejemplo
+
+Según al puerto al que accedamos, usaremos una aplicación Express
+y devolveremos una url diferente almacenada en la misma variable de routing
+
+const express = require('express');
+const app = express();
+const test = express();
+
+const routerCursos = express.Router();
+
+app.use('/api/cursos', routerCursos);
+test.use('/prueba', routerCursos);
+
+routerCursos.get("/", (req, res)=>{
+    console.log(req.baseUrl);
+})
+
+app.listen(3000, ()=>{
+    console.log(console.log(`El servidor está escuchando en el puerto: 3000...`);)
+})
+
+test.listen(4000, ()=>{
+    console.log(`El servidor está escuchando en el puerto: 4000...`);
+})
+
+-------PREDECLARAR -------
+Se puede hacer que el body de todas la peticiones sean procesadas para un 
+determinado método antes ejecutar cualquier ruta.
+
+Así, podemos, por ejemplo conseguir que todas la peticiones tipo POST que lleguen a una
+determinada ruta, contengan información en formato JSON.
+
+Para ello, se selecciona una variable de ruta, o la aplicación, y se indica
+el método para el que se va a hacer el procesado
+
+Si queremos que todos los métodos sean procesados de la misma forma, se debe usar
+el metodo use();
+
+-Ejemplo
+routerProgramacion.use(express.json());
+
+Procesa el cuerpo de una solicitud de cualquier método a formato json
+
+-------PROBLEMAS CON USE()-------
+Con use() se podrían confundir las url's que comienzan con la misma ruta; 
+en cooncreto, se ejecutará la ruta más corta.
+
+Por eso se recomienda usar métodos HTTP para definir las funcionalidades
+de nuestras rutas.
+
+Acontinuación dos ejemplos. PONER ATENCIÓN AL MÉTODO HTTP;
+lo demás no varia
+
+---Ejemplo que da fallo---
+En este caso, SIEMPRE se redirige y ejecuta primer método, aunque
+se especifique un lenguaje en la URL
+
+routerProgramacion.use("/", (req, res)=>{
+    //res.setHeader('content-Type', 'text/plain');
+    res.setHeader('content-type', 'application/json');
+    res.send(JSON.stringify(programacion));
+});
+
+routerProgramacion.use('/:lenguaje', (req, res)=>{
+    let {lenguaje} = req.params;
+    let cursos = programacion.filter(i=> i.lenguaje === lenguaje);
+    console.log('holaaaaaa');
+
+    cursos.length===0 ? 
+    res.status(404).send(`No se han encontrado cursos de ${lenguaje}`)
+    :res.send(cursos);
+})
+
+---Ejemplo correcto---
+En este caso se especifica un método HTTP y no hay problemas
+
+routerProgramacion.get("/", (req, res)=>{
+    //res.setHeader('content-Type', 'text/plain');
+    res.setHeader('content-type', 'application/json');
+    res.send(JSON.stringify(programacion));
+});
+
+routerProgramacion.get('/:lenguaje', (req, res)=>{
+    let {lenguaje} = req.params;
+    let cursos = programacion.filter(i=> i.lenguaje === lenguaje);
+    console.log('holaaaaaa');
+
+    cursos.length===0 ? 
+    res.status(404).send(`No se han encontrado cursos de ${lenguaje}`)
+    :res.send(cursos);
+})
+

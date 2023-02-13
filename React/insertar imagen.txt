@@ -1,0 +1,16 @@
+Para insertar una imagen desde en html renderizado desde jsx, se utiliza la propiedad src y dentro, 
+entre llaves escribir require("ruta_de_imagen")
+
+Tambien se puede añadir mediante props guardando el valor de la ruta de la imagen importada
+
+-ejemplo:
+
+import logo from "./img/logo.png"
+
+	function Imagen(){
+          return  (
+            <div className='logo_contenedor'>
+              <img src={logo} alt="logo" className='logo' />
+            </div>
+           )
+         }

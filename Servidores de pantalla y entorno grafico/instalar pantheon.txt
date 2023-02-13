@@ -1,0 +1,22 @@
+Pantheon es un entorno de escritorio con aspecto similar al escritorio de mac
+
+Introducir los siguientes comandos.
+
+sudo add-apt-repository ppa:elementary-os/daily
+sudo add-apt-repository ppa:elementary-os/os-patches
+sudo apt update
+sudo apt upgrade
+sudo apt install elementary-desktop
+
+---CAMBIAR GESTOR DE VENTANAS
+
+Si estamos usando otro gestor de ventanas diferente a lightdm usar:
+
+sudo dpkg-reconfigure lightdm
+
+Y finalemente elegir lightdm
+
+---PROBLEMA Y SOLUCION
+Si despues de la instalacion y configuracion, pantheon no aparece en el login, introducir en consola:
+
+sudo apt install pantheon-shell

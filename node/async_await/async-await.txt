@@ -1,0 +1,1 @@
+Todas las funciones con async retornan una promesa

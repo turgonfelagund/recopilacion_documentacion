@@ -1,0 +1,54 @@
+
+-Sintaxis
+Resaltado para diferentes lenguajes
+
+vim-polyglot
+
+-tmux
+Permiten cambiar entre distintos terminales o consolas cuando hay más de uno abierto
+
+vimux
+vim-vimux-navigator
+
+-tree
+Muestra el explorador de archivos
+
+neotree
+nerdtree
+
+-Iconos
+Muestra iconos en el arbol
+
+vim-devicons 
+
+*nota. Necesita una nerd font compatible para que se puedan ver los iconos
+
+
+-Barras de estado
+Muestran nombre de documento, tipo de archivo y porcenaje de altura en el mismo
+
+lightline-ale
+lightline.vim
+
+
+-tipado
+
+auto-pairs Cierra automáticamente paréntesis, llaves o cualquier otra entidad similar
+vim-closetag Cierra automáticamente etiquetas html y de jsx (React)
+vim-suround Encierra a una cadena entre los carácteres designados
+
+-Autocompletado
+
+ultisnips Incluye atajos para el teclado
+coc.nvim  Snippets para múltiples lenguajes
+emmet-vim Permite crear la estuctura de un documento html y etiquetas con clases de manera automática
+
+-ide
+
+fzf Buscador de caracteres y archivos
+indentline Muestra tabulación
+nerdcommenter Para comentar texto
+
+-rest
+
+rest.nvim

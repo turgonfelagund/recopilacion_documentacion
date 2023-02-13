@@ -1,0 +1,6 @@
+En terminal escribir
+
+apt install nautilus-admin
+
+Si una vez instalado, no aparece la opción para abrir como administrador al hacer click derecho 
+en un directorio, reiniciar el equipo

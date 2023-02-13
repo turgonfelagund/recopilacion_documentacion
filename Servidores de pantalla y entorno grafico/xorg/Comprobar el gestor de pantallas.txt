@@ -1,0 +1,3 @@
+Se encuentra en el directorio /X11 y archivo default-display-manager
+
+Para ver el gestor de pantallas en uso, ejecutar cat sobre dicho archivo

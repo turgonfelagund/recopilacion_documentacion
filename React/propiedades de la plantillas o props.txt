@@ -1,0 +1,52 @@
+-------QUE SON LAS PROPS-------
+
+Las props son propiedades que podemos asignar a elementos de un componente y que permiten
+mostrar los valores que almacenan
+
+Como el valor de una prop puede cambiar, esto permite personalizar nuestros componentes y 
+crear varias instancias de un mismo componente con diferentes valores
+
+-------DECLARAR PROPS EN EL COMPONENTE-------
+
+Para asignar props a un componente, se le pasan estas como argumento al método que instancia el componente.
+
+Después, se indica el lugar en el que se insertarán valores, y el nombre de la propiedad insertada
+
+ejemplo:
+
+export function Testimonio(props) {
+    return(
+        <div className="contenedor_testimonio">
+            <img 
+            className="imagen_testimonio" 
+            src={require(`../images/${props.imagen}`)} 
+            alt="Mulan img"/>
+            <div className="contenedor_texto_testimonio">
+                <p className="nombre_testimonio">{props.nombre} en {props.pais}</p>
+                <p className="cargo_testimonio">{props.cargo} en {props.empresa}</p>
+                <p className="texto_testimonio">{props.testimonio}</p>
+            </div>
+        </div>
+    )
+}
+
+-------ASIGNAR VALORES A PROPS-------
+
+Los componentes pueden recibir props, pero no enviarlos. Esto significa que se les da valor desde el lugar
+donde son renderizados
+
+Simplemente, se escribe nombre del componente renderizado y dentro de la etiqueta se escriben 
+las propiedades y su valor
+
+<Testimonio 
+          nombre = "Jose"
+          pais = 'Cosmopolita'
+          imagen = "jose.jpg"
+          cargo = "pescador"
+          empresa= 'pescanova'
+          testimonio = 'Hola mundoo'
+        />
+
+
+-------USANDO DESTRUCTURING, UNA ALTERNATIVA A PROPS-------
+

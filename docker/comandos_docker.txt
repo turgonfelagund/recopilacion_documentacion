@@ -1,0 +1,142 @@
+Información de docker e imágenes para docker y mucho más en docker hub
+
+La configuración de un determinado contenedor se hace en base a su imagen. Esto se ve en docker hub
+
+
+docker create [nombre de imagen]
+Crea el contenedor de una imagen
+
+docker pull [nombre de imagen]
+descarga la imagen con la etiqueta de latest (última versión)
+
+docker pull [nombre de imagen]:nombre de versión
+descarga una versión específica de una imagen
+
+docker rm [nombre de contenedor]
+borra un contenedorMYSQL_ROOT_PASSWORD
+
+docker rmi [nombreImagen]
+Borra la imagen nombrada
+
+docker images purge
+Elimina todas las imagenes que esten pendientes (no utilizadas en ningun contenedor)
+
+docker system prune
+Borra cualquier recurso (imagen, contenedor, red...) que este pendiente; es decir no asociado
+a ningun contenedor
+
+docker run --rm image_name
+Borra un contenedor al cerrarlo
+
+docker images
+muestra las imágenes descargadas
+
+docker image rm [nombre de contenedor]
+borra una imagen referenciada por un contenedor
+
+docker start [id del contenedor]
+Arranca un contenedor. Puede usarse el id original, o el abreviado, o el nombre del contenedor que puede verse con docker ps -a.
+
+docker ps -a
+Devuelve los datos de los contenedores que existen. Si uno se está ejecutando, no aparece aquí
+
+
+docker ps
+Devuelve los datos del contenedor que se está ejecutando.
+
+docker stop [nombre ó id del contenedor]
+Detiene la ejecución de un contenedor
+
+
+CADA VEZ QUE SE USA UN COMANDO DOCKER RUN SE CREA UN CONTENEDOR
+
+docker run [nombre imagen]
+Si no encuentra la imagen, la descarga; construye el contenedor e inicia el contenedor. También se muestran los logs. Con ctrl + C
+se detiene la ejecución del contenedor. Si no se quiere usar el registro, utilizar el comando con la opción de dettached (abajo)
+
+
+docker run -d [nombre imagen]
+Si no encuentra la imagen, la descarga; construye el contenedor e inicia el contenedor. La "-d" indica
+"Deatached Mode", y es la forma de indicar que el contenedor correrá en background
+
+
+docker run -p 3000:3000 --name mysql -e MYSQL_ROOT_PASSQWORD=myPassword mysql:latest
+Descarga la imagen "latest" de mysql, le asigna puertos, nombre, y una constraseña mediante el argumento "-e".
+
+*nota.
+El argumento "-e" se usa para crear variables de entorno
+
+docker run --name [nombre del contenedor] -p[puerto de la máquina física]:[puerto del contenedor] -dt [nombre de la imagen]
+Crea rápido un contenedor definiendo su nombre, mapeando sus puertos, su imagen (la descarga si no se encuentra), e inicia una Pseudo-TTY,
+es decir, un terminal en el contenedor
+
+*nota.
+El argumento -t inicia una Pseudo-TTY, lo cual es recomendable. Mas información sobre que es y por que se usa en el archivo
+"mi contenedor no inicia SOLUCION".
+
+
+docker create --name [nuevo nombre del contenedor] [nombre de la imagen]
+cambiar el nombre del contenedor de una determinada imagen
+
+
+docker create -p [numero del puerto de la máquina física que se va a usar]:[puerto del contenedor que se va a mappear con la máquina] --name [nombre de contenedor] [nombre imagen]
+Crea un contenedor con puerto y nombre
+
+Ejemplo: docker create -p 27017:27017 --name monguito ubuntu
+Crea un contenedor publicando el puerto 27017 de la máquina al 27017 de la imagen
+
+docker create -p [numero del puerto del contenedor que se quiere mapear] --name [nombre contenedor]
+Publica un puerto aleatorio para un determinado contenedor. ESTA ES UNA OPCIÓN NO ACONSEJABLE DEBIDO A QUE 
+DOCKER PUBLICA LOS PUERTOS Y LA ORGANIZACIÓN DE LOS MISMOS SE VE PERJUDICADA
+
+
+docker logs [nombre del contenedor]
+Muestra todos los logs del contenedor
+
+
+docker logs --follow [nombre del contenedor]
+muestra contínuamente los logs de un contenedor. Para salir de este modo, pulsar ctrl + C
+
+
+Para pasar variables de entorno se utiliza:
+-e [variable de entorno]=[valor]
+
+ejemplo con contenedor con imagen de mongo:
+docker create -p27017:27017 --name monguito -MONGO_INITDB_ROOT_USERNAME=nico -e MONGO_INITDB_ROOT_PASSWORD=password mongo
+
+
+CONTENEDORES
+
+Cambiar nombre contenedor
+docker rename nombre_antiguo nombre_nuevo
+
+Ejecutar contenedor existente
+docker start nombre_de_contenedor
+
+Parar contenedor
+docker stop nombre_contenedor
+
+Ejecutar consola del contenedor
+docker exec -it nombre_contenedor /bin/bash	*consola de comandos
+o
+docker exec -it nombre_contenedor bash		*consola de comandos
+docker exec -it nombre_contenedor sh		*shell
+
+REDES DOCKER
+
+docker network ls
+Lista todas las redes configuradas en docker
+
+
+docker network rm [nombre de la red]
+Elimina una red mediante su nombre
+
+
+docker network create [nombre de la red]
+crea una red y le otorga nombre
+
+
+IMÁGENES DE CONTENEDORES
+
+Para crear una imagen en base al archivo Dockerfile se debe usar el siguiente comando
+docker build -t [nombre de la imagen]:[tag o etiqueta de la imagen] [ruta del archivo Dockerfile]

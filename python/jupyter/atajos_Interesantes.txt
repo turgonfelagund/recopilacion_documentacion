@@ -1,0 +1,50 @@
+LA MAYORIA DE ESTOS ATAJOS SIRVEN TANTO PARA JUPYTER NOTEBOOK COMO LAB, AUNQUE HAY ALGUNOS QUE SON DE LAB
+
+---Entrar en celda
+Enter
+
+---Salir de celda
+Esc
+
+---Moverse a celda superior
+k
+
+---Moverse a celda inferior
+j
+
+---Crear celda debajo de la actual
+b
+
+---Crear celda arriba de la actual
+a
+
+---Eliminar celda
+d + d
+
+---Ejecutar contenido celda
+ctrl + enter
+
+---Ejecutar contenido celda y crear una nueva debajo
+shift + enter
+
+---Autocompletar codigo
+tab
+
+---Cambiar tipo celda
+
+-Code
+y
+
+-Markdown
+m
+
+-Raw
+r
+
+-------CONTROL INTERFAZ-------
+
+---Guardar checkpoint
+ctrl + s
+
+---Cerrar pestaña
+alt + w

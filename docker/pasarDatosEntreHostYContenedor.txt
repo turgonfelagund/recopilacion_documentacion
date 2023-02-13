@@ -1,0 +1,13 @@
+Se pueden traspasar archivos y directorios del host al contenedor y viceversa también.
+
+-------PASAR DEL CONTENEDOR AL HOST-------
+
+docker cp nombreContenedor:rutaInteresEnElContenedor rutaLocal
+
+
+-------PASAR DEL HOST AL CONTENEDOR-------
+
+docker cp rutaLocal nombreContenedor:rutaInteresEnElContenedor
+
+
+Se pueden cambiar archivos y directorios

@@ -1,0 +1,10 @@
+Si Docker no inicia despues de la instalación:
+
+-Habilitar virtualizacion en BIOS
+
+-Habilitar hiper-V en características de Windows (necesario solo instalción). Si habilitado es como no funciona,
+deshabilitar.
+
+*nota. Si los OS de la máquina virtual de Oracle VirtualBox fallan por los módulos, borrar los drivers de
+la máquina virtual (empiezan por Vbox) y volver a instalar las máquinas. Esto es debido a la instalación de
+drivers incompatibles

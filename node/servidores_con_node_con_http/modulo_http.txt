@@ -1,0 +1,49 @@
+Permite a node.js transmitir información con el protocolo HTTP
+
+Crea un servidor que permanece en escucha de solicitudes y devuelve una respuesta a esta
+
+-------CREANDO UN SERVIDOR-------
+
+Primero se importa el módulo "http"
+
+---createServer---
+La creación del servidor se hace mediante el método createServer(), que recibe 2 argumentos,
+el primero hace referencia a la petición y contiene la solicitud HTTP, y el segundo la respuesta
+
+Las respuestas se pueden enviar mediante el método write() o end(), con la diferencia de que este
+último, cierra la respuesta.
+
+Estos admiten además un segundo argumento que es la codificación, en caso de que devolvamos una cadena,
+y un tercero que es un callback.
+
+Cada vez que se realiza una consulta, se ejecuta el bloque de código contenido en createServer()
+
+---Puerto---
+Para "escuchar" peticiones, es necesario habilitar puertos
+
+Un puerto es una ubicación virtual del sistema operativo en la cual se puede acceder a una aplicación
+o a un proceso específico que se esté ejecutando en ese puerto
+
+Para habilitar un puerto para uno de los servidores creados, se utiliza el método
+listen() encadenado al método creeateServer() correspondiente, o
+a la varaible que almacena dicho servidor. El número de puerto se pasa
+como argumento a listen().
+
+Además, listen() tambien puede recibir una función como 2º argumento una
+función que se va a ejecutar cuando el servidor comience a escuchar
+
+---ejemplo---
+
+const http = require('http');
+
+const servidor = http.createServer((req, res)=>{
+    console.log('solicitud nueva');
+    //console.log({req, res});
+    res.end('hola mundo');
+})
+
+const puerto = 3000;
+
+servidor.listen(puerto, ()=>{
+    console.log(`El servidor está escuchando en el puerto ${puerto}`);
+});

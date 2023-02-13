@@ -1,0 +1,6 @@
+En entornos virtualizados:
+python3 -m venv ruta
+
+
+En windows:
+python -m venv ruta

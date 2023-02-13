@@ -1,0 +1,128 @@
+Repositorios
+0. git
+
+1. node (Asegurarse de que en paquete de instalación viene por defecto para instalarse globalmente, si no poner)
+
+2. npm (debe venir con node)
+
+Compiladores e interpretes
+
+3. interprete Python (con pip)
+
+	3.1 jupyter
+	3.2 jupyterlab
+	3.3 pyinstaller
+	3.4 pillow
+	3.5 pynput
+	3.6 crytography
+
+4. jdk java
+
+5. sdk dotnet (descargar framework sdk, no el runTime sólo)
+
+Editores
+
+6. Visual Studio Code
+
+	6.1 Extension Pack for Java y Languaje support for java. El primero contiene varios paquetes
+	
+	6.2 C# y C# Snippets
+
+	6.3 Live Share
+
+	6.4 Live Server
+
+	6.5 Lombok
+
+	6.6 PHP Intelephense
+
+	6.7 PHPDoc Generator
+
+	6.8 Spring Boot Extension Pack. Contiene varios paquetes
+
+	6.9 Python, Pylance e isort
+
+	6.10 Jupyter. Contiene varios paquetes
+
+	6.11 Intellicode
+
+	6.12 Document This
+
+	6.13 Unity Tools y Unity code Snippets
+
+	6.14 Debbuger for Unity
+
+	6.15 Filesize Explorer
+
+	6.16 Import Cost
+
+	6.17 Inline HTML
+
+	6.18 Lit Snippets
+
+	6.19 Lit-html
+
+
+7. IntelliJ Comunnity
+
+8. Eclipse (yo tengo versión juno actualmente) (23-11-2022)
+
+	8.1 plugin WWD. Permite crear poyectos y reconocer formatos de dearrollo web
+
+	8.2 configurar el jdk usando el que hemos descargado
+
+9. Atom
+
+SGBD
+
+10. Xampp
+
+Gestores BBDD
+
+11. MySql WorkBench
+
+12. HeidiSQL
+
+
+API/REST
+
+Postman
+
+CREADORES Y GESTORES DE IMAGENES VIRTUALES
+13. Docker
+
+14. Oracle VM  VirtualBox
+
+	14.1 ISO kali-linux
+
+	14.2 ISO ubuntu
+
+	14.3 ISO ubuntu-server
+
+EDITOR VIDEOJUEGOS
+
+15. Unity Hub
+
+	Credenciales acceso:
+		Usuario: dnuezsan@gmail.com
+		Contraseña: Zxy123.1
+
+16. Playcanvas (no descargado, online)
+
+	Credenciales Acceso:
+		Usuario: dnuezsan@gmail.com
+		Contraseña: zxy123.1
+
+NAVEGADORES
+
+17. Google Chrome
+
+	17.1 React Developer Tools
+
+
+18. Firefox
+
+
+SERVIDORES DE DESARROLLO
+
+19. polymer-cli (instalado globalmente mediante npm)

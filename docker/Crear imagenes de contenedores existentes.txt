@@ -1,0 +1,3 @@
+El siguiente comando crea una imagena partir de un contenedor existente
+
+docker commit nombreImagenOriginal nombreImagenCreada

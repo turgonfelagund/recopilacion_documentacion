@@ -1,0 +1,14 @@
+A veces no nos interesa subir ciertos archivos o carpetas. Para este fin, crear un archivo .gitignore
+en el directorio en el que estamos trabajando y escribir en el el nombre de los archivos a omitir
+
+Ejemplo de documento .gitignore
+
+#Esto es un comentario. Todos empiezan con "#"
+
+#A continuacion los archivos que se omiten
+nombreArchivo1
+nombreArchivo2
+nombreDirecotorio1
+
+#Si queremos ignorar los archivos de un tipo podemos hacerlo. La siguiente linea omite archivos html
+*.html

@@ -1,0 +1,17 @@
+*Los puertos solo se pueden asignar al crear el contenedor; es decir, al hacer docker run
+
+docker run -p [puerto del host]:[puerto de la máquina] -dt nombreDeLaImagen
+
+*nota.
+Cabe la posibilidad de que se pueda cambiar el puerto usando el comando
+docker create -p[numero del puerto de la máquina física que se va a usar]:[puerto del contenedor que se va a mappear con la máquina] --name [nombre de contenedor]
+
+Si quisieramos asignar puertos a un contenedor ya creado (y no funciona el comando anterior),
+la solucion puede ser crear una imagen:
+
+docker commit nombreContenedorOriginal nombreImagenNueva
+
+*nota.
+No es una errata, se usa un contenedor existente para crear una imagen
+
+Luego se hace run sobre la nueva imagen y se le asigna puerto

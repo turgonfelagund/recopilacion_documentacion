@@ -1,0 +1,30 @@
+Gestores de pantalla:
+	gdm
+	gdm3
+	kdm
+	xdm
+	lightdm
+
+El gestor de pantalla se encuentra en el directorio X11, archivo "default-display-manager"
+
+-------MATAR EL SERVIDOR-------
+sudo service gestorDePantalla stop
+
+o
+
+ctrl + alt + delete
+
+-------CAMBIAR A MODO CONSOLA (ubuntu)-------
+ctrl + alt + f1
+
+-------CAMBIAR A MODO GRÁFICO (ubuntu)-------
+ctrl + alt + f2
+
+-------GENERAR ARCHIVO DE CONFIGURACION (xorg.conf)-------
+Crea un nuevo xorg.conf en el directorio actual
+X-configure
+
+-------INICIAR LA GUI-------
+sudo start gestorDePantalla
+
+sudo service gestorDePantalla start

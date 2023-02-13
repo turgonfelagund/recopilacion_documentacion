@@ -1,0 +1,12 @@
+Si locate no funciona o no encuentra los archivos que buscamos hay dos razones:
+
+1. Los archivos que buscamos fueron incluidos despues de la ultima actualizacion de la 
+base de datos de mlocate. Para arreglarlo introducir:
+
+sudo updatedb
+
+2. El directorio fue creado bajo una ruta no escaneada por updatedb (esto es mas raro). Editar el fichero
+"/etc/updatedb.conf" cambiando PRUNENAMES, PRUNEPATHS o PRUNEFS y luego actualizar la BD como a continuacion
+
+sudo pico /etc/updatedb.conf
+sudo updatedb

@@ -1,0 +1,58 @@
+
+-------INSTALACIÓN-------
+La instalación de ts puede hacerse con npm de la siguiente manera
+
+npm i typescript -g
+
+o
+
+npm install typescript -g
+
+Esto instalará TypeScript en un entorno global
+
+Para comprobar la version de TypeScript que tenemos instalada usamos:
+
+tsc --version
+
+o
+
+tsc -v
+
+-------COMPILACIÓN-------
+La compilacion de un archivo ".ts" se hace mediante el comando:
+
+tsc nombreArchivo.ts
+
+Para no introducir constantemente el comando anterior y compilar cada vez que se guardan cambios usar:
+
+tsc nombreArchivo.ts -w
+
+o
+
+tsc nombreArchivo.ts --watch
+
+
+El resultado será un archivo ".js" del mismo nombre que nuestro archivo compilado
+
+-------COMPILACIÓN CON TSCONFIG.JSON-------
+Para personalizar o configurar la compilación se debe usar un archivo "tsconfig.txt"
+(Consultar archivo "tsconfig.txt")
+
+Para compilar con el archivo, escribir en consola al nivel en el que se encuentra
+el archivo "tsconfig.json" según corresponda.
+
+Si typescript está instalado globalmente
+tsc
+
+o si está instalado localmente o no está instalado en el sistema
+
+npx tsc
+
+O usar argumento -w o --watch para seguir los cambios en los archivos
+
+
+
+
+
+
+

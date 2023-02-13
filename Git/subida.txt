@@ -1,0 +1,30 @@
+RECOMENDABLE
+Comprobar la rama con la que estamos trabajando antes de hacer cambios
+
+1. (opcional) Comprobar diferencias de los archivos
+git status
+
+2. Añadirlos para el commit
+git add nombreArchivo1 nombreArchivo2			Añade los archivos 1 a 1
+
+git add .						Añade todos los archivos modificados
+
+3. Hacer commit de los cambios
+git commit -m "mensajeDelCommit"			El mensaje entre comillas
+
+4. Subir los cambios al repositorio
+git push
+
+
+-------AÑADIR ORIGEN-------
+Si creamos nuestro repositorio remoto mediante "git init", debemos sincronizarlo con un repositorio remoto
+
+Esto se hace mediante la linea
+
+git remote add origin url_repositorio_remoto
+
+
+-------EXTRA-------
+Si queremos ver todos los commits hechos mostrar el autor, fecha y mensaje del commit usar
+
+git log

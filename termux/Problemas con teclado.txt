@@ -1,0 +1,9 @@
+Algunos dispositivos tienen problemas par introducir caracteres.
+
+La solución es editar el fichero termux.properties
+
+En pantalla de inicio escribir:
+$nano .termux/termux.properties
+
+Descomentar línea cerca de final:
+enforce-char-based-input = true

@@ -1,0 +1,9 @@
+Es un entorno de ejecución para aplicaciones en JavaScript.
+
+Se trata de un entorno para desarrollo multiplataforma basado en el motor V8 de chrome.
+
+Suele utilizarse para desarrollo back-end o API's.
+
+para ejecutar un archivo ".js" con node, tan sólo escribir en el terminal:
+
+node nombreArchivo

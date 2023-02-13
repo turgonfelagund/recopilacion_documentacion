@@ -1,0 +1,42 @@
+
+NPX es un ejecutor de archivos binarios (bin)
+
+hay ciertos paquetes que se instalan de forma global para usarlos desde la terminal.
+Esto implica que si un proyecto requiere una versión diferente de dicho paquete, hay que
+cambiar el paquete para cada proyecto.
+
+Con npx, esto se hace desde el entorno local, haciendo innecesario tener que usar la instalación global,
+y evita tener que hacer cambios de version entre proyectos.
+
+Con npx basta con tener el paquete como una dependencia local (package.json).
+
+RECUERDA. Se puede instalar la dependencia local con npm install nombrePaquete o una de 
+sus formas abreviadas.
+
+Si no está instalado lo instala y ejecuta:
+npx jest
+
+Si no queremos que los instale usar:
+npx --no-install jest
+
+COMANDOS DESECHABLES
+El paquete create-react-app solo es necesario para crear una aplicación de react. 
+Después no es necesario para nuestro proyecto.
+cmd
+Si se ejecuta:
+npx create-react-app
+
+Se descargará el paquete en su última versión, se ejecutará, y luego se borrará del sistema
+
+NOTA. Se debe poder controlar la versión si no se quiere que sea la última.
+
+LIMPIAR CACHE DE NPX
+npx clear-npx-cache
+
+USAR DIFERENTES VERSIONES DE NODE
+
+También permite ejecutar diferentes versiones de node de la siguiente manera
+
+npx -p node@6 node nombreArchivo.js
+
+npx -p node@8 node nombreArchivo.js

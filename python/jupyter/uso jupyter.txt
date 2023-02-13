@@ -1,0 +1,51 @@
+Jupyter ejecuta bloques de codigo mediante cells, o celdas.
+
+Cada cell constituye un bloque de codigo que puede ser ejecutado independientemente.
+Para ejecutar las celdas a la vez, pulsar shift + enter
+
+El codigo de las celdas esta comunicado, es decir, que el codigo de las celdas, puede constituir un unico
+bloque compuesto por el codigo de varias celdas.
+
+Por ejemplo, si en una celda definimos la variable "x" y la inicializamos, el valor puede ser directamente
+impreso con el codigo de la segunda celda. La unica condicion, es que antes de ejecutar la celda
+que imprime dicha variable, ejecutemos la celda en que se inicializa.
+
+
+Jupyter tambien muestra errores de codigo cuando este se ejecuta
+
+---Kernel
+
+-Interrupt
+Para la ejecucion del codigo
+
+-Restart
+Para todo, y borra las variables dentro de la memoria del cuaderno
+
+-Restart and clear Output
+Como el anterior pero ademas limpia la salida
+
+-Restart and Run All
+Borra todo y vuelve a ejecutar todo
+
+
+---Markdown (tipo de formato de una celda)
+Si insertamos una celda de tipo markdown, podemos escribir diferentes formatos de texto. Por ejemplo:
+
+#HOLA MUNDO					Titulo
+##Este es un pequeño markdown			Sub titulo
+###De prueba para ver como funciona		Sub-Sub titulo
+
+El objetivo es:					Texto plano
+-Aprender nociones basicas de Jupyter		Bullet point
+-Comprender las *celdas*			Bullet point con cursiva ("celdas")
+-Manipular la **interfaz**			Bullet point con negrita ("interfaz")
+
+![imagen](url)					Imagen. La url puede ser un link local o de internet
+[REFERENCIA](url)				Link a la direccion especificada en "url"
+
+---Edit
+
+Con edit podemos mover celdas, ("move cell up"/"move cell down"), 
+combinar celdas ("Merge cell above"/"merge cell below")
+
+

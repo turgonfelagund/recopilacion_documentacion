@@ -1,0 +1,108 @@
+-------ENTORNO LOCAL-------
+Es accesible para un determinado usuario del equipo. Los paquetes se instalarían en la carpeta node_modules del
+directorio del usuario. Para encontrar dicha carpeta y sus paquetes usar npm list
+
+-------ENTORNO GLOBAL-------
+Es accesible desde todo el sistema. Los paquetes se instalan en el directoio node_modules del sistema.
+Para encontrar el directorio usar npm list -g
+
+IMPORTANTE
+A priori, puede parecer muy interesante instalar paquetes de forma global pero puede tener ciertas 
+implicaciones. Si se realiza una instalación global de un paquete asegurar que:
+
+A) Se trate de un paquete de línea de comandos.
+B) El paquete es para uso individual y no requiere estar ligado a un proyecto.
+C) Si el paquete se utiliza en un proyecto, cada usuario que descargue el proyecto debe instalarlo de 
+forma manual, por lo que asegurate de tener una razón de peso para no asociarlo como una dependencia del 
+proyecto.
+
+
+-------DEPENDENCIAS DE DESARROLLO-------
+Las dependencias de desarrollo son las que se necesitan en un proyecto mientras se está desarrollando,
+pero una vez generado el código no hacen falta.
+
+-------DEPENDENCIAS DE PRODUCCIÓN-------
+Las dependencias que deben estar en la web final generada
+
+-------INSTALACIÓN DES PAQUETES-------
+npm install / npm i
+Dentro de un proyecto de angular, instala los módulos necesarios (carpeta node_modules) de acuerdo a los 
+archivos package.json y package-lock.json
+
+npm install nombrePaquete -D / npm install nombrePaquete --save-dev
+Instala el paquete como dependencia de desarrollo
+
+npm install --save-prod / npm install -P / npm install
+Instala el paquete como dependencia de producción
+
+npm install -g / npm install --global
+Instala el paquete en el sistema, sin asociarlo al proyecto
+
+npm install nombrePaquete, nombrePaquete / npm i nombrePaquete, nombrePaquete
+Instalar paquetes específicos y sus dependencias en package.json . Se pueden instalar uno o más en una sola línea
+
+-------CAMBIAR UN PAQUETE DE DESARROLLO A PRODUCCIÓN-------
+npm install --save-prod nombre de paquete
+pasar un paquete que está en dependencias de desarrollo a producción
+
+-------INSTALAR UNA VERSIÓN CONCRETA-------
+Pueden encontrarse con el comando npm show nombrePaquete versions.
+
+Una vez se decida una, se instala con @. Ejemplo para instalación de desarrollo:
+npm install -D jquery@3.2.0
+
+-------DESINSTALACIÓN DE PAQUETES-------
+
+npm uninstall nombrePaquete, nombrePaquete / npm r nombrePaquete, nombrePaquete
+Desinstalar paquetes específicos y sus dependencias en package.json . Se pueden desinstalar uno o más en una sola línea
+
+npm uninstall -g nombre
+
+-------ACTUALIZACIÓN-------
+
+npm update -S nombrePaquete
+Actualiza un paquete
+
+npm update -S actualiza todos los paquetes
+
+npm update -g nombrePaquete
+Atualiza un paquete global
+
+npm update -g
+Actuliza los paquetes globales
+
+-------BÚSQUEDA-------
+
+npm search nombrePaquete
+Busca un paquete en las librerias de npm. Si existe se puede descargar
+
+npm show nombrePaquete
+Muestra información sobre el paquete
+
+npm show nombrePaquete versions
+Muestra las versiones de un paquete
+
+npm list -g --depth=0
+Lista los paquetes instalados globalmente
+
+npm outdated
+Muestra paquetes que deben actualizase
+
+npm uotdated -g --depth=0
+Muestra los paquetes globales que pueden actualizarse
+
+---NOTA---
+El parámetro depth=0 hace que se muestre el paquete principal y no sus dependencias
+IMPORTANTE que depth se escriba separado por un espacio de -g en caso de búsqueda global
+
+
+-------NOTAS-------
+Los paquetes se suelen nombrar como @nameSpace/paquete
+
+nameSpace es el nombre del autor, compañía, producto
+paquete es el nombre del proyecto
+
+
+El argumento "--save" se utiliza para guardar información en el archivo "package.json", aunque actualmente
+no es necesario salvo que se quiera hacer algo específico
+

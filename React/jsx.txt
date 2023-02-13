@@ -1,0 +1,109 @@
+JSX
+
+Es una extensión de javaScript que permite incluir "html", sin embargo, este en realidad es una representación
+de html que es traducida para el DOM mediante ReactDOM.
+
+JavaScript dentro del modelo JSX.
+Para escribir js dentro del html de JSX, se deben utilizar llaves; por ejemplo, para pasar variables
+de JavaScript al html o sus atributos, se debe escribir la variable entre llaves.
+
+Componentes
+Los componentes son conjuntos de elementos que conforman la interfaz con la que interactúa el usuario.
+
+Hay dos tipos de componentes:
+
+-Componentes funcionales
+-Componentes de clases
+
+Por convención el nombre de los componentes empieza por mayúscula
+
+Estos componentes cuentan con propiedades (props) que puede pasar a sus hijos, pero no al revés.
+
+Un componente engloba elementos, pero también puede contener otros componentes.
+Los elementos también pueden contener componentes.
+
+-------Atributos-------
+
+----className.
+Define la clase de un componente html. Se usa className y no class porque class es 
+una palabra reservada en js.
+
+----htmlFor.
+el equivalente al atributo for de los labels
+
+----style.
+En este caso el nombre de la etiqueta no cambia, pero los estilos pasados tienen que ir en camelCase, no
+con guiones commo lo haría en CSS. Los estilos se pueden agregar como un objeto de js o una variable
+ejemplo:
+CSS
+background-color
+JSX
+style = {{backgroundColor: 'red'}} 	*Nota. El primer par de llaves indica que dentro hay js; el segundo,
+					       que se trata de un objeto de js
+ó
+
+theStyle = {
+	color: 'blue'
+	backgroundColor: 'red'
+}
+
+style = {theStyle}
+
+
+----checked
+El atributo checked es compatible con los componentes <input> tipo checkbox o radio. 
+Lo puedes usar para establecer si el componente está marcado. 
+Esto es útil para construir componentes controlados. 
+defaultChecked es el equivalente no controlado; solo establece si el componente está marcado cuando se 
+monta por primera vez.
+
+
+----selected----
+Si quieres marcar un elemento <option> como seleccionado, puedes, en cambio, referenciar el valor de 
+esa opción en la prop value de su <select>.
+
+
+----onChange----
+El evento onChange se comporta según lo esperado: cuando el campo de un formulario cambia, 
+se lanza el evento. No usamos intencionalmente el comportamiento existente en los navegadores, 
+porque onChange no es un nombre adecuado para lo que hace y React depende de este evento para 
+manejar la entrada del usuario en tiempo real.
+
+----dangerouslySetInnerHTML----
+En React, dangerouslySetInnerHTML es el atributo que reemplaza a innerHTML (propiedad DOM). 
+Significa “establecer HTML interno peligrosamente”. En general, es arriesgado establecer contenido HTML 
+desde el código, porque puedes exponer inadvertidamente a tus usuarios a un ataque 
+cross-site scripting (XSS). Por lo tanto, para establecer contenido HTML directamente desde React, 
+debes usar el atributo dangerouslySetInnerHTML y pasarle un objeto con una propiedad __html, 
+como recordatorio de que es peligroso. Por ejemplo:
+
+function createMarkup() {
+  return {__html: 'Hola mundo'};
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />;
+}
+
+----value----
+El atributo value es compatible con los componentes <input>, <select> y <textarea>. 
+Puedes usarlo para establecer el valor del componente. Esto es útil para construir componentes controlados.
+defaultValue es el equivalente no controlado, que establece el valor del componente cuando se monta por 
+primera vez.
+
+----suppressContentEditableWarning----
+Normalmente, hay una advertencia cuando un elemento con hijos también se marca como contentEditable, 
+porque no funcionará. Este atributo suprime esa advertencia. No lo uses a menos que estés 
+construyendo una biblioteca como Draft.js que administra contentEditable manualmente.
+
+
+----suppressHydrationWarning----
+Si usas renderización de React del lado del servidor, normalmente hay una advertencia cuando el servidor y 
+el cliente presentan contenido diferente. Sin embargo, en algunos casos raros, es muy difícil o imposible 
+garantizar una coincidencia exacta. Por ejemplo, se espera que las marcas de tiempo difieran en el servidor
+y en el cliente.
+
+Si estableces suppressHydrationWarning como true, React no te advertirá sobre los desajustes en los 
+atributos y el contenido de ese elemento. Solo funciona a un nivel de profundidad y está diseñado para 
+ser utilizado como una vía de escape. No lo uses en exceso. Puedes leer más sobre 
+hidratación en la documentación de ReactDOM.hydrateRoot().

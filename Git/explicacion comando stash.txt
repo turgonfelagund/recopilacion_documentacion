@@ -1,0 +1,22 @@
+-A veces nos interesa guardar código pero no subirlo porque no esta terminado. 
+Si cambiamos de rama podriamos perder estos cambios y para evitarlo podemos hacer un
+guardado local de los mismos con el siguiente comando:
+
+git stash
+
+
+-De esta manera, si cambiamos de rama nuestros cambios permaneceran guardados, pero no aplicados; es decir,
+Al volver a la rama donde hicimos el stash veremos que no ha cambiado nada, como si no se hubieran
+guardado los cambios. Para mostrarlos hay que introducir:
+
+git stash apply
+
+
+-Si queremos deshacer los cambios del stash, volver a cargar la rama
+
+git checkout .
+
+
+-Para ver los commits hechos usar
+
+git log

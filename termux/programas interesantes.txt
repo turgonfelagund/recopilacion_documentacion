@@ -1,0 +1,15 @@
+
+PYTHON
+Instala python
+pkg install python
+
+CURL Y WGET
+apt pkg git curl wget
+Instala git, curl y wget
+
+
+CURL
+Curl es una utilidad de línea de comandos que permite enviar una petición HTTP a una URL y recibir el
+resultado. Viene por defecto en sistemas operativos como macOS y muchas distribuciones de Linux. 
+Como la gran mayoría de Internet gira en torno a HTTP, es una herramienta ideal para rebuscar en páginas
+web, API o cualquier otro elemento con una interfaz HTTP.

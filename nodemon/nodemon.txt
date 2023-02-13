@@ -1,0 +1,40 @@
+Es una herramienta que reinicia la aplicación de node.js cuando detecta algún cambio
+
+Esto evita que haya que reiniciar el servidor para aplicar los cambios, sino que se
+los detectará y se reiniciará solo durante el desarrollo
+
+-------INSTALACIÓN DE NODEMON-------
+En consola escribir
+
+npm install -g nodemon
+o
+npm i -g nodemon
+
+De esta manera lo instalamos globalmente para no tener que instalarlo para cada uno
+de los proyectos
+
+También existe la opción de instalación local
+
+npm install --save-dev nodemon
+o
+npm i --save-dev nodemon
+
+En este caso como dependencia de desarrollo, aunque entonces habría que
+ejecutarlo desde un script npm (en package.json), o usando npx nodemon
+una vez hecha la instalación
+
+
+-------EJECUCION DE NODEMON-------
+Dependiendo de dónde esté instalado, escribir en consola
+
+-Instalacion global
+nodemon nombreArchivo
+
+-Instalación local
+npx nodemon nombreArchivo
+
+Para ver los cambios basta con actualizar la página
+
+nota.
+Si hay problemas para la ejecución en el powershell, usar una 
+consola "commnad prompt"

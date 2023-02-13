@@ -1,0 +1,8 @@
+Es un pack de herramientas, entre las que se incluye jupyter.
+
+Para usarlo por completo, es necesario tener instalado python en el sistema
+
+Anaconda usa el ejecutable "conda" en el CLI para ejecutar acciones.
+
+Por ejemplo:
+conda install jupyter-notebook

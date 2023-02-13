@@ -1,0 +1,16 @@
+
+Muestra los registros de commits, que contienen el autor del commit, la fecha del commit, y el mensaje del 
+commit
+
+git log
+
+Muestra los registros de commits en una sola linea
+git log --oneline
+
+
+Muestra tambien como se han ido dividiendo y fusionando las ramas
+git log --oneline --graph
+
+
+Muestra decoración y todos los detalles
+git log --oneline --graph --decorate --all

@@ -1,0 +1,10 @@
+La clave es instalar las fuentes en sistema operativo del host. En este caso se utilizará windows 10.
+
+1. Descargar fuente de:
+https://www.nerdfonts.com/font-downloads
+o
+https://github.com/ryanoasis/nerd-fonts
+
+2. Descomprimir la carpeta y guardar los archivos en C:/Windows/Fonts
+
+3. En terminal, desplegar menú contextual propiedades>fuente y escoger la fuente deseada y tamaño

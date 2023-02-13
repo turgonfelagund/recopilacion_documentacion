@@ -1,0 +1,143 @@
+IMPORTANTE
+Es mejor utilizar una plantilla creada mediante la página Vim bootstrap que hacer el archivo manualmente.
+Sim embargo; puede que no contemos con esta posibilidad.
+
+
+VIM
+Si estamos en vim, crear archivo ".vimrc" en el directorio "home" (termux) o root (ubuntu (comprobado en docker))
+
+touch .vimrc
+
+NEOVIM
+crear .config/ en home (termux) o root (ubuntu (docker)) si este directorio no existe.
+Si estamos en neovim crear crear carpeta "nvim" en directorio .config/ y dentro de este
+crear un archivo init.vim tal que .config/nvim/init.vim
+
+
+-------ACTIVAR LA SINTÁXIS-------
+
+En neovim debe venir activado por defecto, pero activarlo manualmente no está de más
+
+syntax on
+
+-------MUESTRA EL NOMBRE DEL ARCHIVO-------
+
+set title
+
+-------INDICAR EN QUE LÍNEA ESTAMOS-------
+
+set number
+
+-------INTERACTUAR CON EL RATÓN-------
+
+set mouse=a
+
+-------EVITAR SONIDOS DE ERROR-------
+
+set noerrorbells
+
+------HACER QUE LAS TABULACIONES SEAN ESPACIOS (INSERTA ESPACIOS EN LUGAR DE TABS)-------
+
+set expandtab
+
+-------ACTIVAR INDENTACIÓN ADECUADA AUTOMÁTICA -------
+
+set smartindent
+
+-------INDICAR CUANTAS LINEAS HAY ENTRE LA LÍNEA ACTUAL (CURSOR) Y LA PRIMERA-------
+
+Esto "invierte" visualmente el orden numErico
+
+set rnu
+
+-------MODIFICAR LA DISTANCIA DE LOS NUMEROS AL MARGEN-------
+
+set numerwidth=distancia
+
+-------EVITAR SALTO DE LÍNEA AUTOMÁTICO-------
+
+set nowrap
+
+-------EVITAR MENSAJE SWAP-------
+
+set noswapfile
+
+-------NO CREAR COPIAS DE SEGURIDAD-------
+
+set nobackup
+
+-------INCREMENTAR LA BUSQUEDA-------
+
+set incsearch
+
+-------RESALTAR LOS RESULTADOS DE UNA BÚSQUEDA-------
+
+set hlsearch
+
+-------NO DISTINGUIR MAYUSCULAS Y MINUSCULAS EN BUSQUEDAS-------
+
+set ignorecase
+
+-------HABILITAR PEGAR DATOS DEL PORTAFOLIO EN VIM Y COPIAR DATOS DE VIM EN EL PORFOLIO-------
+
+set clipboard=unnamedplus
+
+-------CONFIGURAR EL SET DE CARACTERES-------
+
+set encoding=set
+ejmplo:
+set enconding=utf-8
+
+-------DESTACAR LA LINEA EN LA QUE SE ENCUENTRA EL CURSOR-------
+
+set cursorline
+
+-------CAMBIAR TEMA DEL EDITOR-------
+0.1.5 o superior
+
+set termguicolors
+
+-------RESALTAR COLUMNA CUANDO LA HEMOS ALCANZADO-------
+
+cambiará el color del caracter indicado
+
+set colorcolumn=numeroColumna
+
+-------GESTION DE BUFFERS-------
+
+Generar el nuevo buffer horizontal abajo
+set splitbelow
+
+Generar el nuevo buffer horizontal arriba
+set splitabove
+
+Genera el nuevo buffer vertical a la izquierda
+set splitleft
+
+Genera el nuevo buffer vertical a la derecha
+set splitright
+
+-------INSTALAR PLUGINS-------
+
+*Para el gestor plug-vim
+Se debe abrir 
+
+call plug#begin(ruta del directorio en que se van a guardar)  NOTA el directorio viene indicado en el repositorio. Si no se rellena, se usa uno por defecto
+
+Plug plugin1
+Plug plugin2
+
+call plug#end()
+
+Se guarda el archivo y se vuelve a abrir (:source %)
+y se introduce el comando :PluginInstall
+La ventana que emerge se cierra pulsando "q"
+
+*Nota
+como ruta se recomienda utilizar "~/usr/share/nvim/plugged". plugged será creada por nosotros
+
+IMPORTANTE
+Si hay algún error en la ruta de instalación de los plugins (falta comilla, el directorio no existe...) o de otra índole,
+El gestor de plugins no funcionará eventualmente, y sus comandos tampoco lo harán
+
+

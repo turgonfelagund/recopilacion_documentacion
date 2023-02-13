@@ -1,0 +1,4 @@
+
+-------TECLA ENTRE ANGULOS "<key>"-------
+Las teclas escritas entre "<>" representan una tecla que no escribiria ningun caracter en el editor, por ejemplo;
+Si estamos en modo insercion; <Esc> pasaria a modo normal, y Esc escribiria literalmente "Esc".

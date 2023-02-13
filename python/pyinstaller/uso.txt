@@ -1,0 +1,51 @@
+
+El comando minimo para empaquetar un archivo es:
+
+pyinstaller --modificadores nombreArchivo.py
+
+---EJEMPLO---
+
+Un ejemplo con varios argumentos seria:
+
+pyinstaller.exe --add-data "ruta_de_interes;." --onefile --noconsole --icon  ruta_del_icono   ruta_del_archivo_empaquetado
+
+-------EXPLICACION ARGUMENTOS PYINSTALLER-------
+
+---add-data---
+Añade los en una ruta
+
+---ruta_de_interes---
+ruta y nombre y extension del archivo
+
+*nota.
+La ruta de interes va entre comillas
+También hay que incluir ";" y "." al final
+
+---onefile---
+Empaqueta todo en un sólo archivo
+
+---noconsole---
+Hace que el programa se ejecute en un segundo plano
+
+---windowed---
+Hace lo mismo que "noconsole"
+
+---icon---
+Añade un icono al archivo
+
+*nota.
+El formato de imagen debe ser "ico" o "exe", pero si tenemos instalado pillow, hace la 
+conversion automaticamente
+
+---ruta_del_icono---
+Ruta en la que se encuentra el icono del ejecutable
+
+---ruta del archivo empaquetado---
+Ruta del archivo que se va a convertir en ejecutable
+
+-------SALIDA-------
+Se generaran dos carpetas; built y dist, y un archivo de extension .espc.
+
+El ejecutable se almacena en la carpeta dist
+
+

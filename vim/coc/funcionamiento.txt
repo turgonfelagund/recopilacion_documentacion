@@ -1,0 +1,33 @@
+instalar plugin
+
+'neoclide/coc.vim', {'branch': 'release'}
+
+IMPORTANTE
+Hace falta npm
+
+A continuación se puede actuar de dos maneras.
+
+1.1
+Después, en un archivo introducir comando:
+
+:CocConfig
+
+Incluir los lenguajes en el json.
+
+1.2 (la más recomendable)
+Escribir comando:
+:CocInstall nombreLenguaje1 nombreLenguaje2
+
+ejemplo
+:CocInstall coc-java coc-css coc-html
+
+
+2. Para saber los modulos instalados introducir
+
+:CocList
+
+3. Para actualizar los lenguajes
+
+:CocUpdate
+
+seleccionar extensions

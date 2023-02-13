@@ -1,0 +1,7 @@
+Descargar el conjunto de paquetes "Extension pack for java". No son necesarios pero aconsejables
+
+Abrir la paleta de comandos mediante ctrl + shift + p.
+
+Escribir java y seleccionar "create java project".
+
+Hecho esto, seleccionar el tipo de proyecto que queremos crear, y lo configuramos.

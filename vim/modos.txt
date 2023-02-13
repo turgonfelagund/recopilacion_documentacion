@@ -1,0 +1,21 @@
+
+Normal
+
+Permite navegar por el texto e introducir comandos
+
+comando salida.
+:q salir sin guardar (sin haber hecho cambios)
+:q! salir sin guardar
+
+
+Permite navegar e introducir comandos.
+
+Inserción
+
+Comando
+
+Visual
+
+
+NOTA
+"comando" es la anotación que se pone al final del achivo y empiezan con ":"

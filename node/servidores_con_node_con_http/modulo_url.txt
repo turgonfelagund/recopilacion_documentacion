@@ -1,0 +1,29 @@
+Permite trabajar y extraer partes de un URL.
+
+Está disponible de forma global; es decir, que no hay que importarlo
+
+Para utilizarlo, se crea una instancia que recoge la URL de interés.
+
+La URL instanciada tiene varias propiedades y métodos de interés
+
+const miUrl = 
+
+---hostName---
+Indica el nombre del host. Esto mostrará el subdominio (www),
+dominio y superdominio (.org, .com, .en...)
+
+miUrl.hostName
+
+---path---
+Muestra la ruta tras el dominio, pero no a los parámetros query
+
+miUrl.path
+
+---searchParams---
+Muestra un objeto con los parámetros query de la url mediante clave/valor
+
+miUrl.searchParams
+
+Para obtener el valor de una propiedad se usa el método get()
+
+miUrl.searchParams.get('nombrePropiedad)

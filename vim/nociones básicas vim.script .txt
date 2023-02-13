@@ -1,0 +1,89 @@
+-------DECLARAR VARIABLES-------
+let nombreVariable = valor variable
+
+-------MAPLEADER-------
+
+Por defecto la tecla <leader> es equivalente a "\", pero esta se puede cambiar al de la siguiente manera
+
+let mapleader = " " (en este caso vale un espacio)
+
+*nota mapleader es una variable que personaliza la tecla <leader>
+
+-------MAPPEO DE TECLAS-------
+1. Se utiliza una palabra mapear
+
+Se distingue entre los modos normal, visual, insertar y comando
+
+-map		todos los modos
+-remap		no-recursio todos los modos
+-unmap		desmapear en todos los modos un mapeo
+-clearmap	desmapear en todos los modos todos los mapeos
+
+-nmap		normal
+-nnoremap 	no-recursivo normal
+-nunmap		elimina un mapeo modo normal
+-nmapclear	elimina todos los mapeos del modo normal
+
+-vmap		visual
+-vnoremap	no-recusivo visual
+-vunmap		elimina un mapeo del modo visual
+-vmapclear	elimina todos los mapeos del modo visual
+
+-imap		insertar
+-inoremap	no-recursivo insertar
+-iunmap		elimina un mapeo modo insertar
+-imapclear	elimina todos los mapeos del modo insertar
+
+-cmap		comando
+-cnoremap	no-recursivo comando
+-cunmap		elimina un mapeo modo comando
+-cmapclear	elimina todos los mapeos del modo comando
+
+2. Se indica la tecla que "dispara" la accion.
+
+3. Se indica la acción/es. 
+Las acciones van separadas entre si por espacio y estan delimitadas por las teclas.
+
+4. Se indica la tecla que ejecuta o finaliza la acción
+
+
+La sintáxis sería la siguiente
+
+modo teclaLlamada(opcional tecla adjunta) accion teclaEjecucion
+
+-----EJEMPLOS--
+
+----Sin tecla adjunta-----
+nmap <F5> source % <CR>			Este atajo, reinicia el archivo en que estamos al pulsar F5 y enter
+
+map <c-a> :bnext<CR>			En cualquier modo, crea comando para ir al buffer (consola) siguiente (si existe, claro)
+					al pulsar control + a, y ejecuta el comando con intro
+
+
+----Con tecla adjunta-----
+let mapleader = "h"
+
+nnoremap <leader>w :w <CR> 		carga el comando para guardar el achivo al pulsa "h" seguido de "w" y lo ejecuta
+					al pulsar intro
+
+nonoremap <silent> <right> :vertical 	resize +5<CR> ingresa comando para aumentar el ancho del terminal al pulsar derecha y lo ejecuta con intro
+nonoremap <silent> <up> :resize +5<CR> 	ingresa el comando para aumentar el tamaño vertical del buffer (consola) y lo ejecuta con intro
+
+nnoremap <leader>vs :vsp<CR>		Hace un split vertical al pulsar tecla leader + v + s
+nnoremap <leader>sp :sp<CR>		Hcer un spli horizontal tras pulsar tecla leader + s + p
+
+
+----Cancelar teclas en un modo----
+
+nnoremap <up> <nop> 			cancela el uso de la flecha hacia arriba en modo normal
+nnoremap <down> <nop>			cancela el uso de la flecha hacia abajo en modo normal
+
+
+
+-------TECLAS-------
+
+-CR Enter
+
+-Leader 		tecla definida por nosotros de la siguiente manera (let mapleader = "caracter")
+
+- c-caracter		control y "caracter" hace referencia a la otra tecla que se pulsa	

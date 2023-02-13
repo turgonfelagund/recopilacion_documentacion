@@ -1,0 +1,51 @@
+SUPERUSER
+
+Metodo 1
+
+Para esto es necesario rootear el teléfono. Se puede usar KingoRoot para ello.
+IMPORTANTE. hacer copia de seguridad porque borra los archivos del teléfono
+
+$ apt update && apt upgrade
+$ pkg install wget
+$ termux-setup-storage
+$ wget https://raw.githubusercontent.com/ivam3/i-Haklab/master/.deb/home/.local/bin/applets/sudo
+NOTA se puede hacer 
+wget https://raw.githubusercontent.com/ivam3/i-Haklab/master/.deb/home/.local/bin/applets/sudo -O path/bin/sudo
+De esta manera se ahorra el siguiente paso
+$ cat sudo > /data/data/com.termux/files/usr/bin/sudo
+$ chmod 700 /data/data/com.termux/files/usr/bin/sudo
+$ sudo su
+
+NOTA. podría ser necesario ejecutar pkg install ncurses-utils
+
+Metodo 2 Instalar Debian
+
+$ apt update && apt upgrade
+$ pkg install proot-distro
+$ proot-distro install debian
+$ proot-distro login debian
+$ pkg update 
+$ pkg install sudo
+$ pkg install vim
+$ adduser nombreUsuario
+$ vi ../etc/sudoers
+$ editar usuarios con privilegios y escribir:
+  nombreUsuario ALL=(ALL:ALL) ALL
+$ cambiar de usuario escribiendo su nombreUsuario
+
+pkg update
+Actualizar los repositorios de nuestra distribución. 
+Los repositorios se acostumbran a configurar en el archivo /etc/apt/sources.list
+
+pkg upgrade
+Actualizar los paquetes y programas que tenemos instalados. Con apt-get, si los paquetes requieren 
+nuevas dependencias no se actualizarán. Con apt, si los paquetes actualizables requieren de nuevas 
+dependencias, se instalarán las nuevas dependencias y se actualizarán los paquetes. 
+Utilizando estos comando nunca desinstalaremos ningún paquete.
+
+termux-setup-storage
+Permite acceso a archivos del dispositivo. Tras esto, se puede utilizar el comando ls
+
+
+IMPORTANTE
+Si se quiere salir de nuevo a la consola usar ctrl + Z

@@ -1,0 +1,71 @@
+
+
+-git clone URL...
+Clona el repositorio remoto a local. De esta forma se crea un repositorio local enlazado al remoto.
+
+-git init
+Crea un repositorio local en la carpeta actual.
+
+-git remote add aliasDeRutaARepositorio URL
+Asocia el repositorio remoto a un alias (como una variable). De esta forma se puedehacer un push o pull
+sobre estos alias.
+
+-git status
+Se realiza dentro de la carpeta del repositorio y muestra la rama actual y los archivos con diferencias que no
+han sido staged.
+
+-git diff 
+indica las diferencias de los archivos staged con los unstaged.
+Las líneas con un + a su izquierda son las añadidas, mientras que las que tienen un - han sido borradas.
+
+-git add .
+añade al stage todos los archivos en los que se realizo algún cambio.
+
+-git remote add origin url
+Asocia el repositorio local al remoto almacenando su direccion en la variable "origin" (esta puede tener 
+otro nombre). url es la direccion del repositorio remoto (en github)
+
+-git remote -v
+Verifica el remoto al que esta asociado el repositorio local de git. Muestra la url del repositorio y
+la url bajo la que se almacena.
+
+-git remote set-up origin nueva_url
+Cambia la dirección del repositorio remoto. origin puede ser otro nombre (verificar con git remote -v)
+
+-git commit -m "mensaje"
+Envía el archivo al repositorio local. -m permite subirlo con un mensaje.
+
+-git push
+envía los archivos del repositorio local al remoto.
+
+-git push aliasDeRutaAlRepositorio master
+empuja archivos al repositorio desde la rama local master. Si fuese otra se usaria otro nombre
+
+-------TRAER INFORMACION DE REPOSITORIO REMOTO (NUBE)-------
+
+-git pull aliasDeRutaARepositorio master
+Descarga del repositorio remoto en la rama local. En este caso master pero puede ser otra.
+
+-git fetch
+Recupera la información de los metadatos del repositorio remoto u original, pero no trae los archivos.
+La diferencia con el comando pull es esto último.
+
+-------CAMBIO DE RAMA-------
+Cambia de rama
+git checkout nombreDeRama
+
+Clonar todo el repositorio y comprobar el rama master.
+git clone --branch master https://github.com/username/Repo.git
+
+Recupera las actualizaciones relacionadas con la rama descargada (dev)
+git clone --branch dev --single-branch https://github.com/username/Repo.git
+
+Borrar rama en el remoto (nube)
+git push <nombreRemoto> :nombreRama
+
+Encontrar las cabeceras del último push
+git reflog
+
+Reiniciar el repositorio al estado de una de las cabeceras anteriores.
+*nota: esta acción eliminará las cabeceras posteriores, así que debe usarse con cuidado
+git reset  --hard  <GUID>   ejempo de GUID:f6bcf8a

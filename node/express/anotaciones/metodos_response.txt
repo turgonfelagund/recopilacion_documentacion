@@ -1,0 +1,50 @@
+A continuación se muestran algunos de los métodos y objetos 
+más útiles de la respuesta
+
+---response.writeHead(statusCode, {headerProperties})---
+Define cabecera de la respuesta
+
+Recibe un código de estatus y un objeto cuyas propiedades son
+parámetros del header
+
+---response.statusCode()---
+Define el código de estado de una respuesta
+
+---response.end()---
+Método para finalizar una respuesta. Todo el codigo posterior
+no puede ser alcanzado
+
+Puede recibir un argumento que será enviado al cliente, aunque es
+algo opcional
+
+---response.write()---
+Devuelve una respuesta al cliente.
+
+Puede ser llamado múltiples veces
+
+---response.redirect(url)---
+Redirecciona una respuesta a la url indicada como parámetro
+
+---response.send()---
+Devuelve una respuesta al cliente y al igual que end() finaliza
+
+Puede asignar automáticamente el "Content-Length" a la cabecera
+de la respuesta HTTP
+
+---response.json(datos)---
+Envía un json al cliente junto con la cabeceras necesarias
+
+---response.status(numStatus)---
+Devuelve un código de estado para la respuesta
+
+
+---response.sendfile(rutaArchivo, opciones, callback)---
+Envía un archivo para SER DESCARGADO
+
+---response.render(template, locals, callback)---
+Procesa un template 
+
+Para comprender su funcionamiento consultar "renderizar_html.txt"
+
+---response.locals---
+Es un método que envía datos al template

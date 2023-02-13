@@ -1,0 +1,18 @@
+
+---Metodo 1
+
+Descargar paquete hardinfo
+
+sudo apt install hardinfo
+
+Usar hardinfo en la consola para mostrar informacion del sistema
+
+---Metodo 2
+Escribir en terminal
+
+env | grep DESKTOP_SESSION=
+
+---Metodo 3
+Escribir en terminal
+
+echo $GDMSESSION

@@ -1,0 +1,36 @@
+-------MOSTRAR VARIABLES DE ENTORNO-------
+
+---Ver todas las variables de entorno
+Para ver todas las variables usar comando en terminal
+
+printenv
+
+---Ver variables particulares
+
+printenv nombre_variable1 nombre_variable2 ...
+
+-------MOSTAR VALOR DE VARIABLES-------
+echo nombre_variable1 nombre_variable2 ...
+
+-------CREAR VARIABLE DE ENTORNO-------
+
+export nombre_variable="valor_variable"
+
+El valor va entre comillas, y no debe haber espacios a ambos ladod del "="
+
+-------DESHACER VARIABLE DE ENTORNO-------
+unset nombre_variable
+
+el nombre de dicha variable se escribe sin "$"
+
+-------EJECUTAR VARIABLE-------
+
+Las variables se ejecutan introduciendo su nombre en consola con "$" al inicio del nombre
+
+Ejemplo con la variable PAPERSIZE:
+
+echo PAPERSIZE
+output: PAPERSIZE
+
+echo $PAPERSIZE
+output: A4

@@ -1,0 +1,9 @@
+Si queremos crear un archivo ejecutable que contenga nuestro proyecto, ó una carpeta que contenga un 
+ejecutable junto con las dependencias de este, podemos usar dos herramientas:
+
+-pyinstaller
+
+-py2exe
+
+Si usamos un sistema basado en unix, es mejor utilizar pyinstaller; en caso de usar windows, py2exe.
+

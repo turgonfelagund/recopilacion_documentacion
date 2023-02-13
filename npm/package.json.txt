@@ -1,0 +1,81 @@
+Para crear un package.json, se usa el comando
+
+npm init
+
+Se pueden dejar los valores que vienen por defecto pero si es necesario se pueden configurar.
+
+---name
+Corresponde al nombre de nuestro proyecto. Si no se indica nada, se seleccionará el directorio dentro 
+del que nos encontramos (se indica entre paréntesis)
+
+---version
+Versión de nuestro proyecto. Es requerido si nuestro proyect se comparte en el repositorio de paquetes npm.
+
+El versionamiento sigue la siguiente estructura
+
+-El primer número es el de la versión MAYOR y cambia únicamente cuando se modifica la API
+-El segundo es el de versión MINOR y cambia cuando se añaden funciones
+-El tercero es el de versión de PATCH y cambia cuando se solucionan errores
+
+
+---descripcion
+Explica lo que hace nuestro módulo/proyecto
+
+---scripts
+ESTA PROPIEDAD DEBE CREARSE MANUALMENTE.
+Define propiedades cuyo valor son comandos de CLI. Estos se ejecutarían al escribir en terminal:
+
+npm run nombrePropiedad
+
+--ejemplo:
+
+-archivo package.json
+
+{
+	"scripts":{
+		"version": "node -v"
+	}
+}
+
+-En cmd o terminal
+
+npm run version
+
+Esto dará como resultado la salida del comando "node -v"; o sea, la versión de node
+
+
+---entry point
+Corresponde a la propiedad main de package.json y será la ubicación relativa de un archivo Javascript.
+Si alguien usa "requires" para nuestro módulo, lo que configuremos en entry point será lo primero que cargue
+
+---test command
+
+
+---git repository
+Simplemente la dirección del repositorio en el que está el proyecto
+
+---keywords
+Son términos útiles para que las personas puedan encontrar nuestro repositorio. Las palabras van separadas
+por una coma, sin espacio
+
+---author
+Suele estar estructurado de la siguiente manera, pero es opcional
+
+"nombre\<email>\(sitio web)"
+
+ejemplo:
+
+"Sammy\<sammy@tu_dominio\> (https://tu_Dominio)"
+
+---license
+Con esto, se determinan los permisos legales y las limitaciones que los usuarios tendrán al usar su módulo. 
+Muchos módulos de Node.js son de código abierto. 
+Por lo tanto, npm establece ISC como valor predeterminado.
+
+Por último confirmar que los valores son correctos
+
+-------CREAR PACKAGE.JSON OMITIENDO EL ASISTENTE (CON VALORES POR DEFECTO)-------
+
+Simplemente introducir
+
+npm init -y

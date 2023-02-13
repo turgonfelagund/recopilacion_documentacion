@@ -1,0 +1,178 @@
+
+-------MOVERSE-------
+
+Desplazarse hacia abajo (Modo normal)
+
+j
+
+Desplazase hacia arriba (Modo normal)
+
+j
+
+Desplazase hacia la derecha (Modo normal)
+
+l
+
+Desplazase hacia la izquierda (Modo normal)
+
+j
+
+Desplazarse hasta el inicio de la siguiente palabra
+
+w
+
+Desplazarse al final de la siguiente palabra
+
+e
+
+Desplazarse al inicio de la palabra anterior
+
+b
+
+Desplazarse al inicio de la línea
+
+0
+
+Desplazarse al final de la línea
+
+$
+
+Ir a un número de línea concreto (para esto recomendable activar set relativenumbers)
+
+numero + j j
+
+-------INSERTAR-------
+
+Inicia modo insertar la izquierda del carácter
+
+i
+
+Inicia modo insertar desde la derecha del carácter 
+
+a
+
+Inicia el modo insertar desde el principio de la línea
+
+I
+
+Inicia el modo insertar desde el principio de la línea
+
+A
+
+-------BORRAR-------
+
+Borrar un carácter sin salir del modo normal
+
+x
+
+Borrar carácter y entrar en modo insertar
+
+s
+
+Borrar el carácter anterior sin salir del modo normal
+
+X
+
+Borrar selección (modo visual)
+
+d
+
+
+Borrar una línea entera
+
+d + d
+
+Borra la línea e inicia el modo insertar
+
+S
+
+Borrar palabras
+
+d + tecla de desplazamiento por palabras
+
+ejemplo:
+
+d + w Borra hasta el inicio de la siguiente palabra
+
+
+Borrar desde la posición del cursor hasta el final de la línea
+
+D
+
+Borrar desde posición del cursor hasta el inicio de línea
+
+D + 0
+
+
+-------REHACER Y DESHACER-------
+
+Deshacer cambios
+
+u
+
+Rehacer cambios
+
+ctrl + r
+
+-------CAMBIAR A MODO NORMAL-------
+
+Volver al modo normal
+
+ESC
+CTRL + c
+
+
+-------CAMBIAR A MODO VISUAL-------
+
+v
+
+-------SELECCIONAR-------
+
+Seleccionar línea (modo visual)
+
+V
+
+-------COPIAR Y PEGAR-------
+
+Copiar selección
+
+y
+
+Copiar línea
+
+y + y
+
+Pegar texto copiado en siguiente línea
+
+p
+
+Pegar texto copiado en línea anterior
+
+P
+
+-------ESCRIBIR CARÁCTER VARIAS LÍNEAS-------
+
+Seleccionar varias líneas, pulsar
+
+shift + y
+
+Escribir caracteres y pulsar ESC
+
+-------BUSCAR EN EL ARCHIVO-------
+
+/cadena
+
+
+-------SUSTITUIR CARACTERES-------
+
+Sustituir en todas las coincidencias
+
+:%s/stringOriginal/nuevaCadena
+
+Sustituir en la linea en la que nos encontramos
+
+:s/stringOriginal/nuevaCadena
+
+Sustituir en el fragemento seleccionado
+
+:'<, '>s/stringOriginal/nuevaCadena

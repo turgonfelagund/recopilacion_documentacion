@@ -1,0 +1,57 @@
+
+-----Comprobar rama en la que estamos situados
+git branch
+
+NOTA.
+Puede que al hacer esto, veamos que faltan ramas que existen en el servidor (remoto). Para ver que
+ocurre leer el apartado "PERO FALTAN RAMAS!" en este documento
+
+-----Crear una rama nueva
+-b proviene de branch e indica que vamos a crear una rama nueva
+git checkout -b nombreRama
+
+o
+
+git branch nombreNuevaRama
+
+IMPORTANTE.
+Esta rama existe localmente, pero no en el servidor de momento
+
+Para subir la rama escribir:
+git push --set-upstream origin nombreDeRama
+
+o
+
+git push origin nombreDeRama --set-upstream
+
+-----Cambiar de rama
+git checkout nombreDeRama
+
+Al hacer esto, podemos ver el contenido de los archivos (localmente) y comprobaremos que han cambiado
+de acuerdo a la rama en la que nos encontramos ahora. Si no se vieran los cambios, probablemente
+habría que hacer un pull
+
+NOTA.
+Podemos querer volver a la misma rama para, por ejemplo; revertir los cambios producidos por un stash.
+En este caso ejecutar:
+
+git checkout .
+
+El punto hace referencia a la rama en la que nos encontramos
+
+
+-----"PERO FALTAN RAMAS!"-----
+
+Para tenerlas todas hay que actualizar los metadatos, es decir, hacer un fetch
+
+git fetch
+
+Sin embargo, si hacemos un "git branch" veremos que la rama/s sigue sin aparecer. 
+Esto es porque aunque se realiza la descarga, queda en un estado oculto. Para verla habria que usar:
+
+git branch -r
+
+Este comando permite ver las ramas del repositorio remoto
+
+Después simplemente hacer el git checkout sobre la rama de interes y luego se mostrara
+

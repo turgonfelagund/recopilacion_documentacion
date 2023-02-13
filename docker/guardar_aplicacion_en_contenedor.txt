@@ -1,0 +1,25 @@
+PARA MEJOR COMPRENSION DE ESTE DOC, LEER EL ARCHIVO "EL DOCKERFILE.TXT"
+
+Crea en la carpeta raiz del proyecto un archivo llamado Dockerfile. OJO!!! Tiene que ser ese nombre.
+
+En el archivo Dokerfile se van a escribir todas las instrucciones
+
+Hay que indicar la imagen en la que se quiere que se base el contenedor
+FROM node:[version]
+
+Crear carpeta donde meter el código fuente de la aplicación.
+RUN mkdir -p ruta OJO esta ruta es en base al contenedor que se está creando, no en base a la máquina física.
+
+COPY [ruta origen aplicación] [ruta destino (la ruta del caso anterior)]
+
+Exponer puerto para que otros contenedores o desde el sistema operativo anfitrión nos podamos conectar 
+al contenedor creado EXPOSE 3000
+
+Poner el comando que se deb ejecutar para iniciar la aplicación en cuestión.
+CMD ["node", "home/app/index.js"] (EN CASO DE QUE SEA UNA APLICACION DE NODE), (USAR RUTA ABSOLUTA)
+
+En la aplicación, en la parte que conecta con el servidor, cambiar el nombre del servidor por el 
+del contenedor al que se debe conectar
+
+Para crear una imagen en base al archivo Dockerfile se debe usar el siguiente comando
+docker build -t[nombre de la imagen]:[tag o etiqueta de la imagen] [ruta del archivo Dockerfile]

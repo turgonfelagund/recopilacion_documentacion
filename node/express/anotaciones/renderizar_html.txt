@@ -1,0 +1,66 @@
+Express puede generar elementos html de dos formas; mediante 
+respuestas con html o renderizando plantillas
+
+En este documento se explica la segunda metodología
+
+-------RENDERIZAR PLANTILLAS-------
+
+---Definir directorio de vistas y motor de plantillas---
+Para que express pueda representar archivos de plantilla, se 
+tienen que establecer 2 valores.
+
+-views
+Directorio donde se encuentran los archivos de plantillas.
+
+Es opcional
+
+app.set("views", "rutaDirectorioConVistas");
+
+-view engine
+Motor de plantilla que se utiliza
+
+app.set("view engine", "nombreDelMotor")
+
+El motor que se utilice, debe instalarse localmente con npm
+
+Hay múltiples motores que se pueden utilizar:
+
+ejs, hbs, hjs, jade, pug, twig, vash
+
+Como ejemplo se utilzará ejs
+
+npm i ejs
+
+No es necesario importarlo en nuestro archivo ".js"
+
+---Renderizar contenido---
+Se utiliza el método render(); que recibe la ruta del archivo
+que se pretende renderizar, un objeto con variables locales (props)
+que estarán disponibles en la plantilla, y un callback
+
+Las variables locales se representan en la platilla como:
+
+<% = nombreDeProp %>
+
+-Ejemplo
+
+"app.js"
+
+app.use(/home, (req, res)=>{
+    res.render("index.html", {saludo: "Bienvenidos"});
+})
+
+"index.html"
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1><%= titulo %></h1>
+  </body>
+</html>

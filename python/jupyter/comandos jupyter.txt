@@ -1,0 +1,12 @@
+
+-jupyter notebook
+Muestra nuestra coleccion de cuadernos de codigo. Se abrira un explorador de archivos del directorio
+desde el cual abrimos la consola donde se pueden crear archivos, o ver los existentes.
+
+-jupyter lab
+Muestra lo mismo que notebook pero en la plataforma de Jupyter Lab, con una interfaz mas liviana y apta para
+trabajar con multiples pestañas
+
+*nota.
+Requiere la instalacion de jupyter lab mediante el comando:
+pip install jupyterlab

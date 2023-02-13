@@ -1,0 +1,84 @@
+-------QUÉ ES WEBPACK-------
+Es una herramienta utilizada en relación al desarrollo front-end para múltiples tareas
+
+-Bundelizar o empaquetar código
+
+-Durante la paquetización o empaquetado, optimiza el código para que ocupe menos
+
+-Transpilar código Javascript a una versión compatible con todos los navegadores
+
+-Transformar sass a css stándard
+
+-Puede optimizar imágenes para que ocupen menos y las convierte a .jpg o .png
+
+-Configurar servidores de hot-reload y compilar de los archivos con cambios
+
+-------REQUERIMIENTOS-------
+Webpack está desarrollado en javascript, así que para ser ejecutado desde la consola, debemos tener 
+instalado node.js
+
+Para instalar webpack en nuestro proyecto será necesario contar con npm.
+
+-------INSTALACION WEBPACK EN PROYECTO-------
+Webpack se debe instalar en nuestro proyecto dentro de la carpeta "node_modules" aunque no será necesario
+en producción porque no es necesario para la ejecución o funcionamiento de nuestro código. Por ello, lo
+instalaremos como una dependencia de desarrollo; además, también se va a instalar webpack-cli para
+ejcutar webpack desde la consola.
+
+La línea para instalarlo desde la consola quedaría:
+
+npm install webpack webpack-cli --save-dev
+
+
+-------COMPILACIÓN Y EMPAQUETADO DEL CÓDIGO-------
+
+La compilación del código se puede hacer sin un archivo de configuración. Si queremos un compilado
+personalizado, debemos utilizar un archivo de configuración
+
+---Compilación en modo desarrollo y producción
+
+Puede que no estemos interesados en compilar para producción archivos o librerías destinados a desarrollo, y
+también puede haber casos en los que sí nos interese compilar con las librerías y dependencias de desarrollo.
+
+Para ello podemos definir estos modos de las siguientes maneras:
+
+-Compilar para producción
+webpack --mode=production
+
+-Compilar para desarrollo
+webpack --mode=development
+
+CONSEJO
+Para no tener que introducir todo el comando, podemos definir estos en la propiedad "script" del package.json de
+nuestro proyecto, y luego tan solo habría que utilizar el comando:
+
+npm run atributoDefinido
+
+Esto se especifíca en el archivo 
+
+---Compilación SIN archivo de configuración
+
+Para compilar el proyecto sin archivo de conf, simplemente escribir en el terminl:
+
+npx webpack
+
+El resultado de este proceso, será la creación de un directorio "dist" con los archivos compilados, como
+"main.js" para el codigo javascript
+
+
+
+---Compilación CON archivo de configuración
+
+Para el archivo de configuración, acudir al documento "archivo_de_configuracion.txt"
+
+Una vez listo el archivo de configuración, basta con ejecutar el comando:
+
+npx webpack
+
+o
+
+webpack --mode=production
+
+o
+
+webpack --mode=development

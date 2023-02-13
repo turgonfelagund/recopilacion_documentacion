@@ -1,0 +1,108 @@
+-------PARÁMETRO RESQUEST-------
+Contiene información de la petición
+
+Incluye URL de origen, método y cabeceras entre otros.
+
+Contiene muchas propiedades. A continuación , algunas de las más importantes
+
+---url---
+Muestra la url introducida tras el dominio de la página
+
+req.url
+
+---method---
+Muestra el método utilizado en la solicitud enviada
+
+req.method
+
+---headers---
+Permite ver las cabeceras de la solicitud
+
+req.headers
+
+-------PARÁMETRO RESPONSE-------
+Es la respuesta y contiene información sobre la respuesta
+
+---write()---
+Envía información al cliente.Puede recibir 3 argumentos opcionales;
+el primero, el elemento que se devuelve; el segundo, su codificación
+
+res.write('Bienvenidos a mi 1er servidor y API creados con Node.js', 'utf8', ()=>{
+    console.log('respuesta enviada')});
+
+---end()---
+Finaliza el envío de la respuesta. Puede recibir 3 argumentos opcionales;
+el primero, el elemento que se devuelve; el segundo, su codificación
+(importante en caso de ser un string); y en tercer, un callback.
+
+res.end('Bienvenidos a mi 1er servidor y API creados con Node.js', 'utf8', ()=>{
+    console.log('respuesta enviada')});
+
+---statusCode---
+Muestra el código de estado de la respuesta
+
+res.statusCode
+
+El código puede ser cambiado manualmente
+
+---setHeader---
+Permite configurar un elemento de la cabecera
+
+Recibe 2 parámetros; el primero el nombre del atributo, y el segundo,
+el valor de dicho atributo
+
+res.setHeader('content-type', 'application/json')
+
+---getHeaders---
+Devuelve los elementos de la cabecera
+
+res.getHeaders()
+
+---writeHead---
+Permite escribir el código de estado y un objeto que contiene
+información adicional para la respuesta
+
+res.writeHead(200, {"Content-Type": "application/json});
+
+Con codificación para caracteres
+
+res.writeHead(200, { "Content-Type": "text/plain; charset=UTF-8" });
+
+
+IMPORTANTE.
+Content-Type permite al navegador conocer el formato de los datos que devuleve el servidor.
+Esto significa, por ejemplo, que si queremos responder al cliente con un JSON, y lo
+definimos en el Content-Type del lado del servidor, no es necesario parsearlos de nuevo
+en el lado del cliente. Si no definimos el Content-Type, entonces sí
+será necesario parsear en el lado del cliente, aunque se recomienda en todo caso
+declarar un Content-Type en el header de la respuesta.
+
+Un ejemplo de esto se puede ver en el método manejarSolicitudGET() del archivo "routing/servidores.js"
+Las líneas son:
+
+res.writeHead(200, {"Content-Type" : "application/json"});
+res.writeHead(200, {"Content-Type" : "text/plain; charset=UTF-8"});
+
+Si iniciamos en servidor y usamos una u otra en el navegador, veremos como
+cambia el contenido. Esto sin llamar desde un script para el lado del cliente, que seria
+el archivo "routing/app.js"
+
+
+---Eventos en peticiones---
+Estos eventos son del módulo "http" no "event".
+
+Estos son métodos predefinidos
+
+Cuando hacemos una petición; por ejemplo, un envío de datos POST,
+si el servidor recibe datos, estos se reconocen con el evento "data",
+y cuando la petición finaliza, con el evento "end"
+
+--ejemplo
+
+req.on('data', (datos)=>{
+    console.log(datos)
+})
+
+req.on('end', ()=>{
+    console.log('petición finalizada')
+})

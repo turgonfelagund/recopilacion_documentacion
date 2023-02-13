@@ -1,0 +1,96 @@
+Los comandos aqui recogidos, son genericos en todos los sistemas linux y se encuentran en todos ellos
+
+En este documento no se recoge el uso de argumento para los comandos
+
+---PIPES (ACABAR)
+
+
+---COMANDOS
+
+-hostname
+Devuelve el nombre del host
+
+-pwd
+Devuelve el directorio en que nos encontramos
+
+-cd ruta
+Cambia el directorio en donde nos encontramos. Si queremos retroceder usar "../", por ejemplo, cd ../etc
+En linux, si escribimos solamente "cd" iremos al home, o si escribimos "cd ~"; si no se han cambiados
+las variables de entorno
+
+-ls
+Lista el contenido del directorio actual, aunque tambien puede incluirse una ruta a un directorio,
+por ejemplo, ls /etc/X11. En este caso, es interesante usarlo con los argumentos "-a" y "-l". El primero
+muestra archivos ocultos, y el segundo los lista en forma de lista y muestra permisos
+
+-adduser
+Crea un usuario. Esto debe hacerlo el usuario root.
+
+-su nombreUsuario
+Cambia de usuario
+
+-passwd nombreUsuario
+Cambia la contraseña del usuario indicado
+
+-chmod permisos archivo
+
+-cp rutaArchivoOrigen rutaDestino
+Permite copiar un archivo o carpeta en otra localizacion
+
+-mv
+
+
+-ifconfig
+
+-ps
+Muestra un listado de los procesos que se estan ejecutando en el sistema
+
+-nano nombreArchivo
+Edita o crea un archivo si este no existe (aunque no se crea si no se guarda) usando el editor nano
+
+-find directorioOrigen -name nombreArchivo (acabar)
+Encuentra un archivo en un directorio indicado, en este caso bajo el nombre directorioOrigen.
+"-name" es un argumento que indica que pasamos un nombre. Es sensitiveCase, luego su queremos que no lo
+sea, debemos usar "-iname".
+
+El uso de find es algo mas complejo. Usar siguiente enlace para mas informacion:
+https://www.hostinger.es/tutoriales/como-usar-comando-find-locate-en-linux/
+
+-locate nombreArchivo		(EXCEPCION)
+Este es un paquete que ha de ser instalado (no viene incluido). Se hace mediante "apt-get install mlocate"
+Es mas rapido que find.Localiza todas las rutas (archivos o carpetas, no contenido de archivos) donde se encuentra una 
+coincidencia.
+
+-cat nombreArchivo
+Lee el contenido de un archivo
+
+-tail nombreArchivo
+Devuelve las 10 ultimas lineas del archivo indicado. Si queremos variar el numero de lineas devueltas,
+se debe usar con el argumento "-n*" donde "*" es el numero de lineas devueltas.
+
+ejemplo:
+tail -n2 archivo.txt		Devuelve las 2 ultimas lineas de "archivo.txt"
+
+-grep expresion rutaArchivo
+
+-rm nombreArchivo
+
+-mkdir nombreCarpeta
+Crea una carpeta
+
+-mkdir -p ruta/carpeta1/carpeta2
+Crea todos los directorios que no existian en la ruta
+
+rmdir nombreCarpeta
+
+-apt autoremove
+Elimina las dependencias innecesarias
+
+-env
+Lista las variables de entorno. Usando con otro argumentos y comandos puede llegar a usar nuevas variables
+de entorno, limpiar las que hay, buscar algunas en particular...
+
+
+-date
+Devuelve la fecha actual
+

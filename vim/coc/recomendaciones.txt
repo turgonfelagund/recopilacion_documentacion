@@ -1,0 +1,5 @@
+
+HTML (con esto, no hará falta el plugin emmet)
+coc-html
+coc-emmet
+

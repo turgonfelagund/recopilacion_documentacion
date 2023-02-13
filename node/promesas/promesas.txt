@@ -1,0 +1,17 @@
+Objeto que representa el eventual resultado (o error) de una operación
+asíncrona
+
+Cuando se inicia la promesa, entra en el estado "pending" o pendiente.
+
+Una vez finaliza, devuelve una respuesta "fulfilled" o cumplida; 
+o "rejected" o rechazada
+
+Las promesas pueden ejecutar un callback.
+
+Un callback es una función que se pasa a otra función como argumento
+y lueo se ejecuta dentro de la función externa
+
+Las promesas tienen un método .then(), con el cual podemos decidir cuando se completa
+la promesa con éxito o fallo
+
+En caso de que la promesa devuelva un rejected, este también se puede recoger con .catch()

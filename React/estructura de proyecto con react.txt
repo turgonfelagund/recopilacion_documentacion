@@ -1,0 +1,108 @@
+-------ESTRUCTURA DE PROYECTO REACT-------
+
+-------ESTRUCTURA INICIAL O BÁSICA-------
+Un proyecto cuenta inicialmente con la siguiente estructura:
+
+---node_modules
+directorio que contiene los módulos que se van a utilizar por el proyecto. Los módulos que se instalen en
+el proyecto, se situarán automáticamente en esta carpeta
+
+---public
+Contiene archivos estáticos; es decir, que no cambian y nos permiten montar la aplicación
+
+---src
+Carpeta donde se encuentra nuestro código, y por tanto, donde trabajaremos
+
+---.gitignore
+Archivo en el que tenemos los directorios y archivos que no queremos subir a nuestro repositorio
+
+----package-lock.json
+Es un archivo que internamente se auto genera al realizar cualquier modificación en node_modules
+o en el package.json. Dentro de este archivo se describe un árbol con las dependencias.
+
+---package.json
+Almacena metadatods sobre aspectos importantes del proyecto, como versiones de las dependencias de react
+(dependencies) o comandos del CLI (scripts)
+
+-Name
+Contiene el nombre del proyecto indicado al crearlo con el comando create-react-app.
+El nombre tiene que ser en minúsculas, se recomienda sin acentos y no puede empezar por puntos, barras bajas
+ni guiones
+
+-Version
+Define la versión actual del proyecto. Su formato debe ser x.x.x y al crear un proyecto, su versión
+por defecto es 0.1.0
+
+-Private
+Indica si se publicará el proyecto en el repositorio de npm. Si esta en "true", npm no permitirá publicarlo
+y de lo contrario, lo hará.
+
+-Dependencies
+Contiene los nombres y versiones de las dependencias necesarias para llevar a cabo el proyecto.
+Estas se instalan y se guardan en el directorio "node_modules".
+
+Inicialmente hay 3 dependencias esenciales a las que se pueden sumar más dependiendo de la 
+versión utilizada para crear el proyecto:
+
+1. React
+Contiene la funcionalidad necesaria para definir componentes de React
+
+2. React-dom
+Trabaja conjuntamente con la libreria "React". 
+Están separadas debido a que este proyecto está configurado para trabajar con ReactJS. 
+
+Si queremos trabajar con otro React como puede ser ReactNative, deberíamos de cambiar
+está librería por la de ReactNative
+
+"React-dom" permite acceder y modificar el DOM
+
+3. React-scripts
+nos proporciona un conjunto de scripts que nos serán útiles a la hora de trabajar con React. 
+Además se complementa con otras tecnologías como Web Pack, Babel, etc
+
+-Scripts
+Nos especifica que comandos podemos ejecutar dentro de nuestro proyectos
+
+En este apartado hay scripts predefinidos como start, build, test y eject.
+
+También se pueden incluir comandos personalizados
+
+-EslintConfig
+ESLint es un mecanismo para controlar/validar el estilo de código para JavaScript
+
+-Browserslist
+lista para que el código sepa a qué navegadores vamos a dar soporte. Es necesario, 
+debido a que cuando trabajamos con React vamos a utilizar las últimas características de JavaScript y 
+podemos detallar a que navegadores le daremos soporte.
+
+
+---README.md
+Fichero en lenguaje Markdown dóde se suele definir la documentación del proyecto
+
+
+-------COMPONENENTES-------
+Es recomendable crear una carpeta dentro de del directorio "src" para guardar nuestros componentes, y otra
+para guardar estilos relativos a cada componente
+
+
+-------ESTILOS-------
+
+Los estilos de cada componente derían colocarse dentro de su propia carpeta en el directorio "src".
+
+Cada componente debería contar con su propia hoja de estilos.
+
+Los estilos generales, es conveniente escribirlos en el archivo "App.css"
+
+Para aplicar los estilos al html de un template, simplemente se importa la hoja de estilos al .jsx
+correspondiente
+
+
+
+-------CONSEJO SOBRE ARCHIVOS .JS Y .JSX-------
+Se pueden utilizar archivos .js y .jsx indistintamente; pero es aconsejable llamar jsx a los que tengan html
+y js a los que no lo tengan, para contar con archivos mejor organizados y faciles de entender
+
+
+
+
+

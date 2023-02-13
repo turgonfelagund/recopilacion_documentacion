@@ -1,0 +1,28 @@
+Se toma como referencia ubuntu
+
+-------ELIMINAR GUI-------
+
+apt remove nombreEntorno
+
+apt-get remove ubuntu-desktop
+apt-get autoremove
+
+-------DESACTIVAR GUI-------
+
+abrir "/etc/default/grub" y cambiar
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+a
+
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+
+y actualizar Grub con:
+sudo update-grub
+
+Para volver a activar el GUI, introducir
+
+sudo service lightdm start
+
+*nota.
+el gestor de pantalla puede ser lightdm o cualquier otro. Comprobar cual se quiere usar

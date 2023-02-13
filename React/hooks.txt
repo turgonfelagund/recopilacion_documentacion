@@ -1,0 +1,33 @@
+Son funciones especiales que permiten usar caracteristicas deReact con componentes funcionales como
+useState() que permite agregar un estado a un componente funcional.
+
+Los hooks estan dentro del módulo "react"
+
+Los hooks NO funcionan en clases
+
+-------MÉTODO useState()-------
+Los componentes función (los componentes que no son clases, sino funciones) no tienen las posibilidad
+de usar "this", así que si queremos actualizar el valor, o lo que es lo mismo, el estado de una propiedad
+de un componente (recordemos que esa propiedad puede estar en varios elementos del componenete), usamos
+la función useState().
+
+La función useState recibe un valor y devuelve un valor y una función que actualiza dicho valor.
+Ambos se guardan dos variables mediante destructuring. La primera guarda el valor o estado 
+eventual del prop; y la segunda, la función que actualiza dicha prop
+
+-Ejemplo:
+
+//numClicks guarda un valor (inicialmente 0), y setNumClicks cambia dicho valor
+const [numClicks, setNumClicks] = useState(0)
+
+//Cada vez que se ejecuta manejarClick(), se suma 1 a numClicks
+//CADA ELEMENTO QUE TUVIERA ASIGNADO numClicks, CAMBIA SU ESTADO O VALOR DINÁMICAMENTE
+  const manejarClick = ()=>{
+    //setNumClicks actualiza el estado de numClicks
+    setNumClicks(numClicks + 1)
+  }
+
+//setNumClicks devuelve el estado a 0 al ejecutar el método
+  const reiniciarContador = () => {
+    setNumClicks(0)
+  }

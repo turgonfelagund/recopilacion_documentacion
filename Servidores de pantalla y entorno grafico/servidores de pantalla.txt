@@ -1,0 +1,25 @@
+Xorg (generalmente denominado X o X11)
+
+Wayland
+
+Mir
+
+SurfaceFlinger
+
+Compositor Quartz
+
+
+
+-------WAYLAND-------
+
+Ventajas:
+Más seguro que Xorg pues cada ventana trabaja de forma independiente (no hay procesos en segundo plano),
+con lo que es posible evitar keylogging.
+
+-------XORG-------
+
+Ventajas:
+Muchos juegos y aplicaciones están escritos para Xorg, y muchos controladores gráficos de código 
+cerrado como GPU NVIDIA no ofrecen soporte completo para Wayland
+
+

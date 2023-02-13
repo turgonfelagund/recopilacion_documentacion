@@ -1,0 +1,6 @@
+Descargar la extension "Spring boot extension pack". No son necesarios todos los paquetes, pero si
+aconsejables.
+
+Después pulsar ctrl + shift + p para abrir la paleta de comandos y escribir "Spring initializr".
+
+Seleccionar el tipo de proyecto que queremos (maven o gradle) y su configuración.

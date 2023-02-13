@@ -1,0 +1,19 @@
+IMPORTANTE.
+No vale para docker. La metodologia es otra
+
+1. Descargar tasksel
+
+apt install -y tasksel
+
+2. Después ejecutar tasksel
+
+tasksel
+
+3. Elegir entorno de escritorio
+
+	Kubuntu desktop		Kubuntu desktop for KDE
+	Lubuntu Desktop		desktop for LXQt
+	Ubuntu Budgie desktok	desktop for budgie
+	Ubuntu desktop		desktop for gnome (ubuntu habitual)
+	ubuntu MATE desktop	desktop for mate
+	Xubuntu desktop		desktop for xfce

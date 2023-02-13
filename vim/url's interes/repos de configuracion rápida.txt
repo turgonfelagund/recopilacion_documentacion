@@ -1,0 +1,38 @@
+
+IMPORTANTE
+Los archivos coc.json deben ir en la ruta ~/.config/nvim/coc-settings.json
+
+-------IDE NORMAL-------
+El siguiente repositorio contiene la configuración necesaria para configurar neovim como un IDE:
+https://github.com/josethz00/neovim-like-vscode
+
+
+Para que los iconos funcionen correctamente, se debe instalar una Nerd font:
+
+https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download
+
+
+-------IDE COMO VSC-------
+
+Repositorio de init.vim para emular vsc
+
+https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
+
+archivo coc-settings.json
+
+https://gist.github.com/benawad/e187dd887f256a6a002905ec7f22ad76
+
+coc-settings.json:
+
+{
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql"
+  ]
+}

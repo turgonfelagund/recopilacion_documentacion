@@ -1,0 +1,14 @@
+Hace falta el id del commit. Para ver el id usar
+
+git log		O cualquiera de sus variantes
+
+
+Despues usar siguiente linea
+
+git checkout idCommit
+
+Finalmente subirla al repositorio remoto
+
+git add .
+git commit -m "mensaje"
+git push

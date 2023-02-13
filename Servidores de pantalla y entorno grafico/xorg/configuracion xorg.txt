@@ -1,0 +1,40 @@
+Por lo general, cualquier distro Linux instala y configura X11 sin requerir intervención de nuestra parte.
+
+
+
+
+
+La configuración se guarda habitualmente en el directorio etc/X11 (aunque este puede variar) y el 
+fichero xorg.conf
+
+El directorio es necesario para permitir el control local si /usr es de solo lectura
+
+Para generar el fichero xorg.config.new (luego hay que llamarlo "xorg.config") introducir:
+
+Xorg -configure
+
+------ESTRUCTURA DEL ARCHIVO-------
+El archivo cuenta con vairas secciones de configuración, y dnetro de las secciones las propiedades de 
+las mismas.
+
+El archivo contiene las siguientes secciones:
+
+-ServerLayout:
+Relaciona los dispositivos de entrada y salida utilizados por el servidor X
+
+-Files:
+Archivos usados por el servidor X. Por ejemplo en etc/X11/fontpath.d se encuentran las fuentes disponibles
+
+-Module:
+dispositivos generales
+
+-InputDevice:
+Teclado, mouse y otros dispositivos de entrada (si son detectados)
+
+-Monitor:
+monitores detectados
+
+-Device:
+
+-Screen:
+Listado de resoluciones y profundidades de colores soportados por el monitor y el servidor X

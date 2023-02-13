@@ -1,0 +1,81 @@
+
+-------TERMINALES-------
+
+mostrar/ocultar panel de terminales
+ctrl + ñ
+
+Abrir un nuevo terminal
+ctrl + shift + ñ
+
+Hacer split
+ctrl + shift + 5
+
+-------EXPLORADOR DE ELEMENTOS-------
+
+mostrar/ocultar barra lateral
+ctrl + b
+
+-------BUSCAR-------
+
+buscar en todos los archivos
+ctrl + shift + f
+
+buscar en el archivo
+ctrl + f
+
+-------DESPLAZARSE-------
+
+Ir a una línea determinada
+ctrl + g		Indicar la linea en menu
+
+Desplazar línea sobre la que está el cursor, arriba o abajo
+alt + flechaDireccion
+
+-------ARCHIVOS-------
+
+Abrir un archivo
+ctrl + p		Seleccionar el archivo de interés
+
+-------SELECCIONAR OPCIONES-------
+Abre un explorador para seleccionar extensiones, opciones  herramientas
+ctrl + q
+
+-------CERRAR PESTAÑAS-------
+Cierra pestañas
+ctrl + w
+
+-------CERRAR PROGRAMA-------
+Cerrar editor
+ctrl + shift + w
+
+-------ABRIR OTRO EDITOR-------
+Abrir un nuevo editor
+ctrl + shift + n
+
+-------SELECCIONAR-------
+Selecciona todo el codigo
+ctrl + a
+
+Seleccionar la linea actual
+ctrl + l
+
+Selecciona todas las palabras iguales a la seleccionada
+ctrl + shift + l
+
+Selecciona la siguiente palabra igual a la seleccionada
+ctrl + d
+
+-------RENOMBRAR SIMBOLOS-------
+Cambia de nombre todos los símbolos/ocurrencias que tienen los mismos caracteres
+f2 	(Con el cursor sobre el símbolo/ocurrencia)
+
+-------INSERTAR CURSORES-------
+Insertar cursor extra en linea superior o inferior
+ctrl + alt + flechaDireccion
+
+Borrar último cursor creado
+ctrl + u
+
+-------UTILIZAR EMOJIS-------
+Pulsar tecla windows + "."
+

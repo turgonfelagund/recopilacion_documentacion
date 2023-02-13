@@ -1,0 +1,11 @@
+El repositorio de maven es un directorio donde se guardan todas las dependencias y proyectos.
+
+Se encuentra situado en <USER_HOME>/.m2/repository (aunque maven permite cambiar la localización)
+
+REPOSITORIO REMOTO
+tambien existe un repositorio remoto dese el cual se descargan jars a medida que se necesiten
+
+El repositorio remoto también se puede cambiar, e incluso usar más de 1
+
+*OJO. De salir a internet a través de proxy, se tiene que configurar en http://https://maven.apache.org/guides/mini/guide-proxies.html
+

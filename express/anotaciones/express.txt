@@ -1,0 +1,149 @@
+Es un framework de node.js que permite desarrollar servidors más fácilmente
+
+-------REST-------
+Estilo de arquitectura de software para sistemas hipermedia* distribuidos como
+la World Wide Web
+
+* Conjunto estructurado de diversos medios, como textos, gráficos, imágenes y 
+sonidos, unidos entre sí por enlaces y conexiones lógicas 
+para la transmisión de una información.
+
+-------RESTFUL API-------
+Es una API basada en REST
+
+-------INSTALAR EXPRESS-------
+En consola escribir
+
+npm install express
+
+Esto instala localmente la última versión de Express
+
+-------USAR EXPRESS-------
+
+---Crear servidor o aplicación Express---
+
+Para crear una aplicación de Express usamos un método cuyo nombre
+es igual al de la variable que almacena el módulo
+
+-Ejemplo
+const express = require('express');
+const app = express();
+
+---Mapear métodos---
+A través de la variable que contiene la aplicación o una variable de routing, 
+iniciar el routing para los métodos HTTP.
+
+Esto significa que el servidor mapeará el método y la ruta enviados 
+por el cliente.
+
+Para ello, escribimos el método que, además, tomará el nombre de
+la ruta mapeada y una función que se adjudicarán a esta como argumentos
+
+La función recibe argumentos, req y res; es decir, request y
+response
+
+Para enviar una respuesta, usamos el método send(). Si este método 
+devuelve objetos y arrays, lo hace en formato json; así que no hay
+que convertirlos. El resto de tipos los envía con su tipo respectivo
+
+También podemos devolver una respuesta usando el método json(), que
+consvierte su contenido; ya sea string, buffer u otro, a JSON antes de
+enviarlo en la respuesta
+
+-Ejemplo
+app.get('/', (req, res)=>{
+    res.send('Mi primer servidor');
+});
+
+---Métodos de mapeo---
+use()
+Procesa una petición si empieza por la ruta; es decir,
+use('/user'); procesa peticiones a "/user" y cualquier adición a esta
+como "/user/30"
+
+No depende del método de la petición
+
+all()
+Procesa peticiones que coinciden con la ruta completa; es decir,
+no depende del método de la petición
+
+get()
+Procesa peticiones GET
+
+post()
+Procesa peticiones POST
+
+put()
+Procesa peticiones PUT
+
+---Mapear de forma genérica (cualquier método)---
+Por esta vía, se implementa una funcionalidad para una determinada ruta.
+Así que, se ejecutará dicha funcionalidad sin depender del método de la petición.
+
+Para ello se puede usar el método use() o all()
+
+Estos reciben la ruta mapeada y el callback habitual
+
+-Ejemplo
+
+app.use('/user/:id', function (req, res, next) {
+  console.log('Request Type:', req.method);
+  next();
+});
+
+---Recoger parámetros de ruta---
+Para definir un parámetro de url se utiliza el símbolo ":" antes
+del nombre del parámetro.
+
+Los parámetros pueden ser accedidos mediante el objeto req.params
+
+-Ejemplo
+
+app.use("/usuario/:nombre", (req, res)=>{
+    let nombre = req.params.nombre;
+    console.log(nombre);
+})
+
+---Recoger parámetros query---
+Son los parámetros que van al final de la url tras "?" y tienen un
+par clave/valor
+
+los parámetros query se almacenan en el objeto req.query
+
+-Ejemplo
+
+app.use("/user", (req, res)=>{
+    let {nombre, apellido} = req.query;
+    console.log(`${nombre} ${apellido}`);
+    res.send(`Bienvenido ${nombre} ${apellido}`);
+})
+
+Un ejemplo de url sería /user?nombre=Rick&apellido=Sánchez
+
+---Escuchar en puertos---
+Para escuchar, se utiliza el método listen() sobre la variable que inicia
+la aplicación Express pasándole un puerto y una función (opcional) que
+se ejecutará cuando se inicie el servidor
+
+Podemos asignar puertos estáticos durante el desarrollo de nuestra app,
+pero cuando la publiquemos, el host puede que no tenga dicho puerto disponible.
+
+Para asignar uno de los puertos disponibles, utilizar la línea:
+
+process.env.PORT
+
+Consigue el valor del puerto si está definido en el entorno como 
+una variable
+
+-Ejemplo
+const PUERTO = process.env.PORT || 3000;
+
+app.listen(PUERTO, ()=>{
+    console.log(`El servidor está escuchando en el puerto: ${PUERTO}`);
+})
+
+-------POSIBLES ERRORES-------
+
+-Error al escribir mal cabecera.
+Si el fallo es de Content-Type, el TypeError será "invalid media type"
+

@@ -1,0 +1,6 @@
+Añade automaticamente sesion de openbox al inicio de sesion. Un gestor de ventanas 
+de los mas ligeros que existen
+
+sudo apt-get install openbox openbox-themes obconf obmenu
+
+Fuente: https://www.enmimaquinafunciona.com/pregunta/27119/como-eliminar-la-interfaz-grafica-de-usuario

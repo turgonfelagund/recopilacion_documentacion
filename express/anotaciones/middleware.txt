@@ -1,0 +1,33 @@
+Son funciones que se ejecutan:
+
+-Después de recibir una solicitud
+
+-Antes de enviar una respuesta
+
+Tienen acceso al objeto de la solicitud, al objeto de la respuesta y a next(),
+una función que se llama para ejecutar el próximo middleware
+
+---Uso de next()---
+La función next() ha de ser declarada como argumento final de la función
+
+next() hace que se ejecute la siguiente función que comparte con la
+primera método y ruta.
+
+El orden en el que se ejecutan es imperativo; es decir, se ejecuta
+antes la que ha sido declarada primero, después la segunda, y así
+sucesivamente
+
+-Ejemplo
+var app = require("express")();
+
+app.get("/", function(httpRequest, httpResponse, next){
+    httpResponse.write("Hello");
+    next();
+});
+
+app.get("/", function(httpRequest, httpResponse, next){
+    httpResponse.write(" World !!!");
+    httpResponse.end();
+});
+
+app.listen(3000);

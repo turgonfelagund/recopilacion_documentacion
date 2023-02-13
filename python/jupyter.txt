@@ -1,0 +1,14 @@
+Jupyter noteBook es una plataforma web interactiva de desarrollo.
+
+Su ejecutable puede instalarse desde el navegador, con pip (gestor de paquetes de python) y con anaconda.
+
+IMPORTANTE
+Para que todo funcione correctamente, asegurarnos de que python se instala configurando el PATH dutante
+la instalacion (varaibles de entorno) y contar on una version posterior a la 3.10.
+Actualmente usando la 3.11.1
+
+con pip:
+pip install jupyter
+
+con anaconda:
+conda install jupyter

@@ -1,0 +1,27 @@
+Siglas de "Read Eval Print Loop"
+
+Es una herramienta que permite escribir código, evaluarlo y mostrar el resultado de forma interactiva 
+en la línea de comandos.
+
+Para ejecutarlo, simplemente escribir en un terminal "node"
+
+Para salir, pulsar ctrl + c dos veces o escribir en la línea ".exit"
+
+Para ver la ayuda, escribir ".help"
+
+-------MODO DE EDITOR-------
+Se accede escribiendo ".editor"
+
+Dentro, podemos escribir código
+
+Para ejecutar el código escrito, pulsar ctrl + d
+
+-------CARGAR ARCHIVO A SESIÓN INTERACTIVA DE REPL-------
+Se puede utilizar un archivo ".js" existente y cargarlo en repl de forma interactiva
+
+Para ello ingresar ".load nombreArchivo.js"
+
+
+-------GUARDAR TODOS LOS COMANDOS EVALUADOS EN ESTA SESIÓN DE REPL EN UN ARCHIVO-------
+
+Se escribe en el REPL ".save"

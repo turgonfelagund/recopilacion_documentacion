@@ -1,0 +1,8 @@
+Para visualizar los iconos en Neovim, instalar el plugin "vim-devicons"
+
+IMPORTANTE
+Para que se vean los iconos, se ha de utilizar una fuente compatible con vim-devicons.
+Estas se pueden encontrar en:
+https://www.nerdfonts.com/font-downloads
+o en 
+https://github.com/ryanoasis/nerd-fonts

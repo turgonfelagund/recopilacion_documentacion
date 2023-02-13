@@ -1,0 +1,10 @@
+
+PÁGINA DE DESCARGA DE PLUGINS Y TEMAS
+
+vim awesome
+https://vimawesome.com/
+
+PÁGINA DE DESCARGA DE TEMAS DE VIM
+
+vimcolorschemes
+https://vimcolorschemes.com/

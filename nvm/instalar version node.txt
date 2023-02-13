@@ -1,0 +1,26 @@
+1.Descargar NVM con alguno de los siguientes metodos:
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+wget -q0- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+2.Después cerrar y reabrir el terminal para cargar y reconocer los cambios o en caso de estar en unix,
+se puede ejecutar:
+
+source ~/bashrc
+
+3. Verificar nvm con el comando
+
+nvm --version
+
+4. Para saber que version tenemos en nuestro sistema escribir:
+
+nvm ls
+
+5. Para ver el listado de versiones disponibles para descargar:
+
+nvm ls-remote
+
+6. instalar la version con el comando:
+
+nvm install numeroDeLaVersion

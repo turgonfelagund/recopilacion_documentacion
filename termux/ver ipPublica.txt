@@ -1,0 +1,5 @@
+Se necesita para ello curl
+
+en consola escribir
+
+curl ifconfig.me

@@ -1,0 +1,16 @@
+Las solicitudes del cliente varían en relación al carácter de la
+solicitud.
+
+GET - Obtener información - Recogido mediante get()
+
+POST - Insertar información - Recogido mediante post()
+
+PUT - Actualizar información - Recogido mediante put()
+Debe recibir todas las propiedades de la entidad, no solo
+las que cambian
+
+PATCH - Actualizar información - Recogido mediante get()
+A diferencia de PUT, recibe únicamente las propiedades que cambian
+
+DELETE - Borrar información - Recogido mediante get()
+

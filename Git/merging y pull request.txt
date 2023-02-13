@@ -1,0 +1,74 @@
+Cuando se quieren fusionar dos ramas (merge), se debe hacer un pull request, es decir; una solicitud 
+de aprobación de los cambios realizados para unirlos con otra rama, por ejemplo la principal.
+
+La aprobacion la hará un usuario que trabaje en el proyecto.
+Este usuario se puede ver o asignar en el apartado "asignees", en la web de github, dentro de nuestra
+solicitud
+
+-------PROBLEMAS DESDE INTERFAZ-------
+Se puede crear un problema para merge cuando se intenta fusionar una rama con otra cuyos cambios se han producido
+en la misma zona.
+
+A continuación un ejemplo para que quede mas claro:
+
+Punto 1. Tenemos tres ramas con contenido
+
+ramaPadre
+"Hola mundo"
+
+ramaHija1
+"Hola mundo, desde el norte"
+
+ramaHija2
+"Hola mundo, desde el sur"
+
+Punto 2. Fusionamos la "ramaHija1" con la ramaPadre, siendo la primera absorbida por la segunda
+
+ramaPadre
+"Hola mundo, desde el norte"
+
+ramaHija2
+"Hola mundo, desde el sur"
+
+Punto 3. Al intentar fusionar estas dos ramas, se producirá un error
+
+-------SOLUCION-------
+Para solucionar el caso anterior hay dos alternativas:
+1.Realizar cambios manualmente para evitar el conflicto
+
+2.En la web, pulsar en "resolve conflict" en la pull request correspondiente. Editar el fichero presentado
+eligiendo uno o dejandolo como se pretenda. Finalmente marcar como resuelto en esta pantalla;
+hacer commit del merge y mergear
+
+
+-------MERGE DESDE CONSOLA-------
+IMPORTANTE.
+Si hay algún cambio al que no se le ha hecho commit en la rama actual, 
+Git no te permitirá fusionar hasta que se hayan realizado commit todos los cambios en tu rama actual.
+Se puede crear otra rama y hacer commit desde ella como alternativa
+
+Si estamos en la rama master y queremos traer los cambios de "rama1" a master hacer
+git merge rama1
+
+Despues de hacer merge, se genera un commit
+
+En ocasiones, puede haber un conflicto debido a que ambas ramas tienen un contenido distinto en la misma
+zona. Tambien puede ocurrir que hay cambios en remoto que no existen en local
+
+---Solucion de conflicto
+
+En caso de no contar con los cambios en local, hacer un
+git pull
+
+Después hacer git push
+
+NOTA.
+Hacer commit siempre antes de hacer pull
+
+En el primer caso, ver las diferencias y eliminarlas
+
+---Estrategias de fusion de ramas
+
+fast-forward
+
+recursive

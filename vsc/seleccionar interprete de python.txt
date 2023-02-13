@@ -1,0 +1,5 @@
+Abrir paleta de comandos pulsando F1 ó ctrl + shift + p y escribir:
+
+Python:Select Interpreter
+
+Después, seleccionar el intérprete deseado

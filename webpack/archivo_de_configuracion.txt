@@ -1,0 +1,29 @@
+El archivo de configuración se debe crear en la raíz del proyecto.
+
+El archivo debe llamarse webpack.config.js
+
+-------CONTENIDO-------
+
+Se debe importar el módulo de node.js "path".
+
+Después, se exportará un módulo que contendrá un punto de entrada y otro de salida.
+
+El punto de entrada es donde se va a empezar a leer javascript para saber lo que hay que compilar.
+
+El punto de salida indica donde se va a depositar el archivo y bajo qué nombre
+
+
+
+-------EJEMPLO-------
+
+Ejemplo de archivo de configuración:
+
+const path = require('path');
+
+module.exports= {
+	entry: "./scr/index.js",
+	output: {
+		filename: "nombreArchivoSalida.js",
+		path: path.resolve(__dirname, "nombreCarpetaSalida"),
+	},
+};

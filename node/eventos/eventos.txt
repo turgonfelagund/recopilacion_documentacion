@@ -1,0 +1,63 @@
+---Emitters (emisores)---
+Objetos que emiten eventos nombrados y llaman a funciones específicas cuando ocurren
+
+Son instancias de la clase "EventEmitter"
+
+Esos objetos tienen un método on() para asociar una función al evento.
+
+La función ejecutada cuando se ejecuta el evento, se llaman eventHandler
+
+En nodejs, el módulo "Events", nos permite definir y controlar nuestros propios eventos, es decir:
+
+-Definir
+
+-Emitir
+
+-Escuchar
+
+---Manejo de evento---
+Lo primero es importar el módulo events y crear una instancia. Después, se puede asociar a dicha instancia
+un evento y emisor correspondientes.
+
+El evento se asocia con el método on(), que recoge como primer argumento el nombre del evento, y como 2º,
+el eventHandler o función que se ejecutrá cuando se reciba el evento
+
+Si queremos desencadenar el elemento usamos un emisor mediante el método emit(), que recibe el nombre del evento,
+y después, los argumentos si fuera necesario
+
+IMPORTANTE.
+El evento on() y el emisor emit(), deben definirse ambos sobre la misma instancia.
+
+--Ejemplo
+
+const EventEmitter = require('events');
+
+const emisorProductos = new EventEmitter();
+
+emisorProductos.on("compra", (total, productos)=>{
+    console.log(`Se realizó una compra por ${total}`);
+    console.log(`Total de productos: ${productos}`);
+});
+
+emisorProductos.emit("compra", 500, 3);
+emisorProductos.emit("compra", 400, 3);
+
+
+---Eventos en peticiones---
+Estos eventos son del módulo "http" no "event".
+
+Estos son métodos predefinidos
+
+Cuando hacemos una petición; por ejemplo, un envío de datos POST,
+si el servidor recibe datos, estos se reconocen con el evento "data",
+y cuando la petición finaliza, con el evento "end"
+
+--ejemplo
+
+req.on('data', (datos)=>{
+    console.log(datos)
+})
+
+req.on('end', ()=>{
+    console.log('petición finalizada')
+})

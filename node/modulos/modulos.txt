@@ -1,0 +1,203 @@
+Un módulo es una funcionalidad organizada en uno o más archivos ".js" que puede ser
+reutilizada en una aplicación.
+
+Los módulos hacen más fácil encontrar y corregir bugs al estar acotados en un módulo, modificar código 
+y agregar nuevas funcionalidades.
+
+Además permite reutilizar código.
+
+En la práctica, un módulo puede ser cualquier archivo JavaScript
+
+-------IMPORTAR MÓDULO-------
+Importar un módulo require que este sea declarado como exportable
+
+Para importar un módulo, se usa el método "require()" y se almacena su retorno en una variable
+
+const modulo = require("ruta")
+
+En "ruta" debemos escribir la ruta hacia el archivo que queremos importar
+
+*nota. El módulo importado suele ser "const" por convención.
+
+
+
+---IMPORTAR CON DESTRUCTURING---
+Si queremos importar elementos específicos de un módulo o, simplemente, usar estos elementos sin tener que
+escribir el nombre del módulo, podemos aplicar destructuring de la siguiente manera:
+
+const {elemento1, elemento2} = require("./modulo");
+
+elemento1()
+
+console.log(elemento2);
+
+
+
+---IMPORTAR DIRECTORIO---
+Si queremos importar el directorio y no un archivo directamente, se puede hacer mediante un 
+archivo "package.json"
+
+En package.json se deben definir 2 propiedades que compondrá su contenido mínimo:
+{
+    "name": "nombreDelPaquete",
+    "main": "./rutaArchivoEntrada"
+}
+
+"name" contiene el nombre del paquete, y "main" la ruta del archivo de entrada, es decir, el que será
+importado al apuntar hacia el directorio. Si hay más módulos que importar, estos se pueden cargar
+a través del archivo de entrada.
+
+Dicho archivo se debe crear dentro del directorio que vamos a importar.
+
+---EJEMPLO---
+Tenemos la siguiente estructura:
+modulos
+	modulo1.js
+	package.json
+index.js
+
+
+-"package.json"
+{
+    "name": "nombreDelPaquete",
+    "main": "./modulo1.js"
+}
+
+-"index.js"
+var Modulo1 = require('./modulos');
+
+Nota.
+La ruta debe empeza por "./" si importamos un módulo local. Si queremos importar módulos 
+del núcleo de node.js o módulos de de NPM, no hay que especificar la ruta, basta con el nombre
+
+
+-------EXPORTAR MÓDULO-------
+Para que pueda ser usado desde otro archivo, o sea como módulo, primero hay que exportar el módulo.
+
+Si queremos exportar, podemos usar el objeto "module.exports". "module" es una variable que representa 
+el módulo actual y exports es un objeto de "module" cuyo contenido será expuesto.
+
+-----DIFERENCIA ENTRE module.exports Y exports-----
+Para exportar elementos, se puede usar "module.exports", o "exports". "exports" es un atajo o referencia
+hacia el objeto "module.exports", o lo que es lo mismo exports = module.exports.
+
+Cuando uno de los dos objetos cambia, el otro lo hace de la misma forma
+
+si queremos utilizar directamente "exports", debemos añadir propiedades; es decir:
+
+exports.saludo = "Hola mundo";
+
+Si asignamos directamente un valor a "exports", estamos cambiando la referencia que hace al objeto
+"module.exports"
+
+---ELEMENTOS EXPORTABLES---
+Se pueden exportar literales, funciones y objetos. A continuación se muestra un ejemplo con dos archivos
+"modulo.js" e "index.js" en un mismo directorio
+
+-LITERAL
+"modulo.js"
+module.exports = "Hola mundo";
+
+"index.js"
+var mensaje = require("./modulo.js");
+
+console.log(mensaje);
+
+-FUNCIÓN
+"modulo.js"
+exports.log = function (msg) {
+	console.log(msg);
+};
+
+function saludo(){
+	console.log('hola mundo');
+}
+
+exports.mensaje = saludo
+
+"index.js"
+var mensaje = require("./modulo.js");
+
+mensaje.log('hola mundo');
+
+mensaje.saludo();
+
+-FUNCIÓN COMO SI FUERA UNA CLASE
+"modulo.js"
+module.exports = function(nombre, apellido){
+	this.nombre = nombre;
+	this. apellido = apellido;
+	this.nombreCompleto = function(){
+		return this.nombre + ' ' + this. apellido;
+	}
+}
+
+"index.js"
+var persona = require("./modulo.js");
+
+let persona1 = new persona("Juan", "Bond")
+
+console.log(persona1.nombreCompleto());
+
+-OBJETO
+"modulo.js"
+module.exports = {
+	nombre: "Juan",
+	apellido: "Bond"
+}
+
+"index.js"
+var persona = require("./modulo.js")
+
+console.log(`${persona.nombre} ${persona.apellido}`)
+
+---FORMAS DE EXPORTAR VARIOS ELEMENTOS---
+
+--Método 1--
+"modulo.js"
+function add(x1, x2) {
+    return x1 + x2;
+}
+
+function substract(x1, x2) {
+    return x1 - x2;
+}
+
+"index.js"
+
+exports.add = add;
+exports.subtract = substract;
+
+
+--Método 2--
+"modulo.js"
+function add(x1, x2) {
+    return x1 + x2;
+}
+
+function substract(x1, x2) {
+    return x1 - x2;
+}
+
+Math = {}
+
+Math.add = add;
+Math.substract = substract;
+
+module.exports = Math;
+
+
+---Método 3
+"modulo.js"
+function add(x1, x2) {
+    return x1 + x2;
+}
+
+function substract(x1, x2) {
+    return x1 - x2;
+}
+
+module.exports = {
+	sumar : add,
+	restar : substract,
+}

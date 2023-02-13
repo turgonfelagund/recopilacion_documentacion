@@ -1,0 +1,148 @@
+Son módulos que se pueden usar directamente, pues se hayan incluidos en node.js; es decir, no hay que
+instalarlos.
+
+Algunos módulos built-in son:
+
+http
+
+https
+
+fs (file system)
+
+os (operating system) NO DISPONIBLE DE FORMA GLOBAL
+
+events NO DISPONIBLE DE FORMA GLOBAL
+
+path
+
+timers DISPONIBLE DE FORMA GLOBAL
+
+console DISPONIBLE DE FORMA GLOBAL
+
+process DISPONIBLE DE FORMA GLOBAL
+
+Algunos de ellos están disponibles de forma global (no hay que importarlos).
+
+Existen muchos más. estos se encuentran en la documentación de nodejs.org recogidos por versiones:
+
+https://nodejs.org/es/docs/
+
+-------CONSOLE-------
+DISPONIBLE DE FORMA GLOBAL
+Simula la consola interactiva de los navegadores
+
+-------PROCESS-------
+DISPONIBLE DE FORMA GLOBAL
+Muestra información y provee control sobre el proceso de node.js actual
+
+por ejemplo, si queremos ver el entorno en el que se está ejecutando nuestro programa, usar
+
+process.env
+
+Otros ejemplos:
+
+---Recoger variables del CLI para la ejecución---
+Para recoger variables del CLI, usar el atributo:
+
+process.argv
+
+Para enviar argumentos, escribirlos a continuación del nombre del documento a ejecutar:
+
+node script.js 6 7
+
+Esto genera un array tal que:
+
+[path/node, path/script.js, 6, 7]
+
+---Ver el uso de memoria---
+Usar método:
+
+process.memoryUsage()
+
+-------OS-------
+NO DISPONIBLE DE FORMA GLOBAL
+Contiene funcionalidad para obtener información sobre el sistema operativo en el cual se ejecuta la aplicación
+
+Los siguientes supuestos se recogen en la variable os:
+const os = require('os');
+
+Algunos ejemplos:
+
+---Obtener el tipo de sistema operativo
+os.type();
+
+---Acceder al directorio principal del usuario del sistema
+os.homedir();
+
+---Ver el tiempo que lleva transcurrido desde que se arrancó el sistema operativo
+os.uptime();
+
+---Ver información del usuario
+os.userInfo();
+
+
+-------TIMERS-------
+DISPONIBLE DE FORMA GLOBAL
+Contiene funciones que ejecutan código luego de un cierto periodo de tiempo.
+
+Se puede usar para simular funciones asíncronas
+
+algunos ejemplos son:
+
+Algunas de sus funciones más útiles son:
+
+-setTimeout()
+Ejecuta código después de un perído de tiempo
+
+-setImmediate()
+Ejecuta una función inmediatamente en cuanto el código síncrono termina
+
+-setInterval()
+Ejecuta código un número infinito de veces con un retraso específico de milisegundos
+
+
+-------FS-------
+Módulo que contiene funcionalidad muy útil para trabajar con el sistema de archivos
+
+Todos los métodos de este módulo on asíncronos por defecto.
+
+Si se quiere que sean síncronos, se debe agregar "sync" al nombre, por ejemplo:
+const fs = require('fs');
+fs.rename()
+fs.renameSync()
+
+Sobre carpetas y archivos se puede:
+Leer
+Modificar
+Copiar
+Eliminar
+Cambiar nombre
+
+---Leer archivo
+fs.readFile('rutaArchivo', 'codificación', funcion(err, contenido){
+    err ? throw err : console.log(contenido)
+});
+
+---Renombrar archivo
+
+fs.rename('./nombreArchivo', 'nuevoNombre', (err)=>{
+    err ? throw err : null;
+    console.log('nombre cambiado exitosamente);
+})
+
+---Añade contenido al final de archivo
+
+fs.appendFile('./nombreArchivo', "contenido a agregar", (err)=>{
+    err? throw err : console.log('archivo actualizado');
+})
+
+---Reemplazar todo el contenido del archivo
+fs.writeFile('./nombreArchivo', "nuevoContenido", (err)=>{
+    err ? throw err : console.log("contenido reemplazado exitosamente")
+})
+
+---Eliminar archivos
+
+fs.unlink("./nombreArchivo", (err)=>{
+    err ? throw err : console.log("archivo eliminado");
+})
