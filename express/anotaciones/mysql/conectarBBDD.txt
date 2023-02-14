@@ -1,0 +1,50 @@
+En primer lugar debemos instalar nuestra librería de mysql
+
+npm install mysql
+
+Para conectar a la BBDD mysql debemos configurar una serie de parámetros
+en nuestro archivo o en un archivo a parte que exportaremos
+
+-------ARCHIVO DE CONEXIÓN-------
+Para definir la conexión, se usa variable donde se almacena el módulo
+"mysql"
+
+Esta variable alberga una serie de métodos para conectar:
+
+-createConnection()
+Crea una conexión con la BBDD, que permanece abierta hasta que la
+cierras o es cerrada por el servidor MySql.
+
+Mediante este método se pueden crear y destruir conexiones según se necesiten
+
+-createPool()
+Un pool es un lugar donde se almacenan las conexiones. 
+Cuando solicita una conexión de un grupo, recibirá una conexión 
+que no se está utilizando actualmente o una nueva conexión. 
+Si ya está en el límite de conexiones, esperará hasta que haya una 
+conexión disponible antes de continuar. Estas conexiones agrupadas no 
+necesitan cerrarse manualmente, pueden permanecer abiertas y 
+reutilizarse fácilmente.
+
+
+
+-createPoolCluster()
+
+Usaremos uno de ellos para establecer la conexión.
+
+Estos reciben un objeto con una serie de propiedades 
+(en archivo "propiedades_conexion.txt").
+
+Las mínimas necesarias son "user", "password" y "host"
+
+
+---Ejemplo
+const mysql = require('require');
+
+module.exports = mysql.createPool({
+    host : 'localhost',
+    user : 'root',
+    password : '',
+    database: 'usuarios'
+});
+

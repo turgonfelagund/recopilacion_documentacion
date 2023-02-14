@@ -1,0 +1,41 @@
+Dentro de los ejemplos tenemos dos maneras de llamar a query con 
+la siguiente sintaxis:
+
+db.query("consulta", parámetros, callback)
+
+Y cuando no hay datos que mandar dentro de la consulta (indicados con ?)
+
+db.query("consulta", callback)
+
+En el callback resolvemos o rechazamos la promesa.
+
+Por cierto, para obtener el último id insertado (no siempre es 
+necesario pero igual lo pongo) podemos acceder a través de 
+resultados.insertId
+
+-Ejemplo
+
+obtener() {
+        return new Promise((resolve, reject) => {
+            conexion.query(`select id, nombre, precio from casa`,
+                (err, resultados, campos) => {
+                    if (err) reject(err);
+                    else resolve(resultados);
+                });
+        });
+    },
+
+
+*Inserción con consulta preparada
+insertar(nombre, precio) {
+        return new Promise((resolve, reject) => {
+            conexion.query(`insert into casa
+            (nombre, precio)
+            values
+            (?, ?)`,
+                [nombre, precio], (err, resultados) => {
+                    if (err) reject(err);
+                    else resolve(resultados.insertId);
+                });
+        });
+    },

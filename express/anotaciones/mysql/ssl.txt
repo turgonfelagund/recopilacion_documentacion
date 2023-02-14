@@ -1,0 +1,34 @@
+La opción ssl en las opciones de conexión toma una cadena o un 
+objeto. Cuando se le da una cadena, utiliza uno de los perfiles SSL
+predefinidos incluidos. Se incluyen los siguientes perfiles:
+
+    "Amazon RDS": este perfil es para conectarse a un servidor 
+    Amazon RDS y contiene los certificados de 
+    https://rds.amazonaws.com/doc/rds-ssl-ca-cert.pem y 
+    https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+
+Al conectarse a otros servidores, deberá proporcionar un objeto de 
+opciones, en el mismo formato que tls.createSecureContext. Tenga 
+en cuenta que los argumentos esperan una cadena del certificado, 
+no un nombre de archivo para el certificado. Aquí hay un ejemplo 
+simple:
+
+var connection = mysql.createConnection({
+  host : 'localhost',
+  ssl  : {
+    ca : fs.readFileSync(__dirname + '/mysql-ca.crt')
+  }
+});
+
+También puede conectarse a un servidor MySQL sin proporcionar 
+correctamente la CA adecuada en la que confiar. No deberías hacer 
+esto.
+
+var connection = mysql.createConnection({
+  host : 'localhost',
+  ssl  : {
+    // DO NOT DO THIS
+    // set up your ca correctly to trust the connection
+    rejectUnauthorized: false
+  }
+});

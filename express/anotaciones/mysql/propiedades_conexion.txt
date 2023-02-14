@@ -1,0 +1,77 @@
+A continuación, se recogen las propiedades que pueden utilziarse
+en la configuración de la conexión a una BBDD MySql.
+
+*nota
+No se recogen las propiedades "insercureAuth", "queryFormat",
+"bigNumberStrings", "debug", "trace" y "localInfile"
+
+
+-charset
+Conjunto de caracteres para la conexión. Por defecto;
+"UTF8_GENERAL_CI"
+
+-connectionTimeout
+Los milisegundos antes de que finalice el tiempo de conexión a BBDD.
+Por defecto vale 10000
+
+-database (opcional)
+Nombre de la BBDD
+
+-dateStrings
+Convierte los tipos TIMESTAMP, DATETIME y DATE para que devuelvan
+un string en lugar de un objeto Date de javascript
+Por defecto es false
+
+-flags
+Lista de flags de conexión para usar los distintos de los 
+predeterminados. También es posible incluir en la lista negra los 
+predeterminados
+
+-host
+La dirección del host que aloja la BBDD. Por defecto es "localhost"
+
+-localAdress (opcional)
+La dirección IP de origen a usar para conexión TCP
+
+-multipleStatements
+Permite múltiples sentencias MySql por consulta.
+Hay que ser cuidadosos con esto porque puede incrementar el
+alcance de ataques por inyección SQLº.
+Por defcto es false
+
+-password
+Contraseña e acceso a la BBDD
+
+-port
+El puerto para conectar. Por defecto es 3306
+
+-socketPath
+Ruta a puerto de dominio unix al que conectar. Es ignorado cuando
+se usan "host" y "port"
+
+-ssl
+Objeto con parámetros ssl o una cadena que contiene el nombre del perfil ssl.
+Para más información ver archivo "ssl.txt"
+
+-stringifyObjects
+Hace stringify de objetos en lugar de convertirlos en valores.
+Puede dar problemas y por defecto es false
+
+-supportBigNumbers
+Cuando se trata con grandes números como BIGINT y DECIMAL en columnas
+de la BBDD, se debe habilitar esta opción.
+Por defecto es false
+
+-timezone
+La zona horaria configurada en el servidor MySql.
+Esto se usa para escribir valores de fecha/hora del servidor de conversión 
+al objeto Date de JavaScript y viceversa.
+Puede tomar valor "local", "Z" o "+HH:MM" o "-HH:MM"
+Por defecto "local"
+
+-typeCast
+Determina si los valores de una columna deberían ser convertidos a
+tipos de javascript nativo
+
+-user
+El nombre de usuario con el que se va a acceder a la BBDD
