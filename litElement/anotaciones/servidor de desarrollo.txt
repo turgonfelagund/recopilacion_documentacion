@@ -1,0 +1,22 @@
+
+---Problema
+Si utilizamos import para cargar los módulos en nuestro proyecto, el estandar de js requiere que
+utilicemos la ruta completa para que el navegador pueda encontrar la fuente de los elementos.
+
+Para que se  reconozca la ruta abreviada hacia la carpeta node_modules, se debe usar un servidor de
+desarrollo
+
+---Solución
+Para que se reconozca la ruta abreviada de los módulos importados desde la carpeta "node_modules"
+durante el desarrollo, se debe usar un servidor de desarrollo como "Polymer".
+
+Para instalar globalmente, polymer escribir el comando:
+
+npm install -g polymer-cli
+
+Para utilizar polymer, ejecutar el comando:
+
+polymer serve
+
+nota.
+El comando debe ejecutarse en el directorio del proyecto que se está desarrollando

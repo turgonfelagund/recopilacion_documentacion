@@ -1,0 +1,13 @@
+Al igual que la anotaciones en SpringBoot o más bien Lombok, podemos utilizar los decoradores de la 
+librería "lit/decorators.js" para reducir y optimizar código.
+
+Una vez importada la librería, podemos usar los decoradores con "@". Por ejemplo:
+
+@customElement("nombreComponente")
+Crea una etiqueta personalizada ahorrando la linea "customElements.define()"
+
+
+@property()
+variable = valor
+
+crea una propiedad sin necesidad de usar el método properties()

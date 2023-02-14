@@ -1,0 +1,36 @@
+
+-----En este archivo se recogen los errores o bugs extraños que se vayan encontrando y su solución-----
+
+De vez en cuando podemos encontrarnos con errores que indican un fallo en la ruta de importación del
+módulo "lit-element". Esto debería solucionarse con un servidor de desarrollo como polymer.
+
+Sin embargo, hay otra razón por la que podría aparecer dicho error sin tener relación con la importación.
+
+---Causa 1
+Una razón puede ser crear los estilos en la clase del componente de la siguiente manera
+
+static styles = [
+        css`
+            :host {
+                display: block;
+            }
+        `
+    ];
+
+Una forma facil de caer en este error es el uso de snippets de terceros que generan dicha estructura.
+Simplemente hay que estar atento y modificar el resultado del snnipet
+
+Esto provoca errores, y además son difíciles de asociar con los estilos pues referencian a la importanción
+del módulo "lit-element".
+
+
+Para ver como dotar de estilos a nuestro componente correctamente, ver el archivo "estilos.txt"
+
+---Causa 2
+
+Uso de operador de fusión nulo (??) en métodos de la clase del componente
+
+borrarComponente(){
+		let tComponent = document.getElementsByTagName('test-element')[0]
+		return tComponent?? "no existe el componente";
+	}

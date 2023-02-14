@@ -1,0 +1,14 @@
+Los eventos se definen en el html del template comenzando por "@".
+
+render() {
+		return html`
+		<p>Hola mundo</p>
+		<p>Llevo ${this.clicks} clicks</p>
+		<button @click=${this.incrementar} >Haz click aquí</p>
+	`;
+	}
+
+
+Tambien pueden ser añadidos en el constructor si queremos que ocurran antes de que el componente
+sea añadido al DOM 
+

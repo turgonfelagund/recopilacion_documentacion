@@ -1,0 +1,48 @@
+Los estilos pueden importarse de un archivo css mediante la claúsula "import", y esto serán genéricos;
+sin embargo, podemos aplicar estilos específicos para cada componente (constructable stylesheets)
+
+Existen dos formas de dar estilos específicos a los componentes
+
+---MÉTODO 1 Devolver una claúsula css
+
+Devuelve una sola pagina de estilos css
+
+	static get styles() {
+		return css`
+		  p {
+			color: blue;
+		  }
+		`;
+	  }
+
+//MÉTODO 2 Devolver un array con varias claúsulas css
+
+Pueden aplicarse divesos estilos css
+
+	static get styles() {
+		return [
+			css`
+		h2{
+			color : red;
+		}`,
+			css`
+		p{
+			font-size : 20px;
+		}`];
+	}
+
+
+IMPORTANTE!!
+No escribir los estilos de la siguiente forma en nuestra plantilla
+
+static styles = [
+        css`
+            :host {
+                display: block;
+            }
+        `
+    ];
+
+
+Esto provoca errores, y además son difíciles de asociar con los estilos pues referencian a la importanción
+del módulo "lit-element"

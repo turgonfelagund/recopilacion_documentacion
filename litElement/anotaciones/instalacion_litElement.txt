@@ -1,0 +1,9 @@
+Crear un proyecto con el comando
+
+npm install
+
+Dentro de la carpeta de nuestro proyecto y en la consola escribir el siguiente comando:
+
+npm install lit-element
+
+Esto instala litElement y todas las dependencias que necesita para funcionar en la carpeta node_modules

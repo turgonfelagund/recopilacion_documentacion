@@ -1,0 +1,99 @@
+IMPORTANTE.
+El nombre del archivo de cada componente debe contener un guión que separe una o más palabras, o de lo
+contrario, no entraría en el estándar y no funcionaría.
+
+-------CREACIÓN Y ESTRUCTURA BÁSICA DE COMPONENTES-------
+
+---shadowRoot
+Es el elemento que encapsula la raíz del documento o template del componente.
+
+Si queremos hacer referencia a la raiz de nuestro componente desde si archivo .js usamos "this.shadowRoot"
+
+-Ejemplo
+Tenemos un componente "my-element.js".
+Vamos a representar
+mostrarRaiz(){
+	console.log(this.shadowRoot)
+}
+
+---Archivo
+Cada componente se recoge en un archivo ".js". El nombre del componente no tiene por qué ser el mismo que
+el de su archivo, aunque lo más práctico es que compartan nombre
+
+---Módulos
+Cada componente debe importar la clase "LitElement" y la función "html" del módulo "lit-element".
+
+---Código
+El componente esta representado en una clase con el nombre de nuestro componente y que extiende de la clase
+LitElement.
+
+La función render(), contiene el hmtl que se va a renderizar con el componente
+
+Por último, para asociar una etiqueta personalizada al componente, se utiliza el método 
+"define("nombre-etiqueta", nombreComponente)" de la instancia "customElements"
+
+---Ejemplo de un componente
+
+El resultado de un componente básico quedaría tal que así:
+
+Archivo "my-element.js"
+
+import {LitElement, html} from "lit-element";
+
+export class MyElement extends LitElement {
+	render(){
+		return html`
+		<p>Hola mundo</p>
+	`;
+	}
+}
+
+customElements.define("my-element", MyElement)
+
+
+-------INTERACCIÓN ENTRE COMPONENTES-------
+
+Un componente puede interactuar con otro diferente incluso aunque no se vean inicialmente.
+
+Para entenderlo mejor se va a usar un ejemplo.
+
+Tenemos 3 archivos. Un "index.js" de entrada; o sea, el que va a ser llamado en el .html y que contiene
+los componentes; y dos componentes "componente-1.js" y "componente-2.js" que son importados en "index.js".
+
+--componente-1.js
+
+--componente-2.js
+
+--index.js
+	importa	componente-1.js
+	importa	componente-2.js
+
+"componente-2.js" dispara un evento que elimina una instancia de componente-1 si existe en el DOM.
+Si el código está bien, el resultado será que en efecto, componente-1 será eliminado.
+
+Además, también se puede acceder a elementos internos de otro componente mediante la propiedad "renderRoot"
+
+
+-------MÉTODOS DEL COMPONENTE-------
+
+Podemos llamar métodos NO estáticos de un componente desde la consola de nuestro navegador.
+
+Para ello apuntamos al componente con "$0." previa selección del mismo, o seleccionándolo a traves de
+expresiones del DOM.
+
+Tras esto, se puede llamar a la función
+
+-----Ejemplo
+Se va a utilizar un componente llamado "my-element" con un método llamado mostrarMensaje(mensaje)
+
+---Método 1
+1. Se selecciona el componente manualmente en el inspector del navegador
+
+2. Escribimos en consola:
+
+$0.mostrarMensaje("holaaa!")
+
+---Método 2
+En consola del navegador:
+
+document.getElementsByTagName("my-element")[0].mostrarMensaje('holaaa!') 

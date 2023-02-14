@@ -1,0 +1,49 @@
+Los componentes cuentan con una serie de propiedades
+
+Para manipular estas con litElement, se utiliza un método getter estático llamado properties().
+
+---Ejemplo de properties()
+
+static get properties() {
+		return {
+			clicks: { type: Number }, //se indica el tipo de la propiedad
+			nombre: {type: String},
+		}
+	}
+
+
+
+A través de este definimos las propiedades del componente que serán reactivas, es decir, cada vez que 
+LitElement detecte que cambia alguna de estas propiedades reactivas, volverá a llamar internamente al 
+método render para que se actualice con los nuevos datos.
+
+Esto presenta dos ventajas:
+
+-No hay que llamar manualmente al método render()
+
+-Se actualizarán únicamente las partes que cambian
+
+-------INICIALIZACIÓN DE PROPIEDADES-------
+
+Las propiedades pueden inicializarse de 2 formas principalmente.
+
+---MÉTODO 1
+Se puede inicializar la propiedad en el constructor
+
+constructor() {
+		super()
+		this.clicks = 0
+	}
+
+
+---MÉTODO 2
+Las propiedades pueden definirse como una propiedad de la etiqueta del componente en el html.
+
+<my-element clicks = "1"></my-element>
+
+Esto hará que la propiedad "clicks" tome el valor "1" en dicha instancia del componente
+
+
+NOTA.
+En caso de que una propiedad haya sido inicializada en el constructor y en la etiqueta html, la propiedad
+tomará el valor adjudicado en la etiqueta
