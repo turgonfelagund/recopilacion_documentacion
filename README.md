@@ -8,6 +8,8 @@ Algunos archivos no están terminados, están mal expresados o pueden contener e
 
 PRÓXIMAMENTE Se pretende incluir:
 
--React
+-React (en proceso de compleción)
 
 -Next
+
+-Qwik
