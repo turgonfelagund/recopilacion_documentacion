@@ -159,7 +159,7 @@ CMD ["cowsay", "Yo, CMD !!"]
 
 
 ---Construir
-docker build -t ruta/nombreQueTendraImagen ruta/Dockerfile
+docker build -t whenry/fedora-jboss:latest ruta/Dockerfile
 
 ejemplo: 
 docker build -t test .

@@ -44,9 +44,14 @@ npm run version
 Esto dará como resultado la salida del comando "node -v"; o sea, la versión de node
 
 
----entry point
+---entry point o main
 Corresponde a la propiedad main de package.json y será la ubicación relativa de un archivo Javascript.
 Si alguien usa "requires" para nuestro módulo, lo que configuremos en entry point será lo primero que cargue
+
+---type
+Esta es una propiedad escrita manualmente. Indica el tipo de archivo que será nuestro archivo main o
+entry point. Si queremos que node interprete correctamente las importaciones de módulos de node_modules,
+utilizando la claúsula "import" en lugar de "require", debe tomar el valor "module"
 
 ---test command
 

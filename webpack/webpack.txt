@@ -54,7 +54,7 @@ nuestro proyecto, y luego tan solo habría que utilizar el comando:
 
 npm run atributoDefinido
 
-Esto se especifíca en el archivo 
+Esto se especifíca en el archivo "package.json"
 
 ---Compilación SIN archivo de configuración
 
@@ -64,7 +64,6 @@ npx webpack
 
 El resultado de este proceso, será la creación de un directorio "dist" con los archivos compilados, como
 "main.js" para el codigo javascript
-
 
 
 ---Compilación CON archivo de configuración

@@ -1,0 +1,64 @@
+
+-------CREANDO CONTENEDOR-------
+Hay que descargar la imagen y crear contenedor mysql
+
+Vamos a hacer que pueda correr en 2º plano con "-d" y se le asignará el puerto 33060 del host para conectarlo
+al 3306 del contenedor.
+
+Su nombre será "url-project" y se asinará el valor "rootpw" a la variable de entorno "MYSQL_ROOT_PASSWORD" con
+el argumento "-e". Esta variable será la contraseña para acceder a la BBDD.
+
+Por último, se descarga la última imagen de mysql.
+
+docker run --name url-project -e MYSQL_ROOT_PASSWORD=rootpw -d -p 127.0.0.1:3500:3306 mysql
+
+
+-------EJECUTANDO MYSQL-------
+Para ejecutar mysql se ejecuta el contenedor creado usando como ejecutable "mysql -p"
+
+docker exec -it mysql-db bash
+
+y después en el terminal escribir
+
+mysql -u root -p
+
+-u es el usuario
+
+Introducimos la contraseña "rootpw" y entramos
+
+-------PERSISTIR DATOS GENERADOS DEL CONTENEDOR-------
+Hasta este punto no persistimos los datos que se realicen en nuestro contenedor lo que significa
+que cuando terminamos con el proceso los cambios se perderán, para eso Docker nos dice que 
+hay que utilizar volúmenes que no es otra cosa que una parte del disco Host se reserve para los 
+datos generados en el contenedor(no el contenedor).
+
+Para eso seguimos los siguientes pasos:
+
+---Borrar todos los volúmenes, ya que Docker crea volúmenes temporales sin preguntar (Este paso es opcional)
+docker volume prune
+
+---Crear volumen
+docker volume create [nombre del volumen]
+
+---Listar volúmenes existentes
+docker volume ls
+
+
+---Agregar volumen
+docker run -d -p 33060:3306 --name mysql-db  -e MYSQL_ROOT_PASSWORD=secret --mount src=mysql-db-data,dst=/var/lib/mysql mysql
+
+*dst es la ruta en la que se almacenarán los datos del volumen
+
+*--mount agrega el volumen y con la variable src
+
+-------CONECTANDO A LA BBDD-------
+Para el ejemplo se usa mysql workbench
+
+-hostname será en este caso 127.0.0.1 o localhost
+
+-port es 3500
+
+-username será root
+
+-password tomará el valor "rootpw"
+
