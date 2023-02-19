@@ -9,9 +9,6 @@ let datos = {
 let arrayDatos;
 
 const cargarUsuarios = (req, res) => {
-    //Definimos datos
-    //let datos = [0];
-    //Método 1
     modelo.mostrarUsuarios({ res, datos })
         .then(result => {
             if (result.length === 0) res.end(res.json('No se encontraron usuarios'));

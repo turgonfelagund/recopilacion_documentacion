@@ -11,6 +11,15 @@ app.use(express.static("./public", {
 //Stablishment of routers
 app.use('/usuario', rutaUsuarios);
 
+//Devuelve una respuesta en caso de que la url de la petición no coincida no exista
+app.use('*', (req,res)=>{
+    const err = Error(`Requested path ${req.path} not found`);
+    res.status(404).send({
+        success: false,
+        message: `Requested path ${req.path} not found`,
+        stack: err.stack,
+        });
+});
 
 //Se ejecuta con cualquier url
 app.all('/', (req,res)=>{
