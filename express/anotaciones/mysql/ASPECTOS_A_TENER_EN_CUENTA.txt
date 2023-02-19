@@ -1,0 +1,60 @@
+En el modelo de nuestra API tener en cuenta 2 cosas
+
+-------RENDIMIENTO POR CURRING-------
+Si usamos "currying" para acortar código, al iniciar la aplicación, se ejecutarán 
+los fragmentos de TODAS las funciones a las que se haya aplicado el "currying", así que, no meter
+funcionalidad pesada en la parte ejecutadas al inicio
+
+-Ejemplo
+El mensaje 'Soy la primera función' se ejecutará 2 veces al inicio de la aplicación
+
+function consulta(sql) {
+
+	console.log('Soy la primera función')
+
+    function a(datos = []) {
+        return new Promise((resolve, reject) => {
+            conexion.query(sql['query'], datos, (err, resultado, fields) => {
+                err ? reject(sql['err']) : resolve(resultado);
+            })
+        })
+    }
+    return a;
+}
+
+
+const mostrarUsuarios = consulta(consultas.cargaUsuarios)
+const testInsertar = consulta(consultas.insercionUsuario)
+
+
+-------RECURSIVIDAD EN PETICIONES A BBDD-------
+Puede ser debido a que mientras se cumple la promesa se siguen enviado peticiones
+
+Si hacemos una promesa para completar una petición a BBDD y tratamos de resolverla en el modelo,
+se producirá un error por exceso de llamadas (recursividad).
+
+---Solución---
+Hacemos que la función devuelva la promesa con la petición a BBDD, y luego, la resolvemos desde otra
+función
+
+-Ejemplo
+NO HACER ESTO
+
+const consultaConRespuesta = (sql) => {
+    console.log('hola pancho');
+    function promesa({ res, datos = [] }) {
+        const arrayDatos = Object.values(datos);
+        new Promise((resolve, reject) => conexion.query(sql['query'], arrayDatos, (err, resultado, fields) => {
+            err ? reject(err) : resolve(resultado);
+        }))
+            .then(result => {
+                if (result.length === 0) throw 'No se ha completado la consulta';
+                res.send(result)
+            })
+            .catch(err => {
+                //res.send(err);
+                res.send(sql['err'])
+            });
+    }
+    return promesa
+}

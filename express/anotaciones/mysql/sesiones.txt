@@ -1,0 +1,133 @@
+-------VARIABLES DE SESSIÓN-------
+
+Para utilizar sesiones se debe instalar el paquete "express-session"
+Esta es la librería que controla las sesiones en Express
+
+npm i express-session
+
+Esta debe ser importada en un archivo.js mediante:
+
+const session = require('express-session');
+
+Y después, cargamos en la aplicación Express la variable de
+sesión, que a su vez recibe un objeto cuyas propiedades
+configurarán la sesión
+
+app.use(session({
+    secret: "2132434rf",
+    resave: true,
+    saveUninitialized: true
+}))
+
+Finalmente, se accede al objeto session a través de req
+y se modifica como se desee
+
+-Ejemplo
+
+const nombreVariable = require('express-session');
+
+app.use(session({
+    secret: "2132434rf",
+    resave: true,
+    saveUninitialized: true
+}))
+
+app.get('./', (req, res)=>{
+    req.session.nombre = "Marcos";
+    req.session.rol = "Admin";
+    req.session.visitas = req.session.visitas ? ++req.session.visitas : 1;
+    res.send(`El usuario ${req.session.nombre} 
+    con rol ${req.session.rol}
+    ha visitado esta página ${req.session.visitas} veces
+    `);
+})
+
+Para distinguir la sesión de cada usuario, express-session le
+devolverá un setteo de cookie en la respuesta a la primera visita.
+
+Después, será el cliente el que entregue el id de su cookie para
+que el servidor reconozca su sesión.
+
+El valor de este id está encriptado
+
+Si el usuario borra las cookies, o el servidor se detiene/reinicia,
+las variables de sesión desaparecen. A continuación, se explica
+como resolver esto
+
+
+-------ALMACENAR INFORMACIÓN DE SESIONES-------
+Para retener la sesión de un usuario, la almacenamos en una BBDD
+
+Esto se puede hacer de forma muy sencilla mediante el módulo
+"express-mysql-session".
+
+Crea una tabla en una BBDD que almacena la información de la
+variable de sesión en un objeto
+
+---Instalar módulo---
+
+Instalamos el módulo
+
+npm i express-mysql-session
+
+---Importar modulo---
+
+Después, lo importamos en nuestro archivo
+
+const mysqlStore = require('express-mysql-session');
+
+---Configurar conexión---
+El siguiente paso es inicializar la variable del módulo importado
+(llamada mysqlStore) y pasarle como argumento un objeto o
+variable con las propiedades que deseemos para configurar la BBDD
+
+-Ejemplo
+
+const sessionStore = new mysqlStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '',
+    database: 'prueba_session'
+});
+
+---Configurar variable de sesión---
+Reutilizaremos la variable empleada anteriormente. A esta,
+le añadiremos dos propiedades.
+
+-key
+Nombre de la clave primaria de nuestra tabla
+
+-store
+conexión a la que se accederá
+
+-Ejemplo
+
+app.use(session({
+    key: 'cookie_usuario',
+    secret: "2132434rf",
+    store: sessionStore,
+    resave: true,
+    saveUninitialized: true
+}))
+
+
+---Configuración final---
+
+const mysqlStore = require('express-mysql-session');
+
+const sessionStore = new mysqlStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '',
+    database: 'prueba_session'
+});
+
+app.use(session({
+    key: 'cookie_usuario',
+    secret: "2132434rf",
+    store: sessionStore,
+    resave: true,
+    saveUninitialized: true
+}))

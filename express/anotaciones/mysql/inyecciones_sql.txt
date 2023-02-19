@@ -1,0 +1,14 @@
+-------EVITAR INYECCIONES SQL-------
+1.Utilizar consultas parametrizadas
+(explicadas en archivo "consultas.txt")
+
+2.Al configurar la conexión a BBDD settear propiedad
+
+-multipleStatements : false 
+(viene configurada así por defecto)
+
+Mas información sobre buenas prácticas en:
+https://planetscale.com/blog/how-to-prevent-sql-injection-attacks-in-node-js
+
+Más información sobre escape de consultas parametrizadas en:
+https://github.com/mysqljs/mysql#escaping-query-values

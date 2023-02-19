@@ -1,0 +1,59 @@
+Se pueden servir archivos estáticos como imágenes, CSS y archivos
+js, entre otros  usando la función static()
+
+Express busca los archivos relativos al directorio estático, por lo 
+que el nombre del directorio estático no forma parte del URL. 
+
+Se pueden cargar varias rutas estáticas
+
+-Ejemplo
+app.use(express.static("./rutaDierctorio"));
+app.use(express.static("./public"));
+
+en el navegador:
+
+http://localhost:3000/images/kitten.jpg
+http://localhost:3000/css/style.css
+http://localhost:3000/js/app.js
+http://localhost:3000/images/bg.png
+http://localhost:3000/hello.html
+
+---Eliminar exetensiones---
+static puede recibir un objeto con diferentes propiedades.
+Una de ellas es "extensions" que recibe un array de extensiones.
+
+Si cargamos algún recurso con alguna de esas extensiones, esta
+no se mostrará en el navegador
+
+-Ejemplo
+Los recursos de tipo ".hmtl" y ".hml", del directorio "public",
+no muestran dicha extension en la URL
+
+app.use(express.static("./public", {
+    extensions: ['html', 'htm']
+}));
+
+---Consejo ruta stática---
+No obstante, la vía de acceso que proporciona a la función 
+express.static es relativa al directorio desde donde inicia el 
+proceso node. Si ejecuta la aplicación Express desde cualquier 
+otro directorio, es más "seguro" utilizar la vía de acceso 
+absoluta del directorio al que desea dar servicio:
+
+-Ejemplo
+
+app.use('/static', express.static(__dirname + '/public'));
+
+---Approach alternativo---
+Se puede acceder al directorio estático enrutando desde la URL
+
+-Ejemplo
+En este ejemplo, al acceder a la url "archivos", redirige
+al cliente al contenido del dierctorio "public"
+
+app.get('/archivos', express.static(__dirname, + 'public'));
+
+
+-------IMPORTANTE-------
+Es necesario usar con mucho cuidado este método pues no queremos
+que de acceso a archivos que deben permanecer ocultos para un usuario

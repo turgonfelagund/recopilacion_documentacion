@@ -1,0 +1,93 @@
+Las consultas se ejecutan mediante el método query() del objeto que 
+hace la conexión, en este caso lo llamaremos "conexion".
+
+Este método tiene 2 variantes atendiendo al tipo de consulta SQL, que reciben
+diferentes parámetros
+
+---Consulta ordinaria---
+Los valores se pasan a la consulta directamente, ya sea con concatenación, o
+con template strings.
+
+En este caso query() recibe recibe 2 parámetros; el primero la consulta que se
+ejecuta, y el segundo es una función de callback (detallada en el apartado
+"Callback de consulta")
+
+--Estructura
+db.query("consulta", callback)
+
+-Ejemplo
+
+obtener() {
+        return new Promise((resolve, reject) => {
+            conexion.query(`select id, nombre, precio from casa`,
+                (err, resultados, campos) => {
+                    if (err) reject(err);
+                    else resolve(resultados);
+                });
+        });
+    },
+
+---Consulta parametrizada
+Los valores que se van a pasar a la consulta, van enlazados a al consulta mediante 
+caracteres "?" que hacen de placeholders. Los valores enlazados son 
+pasados en un array
+
+Aquí, query() recibe 3 argumentos; la consulta sql, el array con los valores
+que se le van a pasar, y la callback (detallada en el apartado
+"Callback de consulta")
+
+La consulta parametrizada, evita inyecciones SQL al escapar los valores 
+según tipos. Los números son pasados como números y los strings son 
+escapados de manera que si se trata de usar una consulta SQL, esta será
+tratada literalmente como un string en la consulta y no como SQL
+
+Si se pasan más valores de los que la consulta espera tomar, solo coge
+aquellos que necesita de forma secuencial. El resto se desecha
+
+--Estructura
+db.query("consulta", [parámetros], callback)
+
+-Ejemplo
+
+insertar(nombre, precio) {
+        return new Promise((resolve, reject) => {
+            conexion.query(`insert into casa
+            (nombre, precio)
+            values
+            (?, ?)`,
+                [nombre, precio], (err, resultados) => {
+                    if (err) reject(err);
+                    else resolve(resultados.insertId);
+                });
+        });
+    },
+
+---Callback de consulta---
+El callback recibe en ambos casos 3 parámetros:
+
+-err
+Error que se genera en caso de fallo en la consulta
+
+-resultado
+Objeto con el Resultado de la consulta. Posee la propiedad "insertId" para
+obtener el último id insertado
+
+-fields
+Objeto con información sobre los campos
+
+-------CONECTAR BBDD-------
+Para poder ejecutar una consulta sobre la BBDD, esta debe
+tener una conexión establecida (en archivo "conectarBBDD.txt").
+
+
+-------PROMESAS-------
+Es importante utilizar async await o un objeto Promise debido a
+que la consulta a la BBDD es un proceso asíncrono, es decir,
+debemos esperar a que la consula se ejecute para procesar 
+el resultado
+
+---Posible problema con async-await---
+Puede que surja un error debido a que el módulo de mysql2 ("mysql"
+no lo hace) podría no recoger las promesas. Para solucionar esto, 
+añadir "/promise" al módulo mysql importado, o sea, de "mysql2" a 
+"mysql2/promise"

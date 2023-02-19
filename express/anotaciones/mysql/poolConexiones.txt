@@ -1,0 +1,79 @@
+-------POOLCONECCTIONS-------
+Un pool permite agrupar un número de conexiones simultáneas entre
+clientes y una BBDD.
+
+Podemos configurar propiedades del pool en el archivo de configuración
+de la conexión. Las propiedades de los pools, se encuentra en
+el archivo "propiedades_conexion.txt" y en el enlace final.
+
+Cada vez que un cliente quiere hacer una petición, este toma
+una conexión del pool, ejecuta la petición y libera dicha conexión
+para que vuelva al pool
+
+-Ejemplo de configuración y uso
+
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'example.org',
+  user            : 'bob',
+  password        : 'secret',
+  database        : 'my_db'
+});
+
+pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+
+Este es un atajo para el flujo de código: 
+
+pool.getConnection() -> connection.query() -> connection.release()
+
+El uso de pool.getConnection() es útil para compartir el estado 
+de la conexión para consultas posteriores. Esto se debe a que 
+dos llamadas a pool.query() pueden usar dos conexiones 
+diferentes y ejecutarse en paralelo. 
+
+-Ejemplo de estructura básica
+
+var mysql = require('mysql');
+var pool  = mysql.createPool(...);
+
+pool.getConnection(function(err, connection) {
+  if (err) throw err; // not connected!
+
+  // Use the connection
+  connection.query('SELECT something FROM sometable', function (error, results, fields) {
+    // When done with the connection, release it.
+    connection.release();
+
+    // Handle error after the release.
+    if (error) throw error;
+
+    // Don't use the connection here, it has been returned to the pool.
+  });
+});
+
+---Funcionamiento de las conexiones del pool---
+
+Si desea cerrar la conexión y eliminarla del pool, usa 
+connection.destroy() en su lugar. El pool creará una nueva 
+conexión la próxima vez que se necesite.
+
+Las conexiones son creadas perezosamente por el pool. 
+Si configura el pool para permitir hasta 100 conexiones, 
+pero solo usa 5 simultáneamente, solo se realizarán 5 conexiones
+
+Las conexiones también son cíclicas al estilo de todos contra todos, 
+con conexiones que se toman desde la parte superior del pool y 
+regresan a la parte inferior.
+
+Cuando se recupera una conexión anterior del pool, se envía un 
+paquete de ping al servidor para comprobar si la conexión sigue 
+siendo buena.
+
+
+
+Info de referencia:
+https://github.com/mysqljs/mysql#pool-options

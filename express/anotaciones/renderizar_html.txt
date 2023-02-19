@@ -33,6 +33,7 @@ npm i ejs
 
 No es necesario importarlo en nuestro archivo ".js"
 
+
 ---Renderizar contenido---
 Se utiliza el método render(); que recibe la ruta del archivo
 que se pretende renderizar, un objeto con variables locales (props)
@@ -49,6 +50,7 @@ Las variables locales se representan en la platilla como:
 app.use(/home, (req, res)=>{
     res.render("index.html", {saludo: "Bienvenidos"});
 })
+
 
 "index.html"
 

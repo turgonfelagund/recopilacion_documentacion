@@ -9,42 +9,79 @@ en nuestro archivo o en un archivo a parte que exportaremos
 Para definir la conexión, se usa variable donde se almacena el módulo
 "mysql"
 
+*nota.
+Mejor usar "mysql2" que está más actualizado y permite usar promesas
+
 Esta variable alberga una serie de métodos para conectar:
 
 -createConnection()
 Crea una conexión con la BBDD, que permanece abierta hasta que la
 cierras o es cerrada por el servidor MySql.
 
-Mediante este método se pueden crear y destruir conexiones según se necesiten
+Si usamos end() sobre esta conexión, no podemos volver a 
+iniciarla con connect(), sino que debe usarse createConnection()
 
--createPool()
+-createPool() (explicado en archivo "usandoPool.txt")
 Un pool es un lugar donde se almacenan las conexiones. 
 Cuando solicita una conexión de un grupo, recibirá una conexión 
 que no se está utilizando actualmente o una nueva conexión. 
 Si ya está en el límite de conexiones, esperará hasta que haya una 
-conexión disponible antes de continuar. Estas conexiones agrupadas no 
-necesitan cerrarse manualmente, pueden permanecer abiertas y 
+conexión disponible antes de continuar. Estas conexiones agrupadas 
+no necesitan cerrarse manualmente, pueden permanecer abiertas y 
 reutilizarse fácilmente.
 
+Usaremos uno de ellos para configurar la conexión.
 
-
--createPoolCluster()
-
-Usaremos uno de ellos para establecer la conexión.
+---Propiedades de conexión---
 
 Estos reciben un objeto con una serie de propiedades 
 (en archivo "propiedades_conexion.txt").
 
 Las mínimas necesarias son "user", "password" y "host"
 
+---Método connect()---
+No es necesario para realizar ocnsultas,connect() solo inicia 
+la secuencia de handshake.
+
+Una vez que .end() finaliza el objeto de conexión debe eliminarse,
+no puede volver a conectarlo (solo cree uno nuevo)
+
+Esta función puede recibir un callback con un parámetro que
+almacena un error en caso de no poder conectar a la BBDD .
 
 ---Ejemplo
-const mysql = require('require');
+const mysql = require('mysql');
 
-module.exports = mysql.createPool({
+const conexion = mysql.createConnection({
     host : 'localhost',
     user : 'root',
     password : '',
     database: 'usuarios'
 });
 
+conexion.connect(function(err) {
+  if (err) throw err;
+  conexion.query("SELECT * FROM customers", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
+
+-------VARIABLES DE ENTORNO EN PRODUCCIÓN-------
+Cuando subimos nuestra app a producción, hay valores que pueden
+cambiar dinámicamente o que ya están establecidos en el host
+
+Para utilizarlos, podemos usar el objeto global de node.js 
+"process" y su propiedad env
+
+-Ejemplo
+
+const conexion = mysql.createPool({
+    host: process.env.DB_HOST || 'localhost',
+    password: process.env.DB_PASSWORD || '',
+    user: process.env.DB_USER || 'root',
+    database : process.env.DB_DATABSE || 'test',
+    port: process.env.DB_PORT || 3306,
+    connectionLimit: 15,
+})

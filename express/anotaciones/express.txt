@@ -91,6 +91,27 @@ app.use('/user/:id', function (req, res, next) {
   next();
 });
 
+---Redireccionar url---
+El método redirect() aplicado sobre un parámetro response, recibe
+la URL a la que redireccionaremos la aplicación, para mapear y
+desencadenar una nueva funcionalidad
+
+---Ejemplo
+
+app.get('/', (req, res)=>{console.log(`Estás en la raíz de 
+la aplicación`)})
+
+app.get("/test", (req, res)=>{
+    console.log("Método de test");
+    res.redirect("/");
+})
+
+"En navegador"
+Imprimirá en consola "Método test" y después `Estás en la 
+raíz de la aplicación`
+
+localhost:3000/test
+
 ---Recoger parámetros de ruta---
 Para definir un parámetro de url se utiliza el símbolo ":" antes
 del nombre del parámetro.

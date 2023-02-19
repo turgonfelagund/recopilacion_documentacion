@@ -5,13 +5,29 @@ en la configuración de la conexión a una BBDD MySql.
 No se recogen las propiedades "insercureAuth", "queryFormat",
 "bigNumberStrings", "debug", "trace" y "localInfile"
 
+-acquireTimeout (opcional para pools)
+Los milisegundos antes de que se agote el tiempo de espera 
+durante la adquisición de la conexión. Esto es ligeramente 
+diferente de connectTimeout, porque adquirir una conexión de 
+un pool no siempre implica realizar una conexión. Si una solicitud
+de conexión está en cola, el tiempo que la solicitud pasa en la 
+cola no cuenta para este tiempo de espera. 
+ 
+Por defecto 10000
 
 -charset
 Conjunto de caracteres para la conexión. Por defecto;
 "UTF8_GENERAL_CI"
 
--connectionTimeout
-Los milisegundos antes de que finalice el tiempo de conexión a BBDD.
+-connectionLimit (opcional y para pools)
+Número máximo de peticiones que pueden gestionarse de forma simultanea,
+es decir, si hay un máximo de 20 conexiones, 20 usuarios pueden realizar
+peticiones mientras que el resto quedan en cola hasta que una se libera.
+Por defecto vale 10
+
+-connectTimeout
+Los milisegundos antes de que finalice el tiempo de conexión 
+inicial a BBDD.
 Por defecto vale 10000
 
 -database (opcional)
@@ -45,6 +61,11 @@ Contraseña e acceso a la BBDD
 -port
 El puerto para conectar. Por defecto es 3306
 
+-queueLimit (opcional y para pools)
+Determina el número de conexiones en cola que deben tener para lanzar
+un error desde getConnection(). Si vale 0, no hay limite
+Por defecto vale 0
+
 -socketPath
 Ruta a puerto de dominio unix al que conectar. Es ignorado cuando
 se usan "host" y "port"
@@ -75,3 +96,13 @@ tipos de javascript nativo
 
 -user
 El nombre de usuario con el que se va a acceder a la BBDD
+
+-waiForConnections (opcional para pools)
+Determina qué se hace cuando no hay conexiones disponibles y el
+límite ha sido alcanzado. Si su valor es true, el pool pondrá
+en cola las peticiones de conexión, y las recogerá cuando tenga
+alguna conexion disponible.
+
+Si vale false, el pool lanzará inmediatamente un callback de error
+
+true por defecto

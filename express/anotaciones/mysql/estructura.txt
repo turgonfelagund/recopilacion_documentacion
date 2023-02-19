@@ -1,0 +1,42 @@
+
+1. db (recomendación)
+Contiene scripts de creación de tablas, inserciones y demás.
+
+2. src
+Almacena el código de nuestra aplicación
+
+2.1 Controladores
+Implementa la funcionalidad llamada en los archivos de rutas, envía los 
+datos al modelo y devuelve la respuesta al cliente
+Para cada entidad existe un controlador
+
+2.2 Rutas
+Determina las rutas y funcionalidad (mediante métodos importados de su
+respectivo controlador) de la entidad
+Para cada entidad existe un archivo de rutas
+
+2.3 Archivo config.js (opcional)
+Variables para utilizarlas en la configuración de la BBDD
+
+2.4 Archivo db.js
+Archivo en el que se almacena la información de conexión  la
+
+2.5 Archivo index.js
+Archivo donde se inicia/entra a la aplicación y escucha del servidor.
+Importa las rutas creadas
+
+2.6 Modelo
+Ejecuta la consulta con los datos recibidos del controlador y se comunica
+con la BBDD para procesarlos y envía la respuesta al controlador. 
+
+
+-------RECOMENDACIÓN-------
+Para distinguir mejor entre archivos de diferentes directorios, escribir
+en su nombre, el directorio al que pertenecen
+
+-Ejemplo
+controlador
+    usuario.controlador.js
+
+rutas
+    usuario.rutas.js
