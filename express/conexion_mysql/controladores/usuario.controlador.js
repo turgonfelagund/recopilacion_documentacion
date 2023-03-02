@@ -99,6 +99,8 @@ const prepararDatosModificacion = async (datos)=>{
     const id = arrayPeticion[0];
     const nombre = arrayPeticion[1];
     const edad = arrayPeticion[2];
+    
+    arrayPeticion = [nombre, edad, id];
 
     arrayPeticion = [nombre, edad, id];
     
