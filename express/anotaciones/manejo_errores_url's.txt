@@ -7,6 +7,11 @@ nuestra aplicación Express.
 
 De esta forma, cualquier ruta que no esté en la aplicación será recogida
 
+---IMPORTANTE
+Para evitar que detecte como erróneas rutas correctas, este método
+se debe implementar al final del archivo, es decir, después de declarar todas
+las rutas
+
 ---Ejemplo
 Todas las URL's erróneas se resolverán con la siguiente respuesta
 

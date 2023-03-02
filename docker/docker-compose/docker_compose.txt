@@ -1,0 +1,12 @@
+
+Primero ebemos contar con un archivo docker-compose.yml o docker-compose.yaml
+
+-------INICIAR DOCKER-COMPOSE-------
+En el directorio donde se encuentra nuestro .yml, abrimos la consola y escribimos
+
+docker-compose up
+
+-------PARAR CONTENEDOR CON DOCKER COMPOSE-------
+De la misma manera que antes escribimos en consola
+
+docker-compose down

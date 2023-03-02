@@ -78,7 +78,11 @@ const prepararDatosModificacion = async (datos)=>{
     let datosUsuario;
 
     await modelo.mostrarUsuarioPorId(datos.id).then(result => { datosUsuario = result });
+    
+    if (datosUsuario.length == 0) return;
 
+    if (datosUsuario.length == 0) return;
+    
     //Almacena las propiedades de los datos del usuario (campos en la BBDD)
     let clavesUsuario = Object.keys(datosUsuario[0]);
 
@@ -96,6 +100,8 @@ const prepararDatosModificacion = async (datos)=>{
     const nombre = arrayPeticion[1];
     const edad = arrayPeticion[2];
 
+    arrayPeticion = [nombre, edad, id];
+    
     return arrayPeticion;
 
 }

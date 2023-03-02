@@ -25,9 +25,9 @@ ENTRYPOINT ["/bin/echo", "Hello Anne"]
 ---FROM
 Vale para indicar la imagen que se va a tomar como base o referencia para creear la imagen
 
-FROM rutaDeLaImage:version
+FROM nombreDeLaImage:version
 
-La ruta se obtiene de la propia web de docker, o sea docker hub
+El nombre se obtiene de la propia web de docker, o sea docker hub
 
 ---COPY
 Para copiar archivos del pc hacia la imagen

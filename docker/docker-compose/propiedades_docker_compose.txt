@@ -1,0 +1,89 @@
+Este archivo debe llamarse "docker-compose" y usar la extension ".yml" o ".yaml".
+
+En él, se lleva a cabo la configuración de servicios, que puede ser una instancia de MySQL,
+mongo, u otras.
+
+
+-------PROPIEDADES DE COMPOSE-------
+
+---version---
+Indica la versión de yaml que se está usando
+
+---services---
+Propiedad para configurar uno a varios servicios.
+
+Dentro integra los diferentes servicios que se van a configurar
+
+-ejemplo
+
+services:
+	mysql:
+		image: mysql:5.7
+	foo:
+		image: foo
+		profiles:
+			- test
+
+	bar:
+		image: bar
+	    	depends_on:
+	        	foo
+		profiles:
+		      - test
+
+-------PROPIEDADES DE SERVICE-------
+
+---Container_name---
+
+---image---
+
+---volumens---
+
+---ports---
+Puertos mediante los cuales se accede desde el host a un servicio
+del contenedor
+
+-Ejemplo
+	services:
+	mysql:
+		image: mysql:5.7.25
+		ports:
+			- "3306:3306"
+
+---hostname---
+
+---volumes---
+Permite guardar una copia local de los datos contenidos en un directorio
+virtual, es decir, de un contenedor
+
+-Ejemplo
+
+services:
+	mysql:
+		image: mysql:5.7.25
+		volumes : 
+			- ./sql-data/db:/var/lib/mysql
+
+
+---environment---
+Propiedad que almacena variables de entorno para el servicio al que pertenece.
+
+Las variables, varian en función de las necesidades del servicio
+
+-Ejemplo
+Para servicio MySQL
+
+services:
+	mysql:
+		container_name: mysql
+		image: mysql:5.7.25
+		environment:
+			MYSQL_DATABASE: "nombre_bbdd"
+			MYSQL_USER: "usuario"
+			MYSQL_PASSWORD: "contraseña usuario"
+			MYSQL_ROOT_PASSWORD: "contraseña root"
+
+
+
+
+

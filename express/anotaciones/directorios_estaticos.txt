@@ -33,6 +33,9 @@ app.use(express.static("./public", {
     extensions: ['html', 'htm']
 }));
 
+nota*
+Esto no funcionará con el arhcivo "index.html"
+
 ---Consejo ruta stática---
 No obstante, la vía de acceso que proporciona a la función 
 express.static es relativa al directorio desde donde inicia el 
@@ -52,6 +55,21 @@ En este ejemplo, al acceder a la url "archivos", redirige
 al cliente al contenido del dierctorio "public"
 
 app.get('/archivos', express.static(__dirname, + 'public'));
+
+
+-------ESTILOS Y OTROS ARCHIVOS ADJUNTOS-------
+Si no utilizamos el consejo anterior, los archivos utilizados en un 
+directorio estático deben utilizar recursos localizados dentro de 
+su mismo directorio
+
+-Ejemplo
+home.html debe utilizar estilos del directorio stylesheets
+contenido en public. Si lo toma de un directorio externo,
+no encontrará dicho recurso
+
+./public
+	home.html
+	stylesheets/styles.css
 
 
 -------IMPORTANTE-------
