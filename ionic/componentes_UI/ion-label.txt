@@ -1,0 +1,5 @@
+La etiqueta es un elemento envolvente que se puede usar en
+combinación con ion-item, ion-input, ion-toggle y más.
+
+La posición de la etiqueta dentro de un elemento puede ser en línea,
+fija, apilada o flotante.

@@ -1,0 +1,27 @@
+`useLayoutEffect` es otro hook de React que es similar a `useEffect`, pero se ejecuta de manera síncrona 
+después de que el renderizado del componente esté completo y antes de que se actualice el DOM. 
+Mientras que `useEffect` se ejecuta de manera asíncrona después de que el renderizado del componente esté completo, 
+`useLayoutEffect` se ejecuta de manera síncrona antes de que el navegador repinte el contenido en el DOM.
+
+La diferencia principal entre `useEffect` y `useLayoutEffect` radica en el momento en que se ejecutan y cómo afectan 
+a la renderización del componente. Aquí tienes algunos casos en los que puedes utilizar `useLayoutEffect`:
+
+1. Manipulación directa del DOM: Si necesitas realizar operaciones que afecten directamente al DOM, como medir dimensiones, 
+realizar cálculos de posicionamiento o realizar cambios en el estilo del DOM, puedes utilizar `useLayoutEffect`. 
+Dado que se ejecuta antes de que se realice el repintado del DOM, asegura que las manipulaciones del DOM ocurran de 
+forma síncrona y evita problemas de parpadeo visual.
+
+2. Sincronización con el renderizado del componente: Si necesitas realizar operaciones sincrónicas justo después de que el 
+renderizado del componente esté completo, `useLayoutEffect` puede ser útil. Esto puede ser útil, por ejemplo, cuando necesitas 
+medir las dimensiones de elementos recién renderizados o cuando necesitas realizar cambios en el DOM en función de la salida del renderizado.
+
+3. Animaciones: Si estás trabajando con animaciones y necesitas actualizar propiedades de estilo o clases en el DOM de forma 
+síncrona antes de que se realice el repintado, `useLayoutEffect` puede ser beneficioso. Esto ayuda a garantizar una transición 
+fluida y evita problemas de renderización intermitente o parpadeo.
+
+Es importante tener en cuenta que debido a que `useLayoutEffect` se ejecuta de manera síncrona y puede bloquear el renderizado 
+del componente, debe utilizarse con precaución y solo cuando sea necesario. En la mayoría de los casos, `useEffect` es suficiente 
+y recomendado para realizar tareas asíncronas y evitar bloqueos en el hilo principal de JavaScript.
+
+Recuerda que el uso de `useLayoutEffect` puede tener un impacto en el rendimiento, por lo que es importante evaluar si 
+realmente necesitas su uso en tu caso específico.

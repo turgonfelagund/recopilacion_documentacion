@@ -1,0 +1,79 @@
+
+Primero se instala @capacitor/assets mediante el comando
+
+npm install @capacitor/assets --save-dev
+
+Después, en la raiz del proyecto, crear carpeta "resources" e incluimos los siguientes archivos
+
+resources/
+├── icon-only.png
+├── icon-foreground.png
+├── icon-background.png
+├── splash.png
+└── splash-dark.png
+
+
+Después para generar todos los iconos usamos el comando
+
+npx capacitor-assets generate
+
+Sin embargo, para generarlos para cada plataforma, escribimos
+
+(android)
+npx capacitor-assets generate --android
+
+(ios)
+npx capacitor-assets generate --ios
+
+(progresive web application)
+npx capacitor-assets generate --pwa
+
+
+-----ARCHIVOS DE RESOURCES-----
+
+---icon-only
+Este archivo se utiliza como el ícono de la aplicación en diferentes plataformas.
+Representa el ícono que se muestra en la pantalla de inicio del dispositivo y en 
+el cajón de aplicaciones. Neccesita de "icon-foreground"
+
+---icon-foreground
+se utiliza para crear un efecto visual en el primer plano del ícono de la aplicación.
+Puede contener elementos gráficos que se superpondrán al ícono base para agregar detalles
+visuales o efectos de sombreado. Esto puede ayudar a dar más profundidad y dimensión
+al ícono. Por ejemplo, se podría usar para agregar una sombra suave o detalles en relieve
+al ícono.
+
+---icon-background
+El archivo "icon-background.png" se utiliza para crear un fondo detrás del ícono de la
+aplicación. Puede ser utilizado para dar un fondo colorido o temático al ícono. Esto
+puede ser especialmente útil si deseas que el ícono se destaque sobre un fondo específico,
+en lugar de utilizar el fondo transparente predeterminado.
+
+---splash
+Este archivo se utiliza como la pantalla de inicio (splash screen) de la aplicación
+en diferentes plataformas. Representa la imagen que se muestra mientras la aplicación
+se está cargando.
+
+---splash-dark
+Similar al anterior, este archivo se utiliza como la pantalla de inicio (splash screen)
+en plataformas donde se prefiere una versión oscura para situaciones de poca luz.
+
+
+Cada uno de estos archivos se genera en tamaños y resoluciones específicos para adaptarse
+a diferentes dispositivos y plataformas. Cuando construyes y despliegas tu aplicación en
+diferentes dispositivos y sistemas operativos, estos archivos se utilizan para asegurar
+que los íconos y pantallas de inicio se vean adecuadamente y mantengan una apariencia
+consistente.
+
+
+---RECOMENDACIONES---
+Los archivos de los iconos tienen que tener al menos 1024px x 1024px.
+
+Los archivos de splash screens deberían ser de al menos 2732px x 2732px
+
+El formato de las imágenes debe ser jpg o png
+
+---DOCUEMENTACION---
+Documentacion en
+
+https://capacitorjs.com/docs/guides/splash-screens-and-icons

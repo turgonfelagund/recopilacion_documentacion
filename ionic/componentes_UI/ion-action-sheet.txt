@@ -1,0 +1,82 @@
+-----QUÉ ES-----
+Una hoja de acción es un cuadro de diálogo que muestra un conjunto de opciones. 
+Aparece en la parte superior del contenido de la aplicación y el usuario debe 
+descartarlo manualmente antes de que pueda reanudar la interacción con la aplicación. 
+Las opciones destructivas se hacen obvias en el modo ios. Hay varias formas de descartar 
+la hoja de acción, incluido tocar el fondo o presionar la tecla Escape en el escritorio.
+
+
+
+-----ATRIBUTOS-----ACABAR
+
+---animated
+Es un atributo de tipo booleano que por defecto vale true.
+Si es true, la action sheet estará animada
+
+tipo = booleano
+default = true
+
+
+---backdropDismiss
+Si es verdadero, la action sheet se descartará cuando se haga click en el fondo
+
+tipo = booleano
+default = true
+
+---buttons
+Un array de botones para la action sheet
+
+tipo = [string ｜ ActionSheetButton<any>]
+default = []
+
+---cssClass
+Clases adicionales para solicitar CSS personalizado. Si se proporcionan varias clases, 
+deben estar separadas por espacios.
+
+tipo = string ｜ string[] ｜ undefined
+default = undefined
+
+
+---enterAnimation
+Animación para usar cuando la action sheet se presenta
+
+tipo = ((base: any, opts?: any) => Animation) ｜ undefined
+default = undefined
+
+
+-----METODOS-----
+
+---dismiss
+Descarte la superposición de la action sheet después de que se haya presentado.
+
+
+---onDidDismiss
+Devuelve una promesa que resuelve cuándo se descartó la hoja de acción.
+
+
+---onWillDismiss
+Devuelve una promesa que resuelve cuándo se descartará la hoja de acción.
+
+
+---present
+reenviar la superposición de la hoja de acción después de haberla creado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

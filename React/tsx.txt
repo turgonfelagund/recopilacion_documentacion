@@ -1,0 +1,140 @@
+.tsx es el formato tipeado de jsx, o un typescript para .jsx
+
+CARACTERÍSTICAS DE TSX
+
+-----Operador "as" para tipos del valor de variable-----
+Cuando queremos definir el tipo del valor de una variable en typescript,
+usamos <>, por ejemplo
+
+const num = <number>foo;
+
+Sin embargo, para evitar confusiones y problemas debido a que se puede 
+confundir con etiquetas HTML, se recomienda usar el operador "as",
+disponible tanto en .ts como en .tsx
+
+const num = foo as number
+
+
+-----Tipos que se suelen utilizar para trabajar con React-----
+
+-Props
+puedes definir tipos para las propiedades que se pasan a los componentes de React.
+Esto te permite especificar qué propiedades se esperan, su tipo y si son opcionales o
+requeridas. 
+
+Ejemplo:
+
+interface MyComponentProps {
+  name: string;
+  age?: number;
+}
+
+const MyComponent: React.FC<MyComponentProps> = ({ name, age }) => {
+  // ...
+};
+
+
+-Estado
+
+Puedes definir el tipo de estado de un componente utilizando el tipo useState.
+
+Ejemplo
+
+const [count, setCount] = useState<number>(0);
+
+
+-Eventos
+
+Puedes definir tipos para manejar eventos en los componentes utilizando el tipo React.MouseEvent
+
+Ejemplo
+
+const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  // ...
+};
+
+<button onClick={handleClick}>Click Me</button>
+
+
+-Refs
+
+Puedes utilizar el tipo React.Ref para especificar el tipo de una referencia en React
+
+Ejemplo
+
+const inputRef = useRef<HTMLInputElement>(null);
+
+<input type="text" ref={inputRef} />
+
+
+TIPO DE LOS COMPONENTES
+
+React.FC se utiliza como un tipo de componente en TSX (TypeScript JSX) para especificar
+la estructura y propiedades de un componente funcional en React.
+
+Ejemplo
+
+import React from 'react';
+
+interface MyComponentProps {
+  name: string;
+  age: number;
+}
+
+//Indica que recibe unos parámtros de tipo MyComponentProps
+const MyComponent: React.FC<myComponent : MyComponentProps> = ({ myComponent }) => {
+  return (
+    <div>
+      <p>Name: {myComponent.name}</p>
+      <p>Age: {myComponent.age}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+
+
+TIPO DE LOS NODOS
+A veces podemos querer hacer referencia a componentes genéricos de react que serán
+encapsulados dentro de un html u otros componentes. Para hacer referencia a estos
+nodos, se usa el tipo ReactNode
+
+-Ejemplo
+
+//apiContext puede contener otros componentes de React
+
+const MyApiContext : React.FC<{children:ReactNode}> = ({children})=>{
+
+    const [languages, setLanguages] = useState<JSON | undefined>();
+
+    useEffect(()=>{
+        const getLanguages = async()=>{
+            const response = await fetch("data.json");
+            const languageJson = await response.json();
+            setLanguages(languageJson);
+        };
+
+        getLanguages();
+    }, []);
+
+    return(
+        <apiContext.Provider value={{languageData : languages || undefined}}>
+            {children}
+        </apiContext.Provider>
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

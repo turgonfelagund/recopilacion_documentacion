@@ -1,0 +1,28 @@
+Es un componente cuyo contenido se muestra cuando interactuamos con otro.
+
+Esto se hace generalmente mediante un trigger, que debe contener el id
+del elemento con el que se interactuará.
+
+Ejemplo
+
+<IonItem>
+     <IonInput id="date" value={date}>
+     </IonInput>
+
+     <IonPopover trigger="date" side="top" alignment="center">
+           <IonDatetime presentation="date">
+           </IonDatetime>
+     </IonPopover>
+</IonItem>
+
+
+-----COLOCACIÓN DEL CONTENIDO CON CSS-----
+Hay varias propiedades para manipular el contenido, pero si ninguna
+se ajusta a nuestras necesidades, podemos usa --offset-x y --offset-y
+para colocarlo
+
+-----PROBLEMA DE DESPLAZAMIENTOS INDESEADOS-----
+Si al desplegar un popover a traves de un input, se desplaza el resto del contenido,
+cosa que generalmente pasara con ion-datetime, podemos evitarlo haciendo
+el input de tipo "date" p "datetime-local". Para evitar que se desplieguen
+ambos calendarios, dar al input la propiedad "onlyread"

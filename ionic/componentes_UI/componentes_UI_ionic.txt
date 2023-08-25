@@ -1,0 +1,84 @@
+IMPORTANTE
+Los componentes se nombran separando sus palabras por un guión, salvo con React,
+en el cual se nombran iniciando cad palabra con mayúscula.
+
+Ejemplo
+
+Angular, javascript, Vue
+<ion-header></ion-header>
+
+React
+<IonHeader></IonHeader>
+
+En este documento, se nombrarán los componentes como si fueran de React
+
+
+-----COMPONENTES-----
+
+IonPage
+
+IonHeader
+
+Propiedad "collapse"
+
+IonToolbar
+
+IonTitle
+
+Propiedad "size"
+
+IonContent
+Se utiliza para envolver contenido principla de la aplicación. Es dónde
+se muestra el contenido principal de la página
+
+Propiedad "fullscreen"
+
+IonRouterOutlet
+
+IonList
+
+IonItem
+
+IonAvatar
+Propiedad "slot"
+
+IonButton
+Se utiliza para crear botones en la interfaz de usuario
+
+IonActionSheet
+
+IonLabel
+
+IonInput
+
+IonCard
+
+ion-card-content
+
+ion-grid
+
+ion-row
+
+ion-col
+
+
+IonIcon
+Se utiliza para mostrar iconos en la interfaz de usuario utilizando
+los iconos prediseñados de Ionic.
+
+Cuenta con las propiedades "aria-hidden" y "icon"
+
+
+IonTabBar
+
+
+IonTabButton
+Propiedad "tab" y "href"
+
+
+
+
+
+Documentacion
+
+https://ionicframework.com/docs/components

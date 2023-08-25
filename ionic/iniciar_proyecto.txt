@@ -1,0 +1,9 @@
+
+abri una consola y escribir
+
+ionic start nombre-aplicación
+
+Después seleccionamos el framework que vamos a usar.
+
+Tras esto, seleccionamos el tipo de template que vamos a utilizar
+

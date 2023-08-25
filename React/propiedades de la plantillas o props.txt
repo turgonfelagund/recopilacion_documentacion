@@ -48,5 +48,28 @@ las propiedades y su valor
         />
 
 
--------USANDO DESTRUCTURING, UNA ALTERNATIVA A PROPS-------
+-------USANDO DESTRUCTURING-------
+Se pueden pasar directamente al componente funcional las props que queremos usar,
+sin tener que hacer referencia al objeto en el que están definidas.
+
+Ejemplo
+
+export function Testimonio({nombre, cargo, testimonio, pais, imagen}) {
+    return(
+        <div className="contenedor_testimonio">
+            <img 
+            className="imagen_testimonio" 
+            src={require(`../images/${imagen}`)} 
+            alt="Mulan img"/>
+            <div className="contenedor_texto_testimonio">
+                <p className="nombre_testimonio">{nombre} en {pais}</p>
+                <p className="cargo_testimonio">{cargo} en {props.empresa}</p>
+                <p className="texto_testimonio">{testimonio}</p>
+            </div>
+        </div>
+    )
+}
+
+
+
 

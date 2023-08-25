@@ -1,0 +1,3 @@
+Para hacer peticiones a una API, React no cuenta con métodos propios.
+En su lugar, se puede usar el método fetch(), que es nativo de javascript,
+o también se pueden usar librerías externas como superagent, axios o jquery.ajax

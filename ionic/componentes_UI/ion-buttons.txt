@@ -1,0 +1,33 @@
+Componente que contendrá uno o varios botones, no es un botón en sí mismo
+
+Este componente deberia encontrarse dentro de un componente ion-toolbar
+
+Dentro contendrá botones como
+
+ion-back-button
+
+ion-button
+
+ion-menu-button
+
+
+-----ATRIBUTOS-----
+
+---slot
+Sitúa el contenido de ion-buttons en un lugar determinado.
+slot puede tomar los valores
+
+-start
+Posiciona a la izquierda del contenedor si la dirección de escritura es de izquierda a derecha
+o al contrario si la dirección es la opuesta
+
+-end
+Es el opueto a "start"
+
+-primary
+Posiciona el elemento a la izquierda en android y a la derecha en ios
+
+-secondary
+Funciona al contrario que primary
+
+

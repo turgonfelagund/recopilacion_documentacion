@@ -1,0 +1,78 @@
+Los fabs son elementos contenedores que contienen uno o más botones fab. 
+Deben colocarse en una posición fija que no se desplace con el contenido. 
+Los fabs deben tener un botón de fab principal. Los fab también pueden contener 
+una o más listas de fab que contienen botones relacionados que se muestran 
+cuando se hace clic en el botón fab principal.
+
+Ejemplo
+
+<ion-fab>
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+Ejemplo de lista de botones
+
+<ion-fab slot="fixed" horizontal="center" vertical="center">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-icon name="chevron-up"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="bottom">
+    <ion-fab-button>
+      <ion-icon name="chevron-down"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="start">
+    <ion-fab-button>
+      <ion-icon name="chevron-back"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="chevron-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+---PROPIEDADES
+
+--vertical
+Alinea el fab verticalmente en el viewport
+
+Puede tomar los valores
+
+top, center y bottom
+
+--horizontal
+Alinea el fab horizontalmente en el viewport
+
+Puede tomar los valores
+
+start, center y end
+
+--slot
+Suele tomar el valor de fixed o nada
+
+
+Más ejemplos e información en:
+
+https://ionicframework.com/docs/api/fab
+
+
+
+
+
+
+

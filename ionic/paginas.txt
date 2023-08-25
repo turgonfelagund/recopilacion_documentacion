@@ -1,0 +1,33 @@
+Las páginas representan cada vista que compone la app.
+
+Cada página puede estar compuesta por uno o más componentes.
+Generalmente se dará el 2o caso.
+
+-----IMPORTANTE-----
+Es esencial que el contenido de cada página, sea englobado dentro de un
+componente ion-page; o de lo contrario, no se renderizará el contenido
+de esta página al cargarla tras enrutar
+
+-----GENERAR PÁGINA CON ANGULAR-----
+Con angular, se pueden crear págunas por CLI.
+Para generar una página de forma automática, escribir en consola
+
+ionic g page
+
+o
+
+ionic g page nombrePagina
+
+Si incluimos varios directorios en el nombre, se crearan
+las carpetas pertinentes
+
+
+Otra particularidad de Angular, es que estas páginas se colocarán
+en la raíz del proyecto, de forma que podrán ser accedidas
+por url mediante
+
+nombreHost/rutaPagina
+
+Ejemplo
+
+localhost:8100/pagina1

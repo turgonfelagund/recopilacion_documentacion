@@ -1,0 +1,11 @@
+La cuadrícula es un poderoso sistema flexbox primero móvil para crear 
+diseños personalizados. Se compone de tres unidades: una cuadrícula, 
+fila(s) y columna(s). Las columnas se expandirán para llenar la fila 
+y cambiarán de tamaño para adaptarse a columnas adicionales. 
+Se basa en un diseño de 12 columnas con diferentes puntos de interrupción 
+según el tamaño de la pantalla. El número de columnas se puede personalizar 
+usando CSS.
+
+documentación
+
+https://ionicframework.com/docs/api/grid

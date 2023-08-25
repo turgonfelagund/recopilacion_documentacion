@@ -1,0 +1,4 @@
+para instalar ionic, tan solo debemos tener previamente instalado node.js
+y escribir en la consola:
+
+npm i -g ionic/cli

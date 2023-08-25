@@ -1,0 +1,50 @@
+En React existen 2 tipos de importación
+
+
+----Importación por nombre o nombrada----
+Se importan 1 o más elementos de un archivo, incluidos entre llaves.
+
+Se les puede asignar un nombre mediante la claúsula "as".
+
+Los elementos exportados, tan solo deben incluir la palabra "export"
+
+Ejemplo:
+
+-Archivo funciones_para_exportar.js
+
+export function saludar(nombre) {
+    console.log(`Hola ${nombre}`);
+}
+
+export function escribir(texto){
+    console.log(texto);
+}
+
+export function crear(idea){
+    console.log(idea);
+}
+
+-Archivo importacion_funciones.js:
+
+import {saludar as s, escribir as e, crear} from './funciones_para_exportar.js'
+
+
+----Importación por defecto----
+La exportación por defecto implica que hay un único elemento en el archivo que será exportado.
+
+Se indica escribiendo "export default" antes del elemento
+
+Así, cuando se importa este archivo en otro, no es necesario incluirlo entre llaves ni asignar nombre
+mediante la claúsula "as", ya que será el que se indique en "import" sin llaves
+
+Ejemplo:
+
+-Archivo clase_ejemplo.js:
+
+ ClaseEjemplo{
+}
+
+export default ClaseEjemplo
+
+-Archivo importacion.js
+Import CE from "./ruta_clase_ejemplo.js"

@@ -1,0 +1,13 @@
+Generalemente, apache corodova no será necesario, pero puede haber algún caso
+en que nos haga falta.
+
+Para integrar apache cordova a nuestro proyecto escribir en consola en el directorio
+raiz del proyecto
+
+ionic integrations enable cordova --add
+
+Esto, agregará la configuración de Cordova a tu proyecto Ionic y generará el 
+archivo config.xml
+
+IMPORTANTE
+Actualmente, esto no está soportado en proyectos de React

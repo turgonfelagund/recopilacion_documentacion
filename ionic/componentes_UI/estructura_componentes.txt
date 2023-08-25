@@ -1,0 +1,159 @@
+Nota.
+Los ejemplos de código, son de React. Recordemos que el nombre de los
+componentes cambia entre este y el resto de frameworks
+
+-Header
+
+El diseño más simple disponible consiste en un encabezado y contenido. 
+La mayoría de las páginas de una aplicación generalmente tienen ambos, 
+pero no se requiere un encabezado para usar el contenido.
+
+Ejemplo
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h1>Content</h1>
+</ion-content>
+
+-Footer
+
+Mientras que una barra de herramientas en un encabezado aparece sobre el contenido, 
+aparece un pie de página debajo del contenido. Un encabezado y un pie de página también 
+se pueden usar juntos en la misma página.
+
+Ejemplo
+
+<ion-content class="ion-padding">
+  <h1>Content</h1>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+-Disposición de pestañas (Tabs layout)
+
+Se puede usar un diseño que consta de pestañas horizontales para permitir que el usuario
+cambie rápidamente entre las vistas de contenido. Cada pestaña puede contener contenido 
+estático o una pila de navegación mediante una salida de enrutador o navegación.
+
+Ejemplo
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="play-circle"></ion-icon>
+      Listen Now
+    </ion-tab-button>
+    <ion-tab-button tab="radio">
+      <ion-icon name="radio"></ion-icon>
+      Radio
+    </ion-tab-button>
+    <ion-tab-button tab="library">
+      <ion-icon name="library"></ion-icon>
+      Library
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      Search
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+
+-Diposición menu
+
+Un diseño estándar entre las aplicaciones móviles incluye la capacidad de alternar un 
+menú lateral haciendo clic en un botón o deslizándolo para abrirlo desde un lado. 
+Los menús laterales se utilizan generalmente para la navegación, pero pueden contener 
+cualquier contenido.
+
+Ejemplo
+
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
+
+
+
+
+
+-Diseño de panel dividido	
+
+Un diseño de panel dividido tiene una estructura más compleja porque puede combinar los 
+diseños anteriores. Permite que se muestren varias vistas cuando la ventana gráfica está 
+por encima de un punto de interrupción especificado. Si el tamaño de la pantalla del 
+dispositivo está por debajo de cierto tamaño, la vista de panel dividido se ocultará.
+
+De forma predeterminada, la vista de panel dividido se mostrará cuando la pantalla 
+tenga más de 768 px, o el punto de interrupción md, pero esto se puede personalizar 
+para usar diferentes puntos de interrupción configurando la propiedad when. 
+A continuación se muestra un ejemplo donde el panel dividido contiene un menú 
+que es visible para pantallas xs y superiores, o cuando la ventana gráfica es 
+más grande que 0px. Esto mostrará el panel dividido para todos los tamaños de pantalla.
+
+Es importante tener en cuenta que el elemento con el id que coincida con el contentId 
+especificado por el panel dividido será el contenido principal que siempre estará visible. 
+Puede ser cualquier elemento, incluido un navegador, una salida de enrutador o pestañas.
+
+Ejemplo
+
+import React from 'react';
+import { IonContent, IonHeader, IonMenu, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
+
+function Example() {
+  return (
+    <IonSplitPane when="xs" contentId="main">
+      <IonMenu contentId="main">
+        <IonHeader>
+          <IonToolbar color="tertiary">
+            <IonTitle>Menu</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">Menu Content</IonContent>
+      </IonMenu>
+
+      <div className="ion-page" id="main">
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Main View</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">Main View Content</IonContent>
+      </div>
+    </IonSplitPane>
+  );
+}
+export default Example;
+
+
+
+
+
+
+
+
+
+
+

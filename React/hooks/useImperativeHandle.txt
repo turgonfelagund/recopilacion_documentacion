@@ -1,0 +1,46 @@
+-------useImperativeHandle()-------
+Permite a un componente padre acceder a métodos y propiedades de un componente hijo
+
+Ejemplo
+
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+
+// Componente hijo
+const ChildComponent = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current.focus();
+    },
+    getValue: () => {
+      return inputRef.current.value;
+    }
+  }));
+
+  return (
+    <input ref={inputRef} type="text" />
+  );
+});
+
+// Componente padre
+function ParentComponent() {
+  const childRef = useRef(null);
+
+  const handleButtonClick = () => {
+    //Se referencia el elemento con focus
+    childRef.current.focusInput();
+    //Se obtiene su valor
+    const value = childRef.current.getValue();
+    console.log('Valor del input:', value);
+  };
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleButtonClick}>Obtener Valor</button>
+    </div>
+  );
+}
+
+export default ParentComponent;

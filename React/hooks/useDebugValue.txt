@@ -1,0 +1,45 @@
+-------useDebugValue()-------
+es un Hook en React que se utiliza para mostrar etiquetas personalizadas en 
+las herramientas de desarrollo de React. No afecta el comportamiento de la aplicación, 
+pero proporciona información adicional y útil durante la depuración.
+
+
+Ejemplo
+
+import React, { useState, useEffect, useDebugValue } from 'react';
+
+function useCustomHook() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Simulación de alguna lógica de efecto secundario
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Etiqueta personalizada para mostrar en las herramientas de desarrollo
+  useDebugValue(count > 0 ? 'Efecto en progreso' : 'Efecto no iniciado');
+
+  return count;
+}
+
+function ExampleComponent() {
+  const count = useCustomHook();
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+    </div>
+  );
+}
+
+export default ExampleComponent;
+
+
+
+

@@ -1,0 +1,13 @@
+Es la cabecera. Se situa en la parte superior del dispositivo y ocupa un alto predeterminado 
+según el dispositivo en el que se ejecute
+
+Suele contener componentes
+
+ion-title
+
+ion-toolbar (esta puede contener ion-title)
+
+ion-buttons
+
+
+Y varias más

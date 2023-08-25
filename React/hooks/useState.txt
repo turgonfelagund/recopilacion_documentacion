@@ -1,0 +1,24 @@
+-------useState()-------
+Los componentes función (los componentes que no son clases, sino funciones) no tienen las posibilidad
+de usar "this", así que si queremos actualizar el valor, o lo que es lo mismo, el estado de una propiedad
+de un componente (recordemos que esa propiedad puede estar en varios elementos del componente), usamos
+la función useState().
+
+useState() recibe un valor o un objeto. Mediante destructuring en array, dos variables reciben el valor
+indicado en useState() y una función que almacena dicho valor. Esta puede almacenar el último valor de la
+variable setteada y modificarla total o parcialmente
+
+-Ejemplo
+
+const [varible, variableSetter] = useState({
+		nombre: 'Marcos',
+		apellido: 'García',
+		edad: 30
+	});
+
+const cambiarNombre = ()=>{
+		variableSetter((estadoAnterior)=>{
+		return	{...estadoAnterior, 
+			nombre : "Juan"})
+		}
+	};

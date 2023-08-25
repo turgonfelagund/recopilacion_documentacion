@@ -1,0 +1,147 @@
+En React, el enrutamiento se puede realizar utilizando bibliotecas externas, como React Router, 
+que es una de las más populares. React Router proporciona un conjunto de componentes y 
+utilidades que permiten definir rutas en una aplicación React y mostrar los componentes 
+correspondientes a esas rutas.
+
+Aquí tienes una guía básica de cómo implementar el enrutamiento en React utilizando React Router:
+
+
+INSTALACIÓN
+
+Instalación: Comienza por instalar React Router en tu proyecto. Puedes hacerlo utilizando 
+npm o yarn ejecutando el siguiente comando en tu terminal:
+
+npm install react-router-dom
+
+
+ETIQUETAS DE react-router-dom
+
+-----BrowserRouter-----
+Se utiliza para habilitar el enrutamiento basado en la URL en una aplicación de React.
+
+creas un enrutador que utiliza el historial de navegación HTML5 del navegador.
+
+Esto significa que React Router interactuará con la API history del navegador para 
+gestionar las transiciones de las páginas sin necesidad de recargar la página completa.
+
+-----Switch-----
+el componente Switch es un componente utilizado para renderizar exclusivamente la primera 
+Route que coincide con la URL actual. En otras palabras, el Switch se asegura de que solo 
+se muestre un componente de ruta a la vez.
+
+-----Route-----
+Es una etiqueta que puede ser autoconclusiva. Indica el contenido que se va a renderizar
+mediante el enrutamiento. Esto puede hacerse de 2 formas:
+
+-Incluyendo la/s etiqueta/s dentro de la etiqueta "Route"
+
+Ejemplo
+
+<Route exact path="/tab1">
+    <Tab1 />
+</Route>
+
+-Mediante la propiedad component que recibe el componente a renderizar.
+ En este caso la etiqueta es autoconclusiva
+
+Ejemplo
+
+<Route exact path="/tab1" component={Tab1}>
+
+
+Para indicar la ruta con la que interactuará la etiqueta Route, se usa la propiedad "path",
+que define la url.
+
+-----Redirect-----
+Es una etiqueta autoconclusiva que permite redirigir a otra url mediante la propiedad "to".
+
+Esta propiedad recibe un string cuyo valor será el de la url a la cula queremos dirigirnos.
+
+
+CONFIGURACIÓN DE RUTAS
+
+Configuración de rutas: En tu archivo de entrada principal (generalmente index.js o App.js), 
+importa los componentes necesarios de React Router y define las rutas de tu aplicación. 
+
+
+Puede hacerse de la siguiente manera:
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import NotFound from './components/NotFound';
+
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  );
+};
+
+export default App;
+
+
+
+En este ejemplo, se han definido tres rutas: la ruta raíz ("/") renderiza el 
+componente Home, la ruta "/about" renderiza el componente About, y cualquier 
+otra ruta mostrará el componente NotFound. El componente Switch asegura que solo 
+se muestre la primera ruta que coincide.
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navigation = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Navigation;
+
+
+
+CONFIGURACIÓN DEL ROUTER EN IONIC
+
+Como se puede ver no se usa Switch
+
+<IonRouterOutlet>
+   <Route exact path="/tab1">
+     <Tab1 />
+   </Route>
+   <Route exact path="/tab2">
+     <Tab2 />
+   </Route>
+   <Route exact path="/tab3">
+     <Tab3 />
+   </Route>
+   <Route exact path="/">
+     <Redirect to="/tab1"  />
+   </Route>
+</IonRouterOutlet>
+
+
+
+
+
+
+
+
+
+
+

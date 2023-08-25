@@ -1,0 +1,40 @@
+Next.js es un framework de React de código abierto utilizado para crear aplicaciones web y 
+sitios web de forma rápida y eficiente. Está construido sobre la biblioteca de React y 
+agrega funcionalidades adicionales y características que facilitan el desarrollo de aplicaciones 
+web avanzadas.
+
+Algunas características clave de Next.js son:
+
+1. Renderizado del lado del servidor (SSR, por sus siglas en inglés): Next.js permite el 
+renderizado tanto del lado del cliente como del servidor, lo que significa que puedes 
+generar el HTML en el servidor y enviarlo al navegador del usuario. Esto mejora el 
+rendimiento inicial de la página y ayuda con el SEO.
+
+2. Enrutamiento: Next.js proporciona un enrutamiento simple y basado en archivos. 
+Puedes crear rutas fácilmente y definir cómo se renderizará cada página o componente 
+de tu aplicación.
+
+3. Pre-renderizado estático: Next.js permite generar páginas estáticas en tiempo de 
+compilación, lo que significa que no se necesita un servidor para generar estas páginas. 
+Esto puede mejorar aún más el rendimiento de carga y permitir la implementación de 
+sitios estáticos o generados estáticamente.
+
+4. Carga de datos: Next.js facilita la carga de datos desde una API o una fuente de 
+datos externa. Puedes utilizar funciones como `getStaticProps` y `getServerSideProps` 
+para obtener y pasar datos a tus componentes antes de renderizar la página.
+
+5. Soporte para CSS y estilos: Next.js tiene soporte integrado para varios métodos 
+de estilizado, como CSS en módulos, Sass, Styled Components y más. Puedes elegir el 
+método que mejor se adapte a tus necesidades.
+
+6. Ecosistema de plugins y librerías: Next.js es una comunidad activa con una gran 
+cantidad de plugins y librerías que puedes utilizar para extender las funcionalidades 
+y características de tu aplicación.
+
+Next.js es ampliamente utilizado en la comunidad de desarrollo de React y es una 
+opción popular para desarrollar aplicaciones web y sitios web, especialmente aquellos 
+que requieren enrutamiento dinámico, renderizado del lado del servidor y una 
+experiencia de desarrollo optimizada.
+
+Es importante tener en cuenta que Next.js no reemplaza a React, sino que es una capa 
+adicional que simplifica y mejora el desarrollo de aplicaciones web con React.

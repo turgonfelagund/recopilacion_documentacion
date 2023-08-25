@@ -1,0 +1,51 @@
+Las tarjetas son contenedores que muestran contenido como texto, imágenes,
+botones y listas. Una tarjeta puede ser un solo componente, pero a menudo
+se compone de un encabezado, título, subtítulo y contenido. Las tarjetas 
+se dividen en varios componentes para adaptarse a esta estructura: 
+
+card header, card title, card subtitle y card content.
+
+Ejemplo de uso básico 
+
+(React)
+
+import React from 'react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+
+function Example() {
+  return (
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>Card Title</IonCardTitle>
+        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+      </IonCardHeader>
+
+      <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
+    </IonCard>
+  );
+}
+export default Example;
+
+
+(Angular)
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Card Title</ion-card-title>
+    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    Here's a small text description for the card content. Nothing more, nothing less.
+  </ion-card-content>
+</ion-card>
+
+
+Para más ejemplos e información visitar
+
+https://ionicframework.com/docs/api/card
+
+
+
+
+

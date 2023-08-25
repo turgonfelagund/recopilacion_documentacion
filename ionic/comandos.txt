@@ -1,0 +1,11 @@
+
+Crear una aplicación
+ionic start nombreProyecto
+
+
+Generar una página
+ionic g page nombrePagina
+
+o
+
+ionic g page

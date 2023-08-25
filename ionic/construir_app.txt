@@ -1,0 +1,92 @@
+NOTA IMPORTANTE
+Para poder instalar y distribuir las aplicaciones móviles, hay que realizar una 
+serie de configuraciones y firmar la aplicación. Esto se explica en archivo
+"Configuración_y_firma_de_aplicaciones_móviles".
+
+-----GENERAR ARCHIVOS PARA APLICACIÓN WEB-----
+Podemos pasar toda la aplicación a HTML, CSS y javascript.
+
+En consola y el directorio raiz de nuestro proyecto escribir
+
+ionic build
+
+Para hacer que la transpilación genere archivos más livianos, podemos escribir
+
+ionic build --prod
+
+Si todo va bien, se generará un directorio "www" con el código.
+
+-----GENERAR ARCHIVOS PARA MOVIL-----
+Debemos tener instalado @capacitor/core en las dependencias de nuestro proyecto
+
+---ANDROID (debemos tener instalada @capacitor/android como dep. de producción)
+Primero debemos haber hecho el build de la aplicación, y después, en consola escribir.
+
+La apk se puede construir de 2 maneras principalmente
+
+---Método 1
+
+npx cap add android
+
+Esto instalará dependencias de android. Se tomará el código de "www" y lo colocará 
+en una aplicación de android mediante un web view generando un directorio "android"
+
+Después para abrir el proyecto en android studio, podemos escribir en consola
+
+npx cap open android
+
+Y finalmente hacer el build de la apk en Android Studio
+
+---Método 2
+Escribir en la consola
+
+ionic capacitor build android --prod
+
+Si todo ha ido bien, se generará el archivo APK en la carpeta del proyecto
+
+android/app/build/outputs/apk/release
+
+
+---IOS (debemos tener instalada @capacitor/ios como dep. de producción)
+Al igual que con Android, se debe contar con el build web, es decir,
+el directorio "www".
+
+Después en consola escribir 
+
+ionic capacitor add ios
+
+Este comando agregará la plataforma iOS a tu proyecto de Ionic y 
+configurará los archivos necesarios para la generación del archivo IPA.
+
+Después en consola escribir
+
+ionic capacitor build ios --prod
+
+Así se generará el archivo IPA en la carpeta
+
+ios/App/App/App.xcarchive/Products/Applications
+
+-----ACTUALIZAR LOS DIRECTORIOS ANDROID E IOS-----
+Cada vez que hagamos cambios en el código o ficheros, como la adición de assets,
+debemos sicronizar los cambios. Para ello escribimos en consola
+
+npx cap sync
+
+
+-----CONSTRUIR APK EN ANDROID STUDIO-----
+Una vez descargadas las dependencias del proyecto con Gradle, pulsamos las pestaña
+build>build bundles/APK(s)>Build APK(s)
+
+-----ERRORES-----
+
+Puede aparecer un mensaje que dice
+
+Could not read script 'rutaBaseProyecto\android\capacitor.settings.gradle' as it does not exist.'
+
+En este caso escribir en consola desde la raíz del proyecto
+
+ionic capacitor sync android
+
+Después de hacer esto; en android studio, hacer click derecho sobre el proyecto en la pestaña "sync"
+del apartado "Build" y pulsar sobre "Reload Gradle Project"
+

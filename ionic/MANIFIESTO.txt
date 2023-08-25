@@ -1,0 +1,54 @@
+Hay que definir la autoridad proveedora antes de compilar la app y subirla
+
+La "autoridad de proveedor de contenido" es una cadena única que se utiliza para 
+identificar y diferenciar los proveedores de contenido en una aplicación Android.
+En esencia, es una etiqueta única que ayuda al sistema a identificar de manera única 
+un proveedor de contenido específico dentro de la aplicación.
+
+La autoridad de proveedor de contenido es necesaria para que otros componentes o 
+aplicaciones puedan acceder a los archivos proporcionados por tu aplicación de manera segura.
+Cada proveedor de contenido debe tener una autoridad única para evitar conflictos con otros proveedores.
+
+-----CONFIGURAR AUTORIDAD PROVEEDORA-----
+La autoridad proveedora se define en el archivo AndroidManifest.xml,
+dentro de la etiqueta "<provider />" en la propiedad "android:authorities"
+
+EJEMPLO
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp">
+
+    <application>
+        <!-- ... otras configuraciones ... -->
+
+        <!-- Definición del proveedor de contenido -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+    
+    <!-- ... otras configuraciones ... -->
+</manifest>
+
+
+
+---ApplicationId
+Es una variable de uso opcional que se coge del archivo "build.gradle"
+
+EJEMPLO
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "com.example.myapp"
+        // ...
+    }
+    // ...
+}
+

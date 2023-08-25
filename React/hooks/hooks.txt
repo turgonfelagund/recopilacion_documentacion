@@ -1,0 +1,430 @@
+Son funciones especiales que permiten usar caracteristicas deReact con componentes funcionales como
+useState() que permite agregar un estado a un componente funcional.
+
+Los hooks estan dentro del módulo "react"
+
+Los hooks NO funcionan en clases. Tampoco se usan en buclescondiciones u
+otras funciones javascripts; tan solo en el nivel superior de componentes funcionales.
+
+El nombre de los hooks siempre empieza por "use"
+
+-------useState()-------
+Los componentes función (los componentes que no son clases, sino funciones) no tienen las posibilidad
+de usar "this", así que si queremos actualizar el valor, o lo que es lo mismo, el estado de una propiedad
+de un componente (recordemos que esa propiedad puede estar en varios elementos del componente), usamos
+la función useState().
+
+useState() recibe un valor o un objeto. Mediante destructuring en array, dos variables reciben el valor
+indicado en useState() y una función que almacena dicho valor. Esta puede almacenar el último valor de la
+variable setteada y modificarla total o parcialmente
+
+-Ejemplo
+
+const [varible, variableSetter] = useState({
+		nombre: 'Marcos',
+		apellido: 'García',
+		edad: 30
+	});
+
+const cambiarNombre = ()=>{
+		variableSetter((estadoAnterior)=>{
+		return	{...estadoAnterior, 
+			nombre : "Juan"})
+		}
+	};
+
+
+-------useEffect()-------
+Realiza acciones cuando el componente se monta o desmonta.
+
+El primer argumento de useEffect es una función que contiene el código del efecto secundario que
+deseas ejecutar. Puedes escribir cualquier lógica dentro de esta función.
+
+El segundo argumento de useEffect es una matriz opcional de dependencias. Estas dependencias son 
+variables que puedes especificar para que el efecto secundario se ejecute solo cuando alguna de ellas 
+cambie. Si no se especifican dependencias, el efecto se ejecutará después de cada renderizado del 
+componente.
+
+Dentro de la función del efecto secundario, puedes realizar cualquier tarea que necesites. 
+Esto puede incluir solicitudes HTTP, manipulación del DOM, suscripción a eventos y más.
+
+Si el efecto secundario requiere alguna limpieza, como cancelar una suscripción o eliminar un 
+temporizador, puedes devolver una función de limpieza opcional. Esta función se ejecutará antes 
+de que el componente se desmonte o antes de que se ejecute el efecto secundario nuevamente debido 
+a un cambio en las dependencias.
+
+-Ejemplo
+
+En este caso, el primer useEffect, se ejecuta cada vez que se monta o desmonta el componente,
+mientras que en el 2º useEffect(), este se ejecuta cada vez que count cambia su valor
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('El componente se ha montado');
+
+    return () => {
+      console.log('El componente se va a desmontar');
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('El valor de count ha cambiado:', count);
+  }, [count]);
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h2>Contador: {count}</h2>
+      <button onClick={incrementCount}>Incrementar</button>
+    </div>
+  );
+}
+
+
+-------useContext()-------
+En React se puede generar un contexto que alberga cierta información como 
+una serie de variables o funciones.
+
+Esta información puede ser proporcionada al contexto desde cualquier otro componente mediante
+el componente "provider".
+
+Después pueden utilizarse los datos de este contexto en un componente llamándolo mediante useContext()
+
+-Ejemplo
+
+CREACIÓN DEL CONTEXTO
+
+import React from 'react';
+
+// Crea el contexto
+const MiContexto = React.createContext();
+
+export default MiContexto;
+
+ADICIÓN DE VALORES AL CONTEXTO
+
+import React from 'react';
+import MiContexto from './MiContexto';
+
+function App() {
+  // Valores que se proporcionarán al contexto
+  const valoresContexto = {
+    nombre: 'Juan',
+    edad: 25,
+  };
+
+  return (
+    <MiContexto.Provider value={valoresContexto}>
+      {/* Aquí va el resto de tu aplicación */}
+    </MiContexto.Provider>
+  );
+}
+
+export default App;
+
+USO DE VARIABLES DEL CONTEXTO
+
+import React, { useContext } from 'react';
+import MiContexto from './MiContexto';
+
+function MiComponente() {
+  // Accede a los valores del contexto
+  const valoresContexto = useContext(MiContexto);
+
+  return (
+    <div>
+      <p>Nombre: {valoresContexto.nombre}</p>
+      <p>Edad: {valoresContexto.edad}</p>
+    </div>
+  );
+}
+
+export default MiComponente;
+
+-------useReducer()-------
+Maneja el estado de un componente utilizando el patrón Reducer.
+
+Para ello se crea la función que va a usar el reducer. Esta recibe
+2 parámetros, el estado y la acción. Finalmente devuelve el estado
+
+En el componente se define la función que va a usar useReducer y el valor
+inicial de la propiedad que se va modificar.
+
+Ejemplo
+
+// Reducer: recibe el estado actual y una acción, devuelve el nuevo estado
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+//En el componente
+import React, { useReducer } from 'react';
+
+function MiComponente() {
+  // Define el estado inicial y el dispatch utilizando useReducer
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  // Funciones para manejar las acciones
+  const increment = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+
+  const decrement = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+
+  return (
+    <div>
+      <p>Contador: {state.count}</p>
+      <button onClick={increment}>Incrementar</button>
+      <button onClick={decrement}>Decrementar</button>
+    </div>
+  );
+}
+
+export default MiComponente;
+
+-------useRef()-------
+Se usa para crear referencias mutables para acceder y manipular elementos
+del DOM desde los componentes funcionales.
+
+No provoca un re-renderizado al actualizar su valor
+
+Con el se puede enfocar elementos, obtener y cambiar valores, aplicar estilos...
+
+Una forma de usarlo es mantener referencias a múltiples elementos
+y acceder a ellos en múltiples renderizaciones sin causar cambios
+en el estado y renderizados adicionales.
+
+También puede ayudar a usar librerias de terceros no diseñadas para trabajr con el
+flujo de datos de React manteniendo las referencias y los estados con useRef.
+
+Ejemplo
+
+import React, { useRef } from 'react';
+
+function ExampleComponent() {
+  //se crea la variable que almacena la referencia
+  const inputRef = useRef(null);
+
+  //se hace focus en el elemento referenciado
+  const handleFocus = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <!--el atributo ref asigna la referencia a inputRef -->
+      <input ref={inputRef} type="text" />
+      <button onClick={handleFocus}>Enfocar Input</button>
+    </div>
+  );
+}
+
+export default ExampleComponent;
+
+
+
+-------useMemo()-------
+Se usa para memorizar el resultado de una función y evitar cálculos costosos
+en cada renderizado. Así se almacena en la caché el resultado de la
+función hasta que las dependencias cambian.
+
+useMemo() recibe un callback y un array de dependencias; es decir, unas
+varaibles representantes de estado. Cada vez que una de estas cambia, se
+ejecuta el callback.
+
+De esta manera se evita que si se debe realizar una operación costosa en
+términos de rendimiento, se ejecute dicha operación en cada renderizado,
+pues los valores de la operación ya están almacenados en caché.
+
+
+-------useCallback()-------
+Memoriza una función de callback para evitar que se ejecute tras cada renderizado
+del componente
+
+De esta forma, si sus dependencias están vacías, o no cambian, la
+función de useCallback() solo será creada una vez.
+
+Esto es beneficioso en escenarios donde la función de callback se pasa como una prop a 
+componentes hijos y quieres evitar que esos componentes vuelvan a renderizarse 
+innecesariamente si la función cambia de referencia en cada renderizado.
+
+Ejemplo
+
+import React, { useState, useCallback } from 'react';
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={increment}>Incrementar</button>
+    </div>
+  );
+}
+
+export default ExampleComponent;
+
+
+-------useLayoutEffect()-------
+es un Hook en React que se utiliza para realizar efectos secundarios después de que 
+las mutaciones en el DOM hayan sido realizadas, pero antes de que el contenido sea pintado 
+en la pantalla. Se ejecuta de forma síncrona y bloquea la actualización visual hasta que 
+se completan los efectos.
+
+Aunque useLayoutEffect es similar a useEffect, la diferencia clave es que useLayoutEffect 
+se ejecuta de forma síncrona antes de que React actualice la interfaz de usuario, mientras 
+que useEffect se ejecuta de forma asíncrona después de que se haya actualizado la interfaz 
+de usuario.
+
+Si tuviera dependencias y estas cambian, se ejecutará otra vez useLayOutEffect() 
+
+Ejemplo
+
+import React, { useState, useLayoutEffect } from 'react';
+
+function ExampleComponent() {
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    //Cuando la ventana cambia de tamaño, se ejecuta handleResize()
+    window.addEventListener('resize', handleResize);
+
+    //Cuando el componente se desmonta, se elimina el evento
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div>
+      <p>Ancho de la ventana: {width}px</p>
+    </div>
+  );
+}
+
+export default ExampleComponent;
+
+-------useImperativeHandle()-------
+-------useImperativeHandle()-------
+Permite a un componente padre acceder a métodos y propiedades de un componente hijo
+
+Ejemplo
+
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+
+// Componente hijo
+const ChildComponent = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current.focus();
+    },
+    getValue: () => {
+      return inputRef.current.value;
+    }
+  }));
+
+  return (
+    <input ref={inputRef} type="text" />
+  );
+});
+
+// Componente padre
+function ParentComponent() {
+  const childRef = useRef(null);
+
+  const handleButtonClick = () => {
+    //Se referencia el elemento con focus
+    childRef.current.focusInput();
+    //Se obtiene su valor
+    const value = childRef.current.getValue();
+    console.log('Valor del input:', value);
+  };
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleButtonClick}>Obtener Valor</button>
+    </div>
+  );
+}
+
+export default ParentComponent;
+
+-------useDebugValue()-------
+-------useDebugValue()-------
+es un Hook en React que se utiliza para mostrar etiquetas personalizadas en 
+las herramientas de desarrollo de React. No afecta el comportamiento de la aplicación, 
+pero proporciona información adicional y útil durante la depuración.
+
+
+Ejemplo
+
+import React, { useState, useEffect, useDebugValue } from 'react';
+
+function useCustomHook() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Simulación de alguna lógica de efecto secundario
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Etiqueta personalizada para mostrar en las herramientas de desarrollo
+  useDebugValue(count > 0 ? 'Efecto en progreso' : 'Efecto no iniciado');
+
+  return count;
+}
+
+function ExampleComponent() {
+  const count = useCustomHook();
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+    </div>
+  );
+}
+
+export default ExampleComponent;
+
+
+
+
+
+
+
+
+
+
+

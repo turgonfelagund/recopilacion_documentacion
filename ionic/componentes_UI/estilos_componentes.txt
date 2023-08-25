@@ -1,0 +1,71 @@
+
+---COLORES
+Se pueden pasar colores directamente a los componentes mediante la pripiedad
+"color", si el componente soporta este atributo.
+
+color toma un color basado en clases de bootstrap (primary, secondary, tertiary...)
+
+---ALINEACIÓN
+Los elementos con el atributo "slot" pueden ser situados dentro de su contenedor.
+slot está basado en flex, y utiliza los valores "start", "end", "primary" y "secondary"
+
+---CLASES IONIC
+Ionic cuenta con clases predefinidas. Estas son sólo algunas:
+
+	ion-text
+
+ion-text-left
+
+ion-text-right
+
+ion-text-center
+
+ion-text-justify
+
+ion-text-small
+
+ion-text-normal
+
+ion-text-large
+
+
+
+	ion-font
+
+ion-font-bold
+
+ion-font-italic
+
+
+	ion-align
+
+ion-align-start
+
+ion-align-end
+
+ion-align-center
+
+ion-align-top
+
+ion-align-bottom
+
+
+	ion-color
+
+ion-color-primary
+
+ion-color-secondary
+
+ion-color-tertiary
+
+ion-color-primary-success
+
+ion-color-primary-warning
+
+ion-color-danger
+
+
+---CSS
+
+Si queremos dar estilos css a los componentes, podemos hacerlo de la forma
+habitual con nombre de etiquetas (componentes en este caso), clases, id's...

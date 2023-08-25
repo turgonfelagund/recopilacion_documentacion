@@ -1,0 +1,5 @@
+Las filas son componentes horizontales del sistema de cuadrícula y contienen 
+un número variable de columnas. Aseguran que las columnas estén colocadas 
+correctamente.
+
+Consulte la documentación de ion-grid para obtener más información.

@@ -1,0 +1,38 @@
+-------useRef()-------
+Se usa para crear referencias mutables para acceder y manipular elementos
+del DOM desde los componentes funcionales.
+
+No provoca un re-renderizado al actualizar su valor
+
+Con el se puede enfocar elementos, obtener y cambiar valores, aplicar estilos...
+
+Una forma de usarlo es mantener referencias a múltiples elementos
+y acceder a ellos en múltiples renderizaciones sin causar cambios
+en el estado y renderizados adicionales.
+
+También puede ayudar a usar librerias de terceros no diseñadas para trabajr con el
+flujo de datos de React manteniendo las referencias y los estados con useRef.
+
+Ejemplo
+
+import React, { useRef } from 'react';
+
+function ExampleComponent() {
+  //se crea la variable que almacena la referencia
+  const inputRef = useRef(null);
+
+  //se hace focus en el elemento referenciado
+  const handleFocus = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <!--el atributo ref asigna la referencia a inputRef -->
+      <input ref={inputRef} type="text" />
+      <button onClick={handleFocus}>Enfocar Input</button>
+    </div>
+  );
+}
+
+export default ExampleComponent;

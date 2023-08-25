@@ -1,0 +1,64 @@
+En el contexto de React, "desmontar" se refiere al proceso en el que un componente se elimina 
+o se deja de utilizar en la interfaz de usuario.
+
+
+Las situaciones en las que un componente puede desmontarse son:
+
+    Cambio en la estructura del árbol de componentes: Si un componente es eliminado del 
+    árbol de componentes de React debido a un cambio en la estructura, se desmontará.
+
+    Actualización del estado o propiedades: Si el estado o las propiedades de un 
+    componente cambian y como resultado, el componente ya no es necesario en la interfaz 
+    de usuario, React lo desmontará.
+
+    Navegación entre páginas o vistas: Al cambiar de página o vista en una aplicación de 
+    React, los componentes que pertenecen a la vista anterior se desmontarán para dar 
+    paso a los componentes de la nueva vista.
+
+    Uso de rutas (routing): En aplicaciones que utilizan enrutamiento, los componentes 
+    pueden desmontarse al navegar a una nueva ruta.
+
+
+EJEMPLO DE DESMONTAJE
+
+import React, { useState } from 'react';
+
+function App() {
+  const [mostrarComponente, setMostrarComponente] = useState(true);
+
+  const toggleComponente = () => {
+    setMostrarComponente(!mostrarComponente);
+  };
+
+  return (
+    <div>
+      <button onClick={toggleComponente}>Mostrar/Esconder Componente</button>
+      {mostrarComponente && <MiComponente />}
+    </div>
+  );
+}
+
+function MiComponente() {
+  return <h1>Soy un componente</h1>;
+}
+
+export default App;
+
+
+COMO CONTROLAR LA CONFIGURACIÓN DEL COMPONENTE
+
+import React, { useEffect } from 'react';
+
+function MiComponente() {
+  useEffect(() => {
+    // Lógica de configuración inicial, suscripciones, etc.
+
+    return () => {
+      // Lógica de limpieza y desmontaje
+    };
+  }, []);
+
+  // Renderizado del componente
+}
+
+export default MiComponente;

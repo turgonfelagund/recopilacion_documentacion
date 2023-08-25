@@ -1,0 +1,12 @@
+Generalmente, están localizados en una lista con otros items. Pueden ser deslizados,
+borrados, reordenados, editados, y más
+
+Son elementos que pueden contener texto, iconos, avatares, inputs, imágenes
+y cualquier otro tipo de elementos nativos o personalizados
+
+-----ELIMINAR BORDE ITEM-----
+El estilo customizado del item se encuentra en la propiedad
+
+--inner-border-width
+
+Si se quiere eliminar o modificar, tan solo hay que cambiar esta

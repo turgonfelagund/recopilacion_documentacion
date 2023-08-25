@@ -1,0 +1,54 @@
+-------useEffect()-------
+Realiza acciones cuando el componente se monta o desmonta.
+
+El primer argumento de useEffect es una función que contiene el código del efecto secundario que
+deseas ejecutar. Puedes escribir cualquier lógica dentro de esta función.
+
+El segundo argumento de useEffect es una matriz opcional de dependencias. Estas dependencias son 
+variables que puedes especificar para que el efecto secundario se ejecute solo cuando alguna de ellas 
+cambie. Si no se especifican dependencias, el efecto se ejecutará después de cada renderizado del 
+componente.
+
+Dentro de la función del efecto secundario, puedes realizar cualquier tarea que necesites. 
+Esto puede incluir solicitudes HTTP, manipulación del DOM, suscripción a eventos y más.
+
+Si el efecto secundario requiere alguna limpieza, como cancelar una suscripción o eliminar un 
+temporizador, puedes devolver una función de limpieza opcional. Esta función se ejecutará antes 
+de que el componente se desmonte o antes de que se ejecute el efecto secundario nuevamente debido 
+a un cambio en las dependencias.
+
+IMPORTANTE
+
+useEffect se ejecuta después de la creación del DOM virtual y useLayoutEffect (si lo hubiera) respectivamente.
+
+-Ejemplo
+
+En este caso, el primer useEffect, se ejecuta cada vez que se monta o desmonta el componente,
+mientras que en el 2º useEffect(), este se ejecuta cada vez que count cambia su valor
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('El componente se ha montado');
+
+    return () => {
+      console.log('El componente se va a desmontar');
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('El valor de count ha cambiado:', count);
+  }, [count]);
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h2>Contador: {count}</h2>
+      <button onClick={incrementCount}>Incrementar</button>
+    </div>
+  );
+}

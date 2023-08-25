@@ -1,0 +1,18 @@
+Están compuestos por múltiples filas de items que contienen
+texto, botones, toggles, iconos, imágenes en miniatura y más
+
+Suelen contener
+
+ion-item
+
+
+Si va dentro de un ion-content, conforma un inset list
+
+
+-----LINEAS-----
+Los elementos de la lista pueden tener bordes o no.
+Esto depende del atributo "lines" de ion-list
+
+Si toma el valir "full", todos los items tendrán líneas,
+si vale "inset", la lista tendrá márgenes en las esquinas,
+y si vale "none", no tendrán líneas

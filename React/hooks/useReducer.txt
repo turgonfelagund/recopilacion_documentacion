@@ -1,0 +1,49 @@
+-------useReducer()-------
+Maneja el estado de un componente utilizando el patrón Reducer.
+
+Para ello se crea la función que va a usar el reducer. Esta recibe
+2 parámetros, el estado y la acción. Finalmente devuelve el estado
+
+En el componente se define la función que va a usar useReducer y el valor
+inicial de la propiedad que se va modificar.
+
+Ejemplo
+
+// Reducer: recibe el estado actual y una acción, devuelve el nuevo estado
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+//En el componente
+import React, { useReducer } from 'react';
+
+function MiComponente() {
+  // Define el estado inicial y el dispatch utilizando useReducer
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  // Funciones para manejar las acciones
+  const increment = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+
+  const decrement = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+
+  return (
+    <div>
+      <p>Contador: {state.count}</p>
+      <button onClick={increment}>Incrementar</button>
+      <button onClick={decrement}>Decrementar</button>
+    </div>
+  );
+}
+
+export default MiComponente;

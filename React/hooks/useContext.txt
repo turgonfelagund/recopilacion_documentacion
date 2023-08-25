@@ -1,0 +1,151 @@
+-------useContext()-------
+En React se puede generar un contexto que alberga cierta información como 
+una serie de variables o funciones.
+
+Esta información puede ser proporcionada al contexto desde cualquier otro componente mediante
+el componente "provider".
+
+Después pueden utilizarse los datos de este contexto en un componente llamándolo mediante useContext()
+
+-EJEMPLO 1
+
+CREACIÓN DEL CONTEXTO
+
+import React from 'react';
+
+// Crea el contexto
+const MiContexto = React.createContext();
+
+export default MiContexto;
+
+ADICIÓN DE VALORES AL CONTEXTO
+
+import React from 'react';
+import MiContexto from './MiContexto';
+
+function App() {
+  // Valores que se proporcionarán al contexto
+  const valoresContexto = {
+    nombre: 'Juan',
+    edad: 25,
+  };
+
+  return (
+    <MiContexto.Provider value={valoresContexto}>
+      {/* Aquí va el resto de tu aplicación */}
+    </MiContexto.Provider>
+  );
+}
+
+export default App;
+
+USO DE VARIABLES DEL CONTEXTO
+
+import React, { useContext } from 'react';
+import MiContexto from './MiContexto';
+
+function MiComponente() {
+  // Accede a los valores del contexto
+  const valoresContexto = useContext(MiContexto);
+
+  return (
+    <div>
+      <p>Nombre: {valoresContexto.nombre}</p>
+      <p>Edad: {valoresContexto.edad}</p>
+    </div>
+  );
+}
+
+export default MiComponente;
+
+
+-EJEMPLO 2
+
+CREACIÓN DE CONTEXTOS
+
+//Se van a crear dos contextos
+
+import {createContext, useState) from "react";
+
+const userContext = createContext();
+const userToggleContext = createContext();
+
+//Hook personalizado
+export function userUserContext(){
+	return useContext(userContext);
+}
+
+//Hook personalizado
+export function useUserToggleContext(){
+	return useContext(userToggleContext);
+}
+
+export function UserProvider({children}){
+
+	const [user, setUser] = useState(null);
+
+	const changeLogin = ()=>{
+		
+		if(user){
+			setUser(null);
+		}else{
+			setUser({
+				name : "Jack",
+				email : "jack@gmail.com"
+			});
+		}
+	}
+
+
+	return (
+		<userContext.Provider value={user}>
+			<userToggleContext.Provider value={changeLogin}>
+				{children}
+			</userContext.Provider>
+		</userToggleContext.Provider>
+	
+	);
+
+}
+
+
+USO DE CONTEXTO
+
+import { UserProvider } from "./userProvider";
+import Hijo from "./components/Hijo";
+
+function App(){
+
+	return (
+		<UserProvider>
+			<div className= "App">
+				<Hijo />
+			</div>
+		</UserProvider>
+	)
+}
+
+
+//Archivo de Hijo
+import { useUserContext, useUserToggleContext } from "./userProvider"
+
+const Hijo = ()=>{
+	const user = useUserContext();
+	const changeLogin = useUserToggleContext();
+
+	return (
+		<div>
+			<h2>Componente hijo</h2>
+			{user && <p>Hola {user.name}</p>
+			<button onClick={changeLogin}>Cambia login</button>
+		</div>
+	)
+}
+
+export default Hijo;
+
+
+
+Video al respecto
+
+https://www.youtube.com/watch?v=Ae33_gdJgnQ

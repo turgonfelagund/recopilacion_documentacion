@@ -1,0 +1,8 @@
+Los avatares son componentes circulares que normalmente envuelven una imagen o
+icono. Se pueden utilizar para representar a una persona o un objeto.
+
+Los avatares se pueden usar solos o dentro de cualquier elemento. Si se coloca
+dentro de un ion-chip o un ion-item, el avatar cambiará de tamaño
+para adaptarse al componente principal. Para colocar un avatar en el lado
+izquierdo o derecho de un elemento, configura el atributo slot en start
+o end, respectivamente.

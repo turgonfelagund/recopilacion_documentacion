@@ -1,0 +1,45 @@
+-------useMemo()-------
+Se usa para memorizar el resultado de una función y evitar cálculos costosos
+en cada renderizado. Así se almacena en la caché el resultado de la
+función hasta que las dependencias cambian.
+
+useMemo() recibe un callback y un array de dependencias; es decir, unas
+varaibles representantes de estado. Cada vez que una de estas cambia, se
+ejecuta el callback.
+
+De esta manera se evita que si se debe realizar una operación costosa en
+términos de rendimiento, se ejecute dicha operación en cada renderizado,
+pues los valores de la operación ya están almacenados en caché.
+
+
+-------useCallback()-------
+Memoriza una función de callback para evitar que se ejecute tras cada renderizado
+del componente.
+
+De esta forma, si sus dependencias están vacías, o no cambian, la
+función de useCallback() solo será creada una vez.
+
+Esto es beneficioso en escenarios donde la función de callback se pasa como una prop a 
+componentes hijos y quieres evitar que esos componentes vuelvan a renderizarse 
+innecesariamente si la función cambia de referencia en cada renderizado.
+
+Ejemplo
+
+import React, { useState, useCallback } from 'react';
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={increment}>Incrementar</button>
+    </div>
+  );
+}
+
+export default ExampleComponent;

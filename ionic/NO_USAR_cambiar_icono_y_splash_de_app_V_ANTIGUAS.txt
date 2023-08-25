@@ -1,0 +1,61 @@
+
+Se puede hacer de 2 formas
+
+---MÉTODO 1
+Para usar este método, debemos tener instalados como dependecias de producción
+
+@capacitor/android
+
+@capacitor/ios
+
+Después, agregar las plataformas móviles con el comando
+
+npx cap add android
+y
+npx cap add ios
+
+o
+
+npx capacitor add android
+y
+npx capacitor add ios
+
+Después, escribir en consola
+
+npx cap copy
+
+Este copiará las imágenes de la carpeta src/assets en las carpetas
+de las plataformas
+
+---actualizar imágenes
+
+Si queremos sincronizar de nuevo los archivos de las imágenes, escribir 
+en consola
+
+npx cap sync
+
+
+---MÉTODO 2 (No válido para proyecto de React a día de hoy)
+Ingresar imágenes en carpeta "resources" en el directorio raiz del proyecto.*
+
+*nota. Si esta carpeta no existe, se debe integrar mediante cordova.
+Esto se ve en el archivo, "integracion_apache_cordova"
+
+IMPORTANTE
+Las imágenes deben llamarse "icon" y "splash" y su formato debe ser .ong o .svg
+
+
+Después, introducir en consola el comando
+
+ionic cordova resources
+
+De esta forma, deben actualizarse las imagenes de las plataformas android y Ios*
+
+*nota. Si solo se actulizaron las imágenes de una plataforma, verificar que esta
+se encuentra en la carpeta "platforms". Si no está, escribir en consola
+
+ionic platform add android
+
+Video referencia:
+
+https://www.youtube.com/watch?v=wWh7CKcYQQk

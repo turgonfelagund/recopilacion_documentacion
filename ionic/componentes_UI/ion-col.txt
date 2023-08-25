@@ -1,0 +1,29 @@
+Las columnas son componentes celulares del sistema de cuadrícula y van 
+dentro de una fila. Se expandirán para llenar la fila. Todo el contenido 
+dentro de una cuadrícula debe ir dentro de una columna.
+
+Consulte la documentación de ion-grid para obtener más información.
+
+
+---ADAPTACIÓN DE TAMAÑO---
+Grid divide la pantalla en 12 columnas.
+
+---ASIGNAR COLUMNAS
+
+Para asignar columnas al contenido usa la propiedad size, sizeLg, sizeMd,
+sizeSm, sizeXl o sizeXs. Con estas propiedades, se asignan columnas de las 12.
+
+Tanbién se puede usar el atributo "offset" para asignar columnas a los márgenes
+del contenido. Esto es importante, porque al actuar simultáneamente en ambos
+márgenes, un valor de "1", asigna 2 columnas, una a cada lado del contenido.
+También existen offsetLg, offsetMd, offsetSm, offsetXl y offsetXs
+
+---RESOLUCIONES
+
+Lg > 1200px
+
+Md entre 768px y 1199px
+
+Sm entre 576px y 767px
+
+Xs < 576

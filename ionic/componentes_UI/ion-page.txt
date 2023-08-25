@@ -1,0 +1,16 @@
+IonPage es un componente de Ionic Framework que se utiliza para envolver y 
+estructurar el contenido de una página en una aplicación de Ionic. 
+Proporciona un contenedor de página que agrega estilos y comportamientos 
+específicos de Ionic, como el manejo de la barra de navegación, el enrutamiento, 
+las transiciones de página y la gestión del estado del desplazamiento.
+
+Al utilizar IonPage, puedes asegurarte de que el contenido de tu página esté 
+correctamente estructurado y se comporte según las directrices de diseño y las 
+características de navegación de Ionic. Este componente debe envolver todo el 
+contenido de la página y se puede utilizar como una envoltura alrededor de otros 
+componentes de Ionic, como IonHeader, IonContent y IonFooter, para crear una 
+página completa.
+
+-----IMPORTANTE-----
+Si no englobamos el contenido de una página en un componente ion-page,
+no se renderizará tras cargarlo desde una ruta

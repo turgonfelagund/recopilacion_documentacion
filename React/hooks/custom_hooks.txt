@@ -1,0 +1,54 @@
+En React podemos crear nuestros hooks para encapsular lógica
+y funcionalidad reutilizable para nuestros componentes
+
+CARACTERÍSTICAS DE UN CUSTOM HOOK
+
+Dentro del customHook se pueden utilizar otros hooks de React
+en cualquier combinanción existente
+
+El nombre del hook debe empezar por "use". Es una convención para
+que React lo reconozca como un hook válido
+
+Retorna un valor, estado o función que se desea exponer a los componentes
+
+Ejemplo
+
+DEFINIMOS EL CUSTOM HOOK
+
+import { useState } from 'react';
+
+function useContador(initialValue) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
+  };
+
+  return { count, increment, decrement };
+}
+
+export default useContador;
+
+
+UTILIZAMOS EL CUSTOM HOOK
+
+import React from 'react';
+import useContador from './useContador';
+
+function MiComponente() {
+  const { count, increment, decrement } = useContador(0);
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={increment}>Incrementar</button>
+      <button onClick={decrement}>Decrementar</button>
+    </div>
+  );
+}
+
+export default MiComponente;

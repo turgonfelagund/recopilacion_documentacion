@@ -1,0 +1,47 @@
+-------useLayoutEffect()-------
+es un Hook en React que se utiliza para realizar efectos secundarios después de que 
+las mutaciones en el DOM hayan sido realizadas, pero antes de que el contenido sea pintado 
+en la pantalla. Se ejecuta de forma síncrona y bloquea la actualización visual hasta que 
+se completan los efectos.
+
+Aunque useLayoutEffect es similar a useEffect, la diferencia clave es que useLayoutEffect 
+se ejecuta de forma síncrona antes de que React actualice la interfaz de usuario, mientras 
+que useEffect se ejecuta de forma asíncrona después de que se haya actualizado la interfaz 
+de usuario.
+
+Si tuviera dependencias y estas cambian, se ejecutará otra vez useLayOutEffect() 
+
+IMPORTANTE
+
+userLayoutEffect se ejecuta después de la creación y representación virtual del DOM y antes de 
+useEffect (si lo hubiera)
+
+Ejemplo
+
+import React, { useState, useLayoutEffect } from 'react';
+
+function ExampleComponent() {
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    //Cuando la ventana cambia de tamaño, se ejecuta handleResize()
+    window.addEventListener('resize', handleResize);
+
+    //Cuando el componente se desmonta, se elimina el evento
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div>
+      <p>Ancho de la ventana: {width}px</p>
+    </div>
+  );
+}
+
+export default ExampleComponent;

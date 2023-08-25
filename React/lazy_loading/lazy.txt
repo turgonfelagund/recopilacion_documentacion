@@ -1,0 +1,39 @@
+Se puede importar un componente de forma deiferidag
+
+-Ejemplo de lazy loading:
+
+import { lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+const Page1 = lazy(() => import('./pages/Page1/Page1'));
+const Page2 = lazy(() => import('./pages/Page2/Page2'));
+
+const App: React.FC = () => {
+  return (
+    <Switch>
+      <Route path="/page1" component={Page1} />
+      <Route path="/page2" component={Page2} />
+      {/* ... */}
+    </Switch>
+  );
+};
+
+
+
+-----Componente Suspense-----
+El componente Suspense se utiliza para mostrar un fallback 
+(como un indicador de carga) mientras se carga el componente diferido:
+
+import { Suspense } from 'react';
+
+const App: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route path="/page1" component={Page1} />
+        <Route path="/page2" component={Page2} />
+        {/* ... */}
+      </Switch>
+    </Suspense>
+  );
+};
