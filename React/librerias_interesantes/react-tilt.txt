@@ -1,0 +1,58 @@
+`react-tilt` es una biblioteca de React que proporciona un componente de interfaz de usuario 
+para crear efectos de inclinación (tilt) en elementos HTML y lograr un aspecto tridimensional 
+interactiva. Estos efectos de inclinación se basan en la interacción del mouse o el dispositivo 
+de entrada, y pueden utilizarse para agregar un toque atractivo y visualmente interesante a las 
+interfaces de usuario.
+
+El efecto de inclinación o tilt crea una ilusión de profundidad y movimiento
+ al responder a los movimientos del mouse o del dispositivo. Por lo general,
+ se utiliza en elementos como imágenes, tarjetas, iconos y otros elementos
+ visuales para darles un aspecto más interactivo y dinámico.
+
+`react-tilt` toma ventaja del sensor de movimiento del dispositivo (si está disponible)
+o de los eventos del mouse para aplicar transformaciones y animaciones CSS que simulan 
+la inclinación del elemento. Esto puede ser útil para crear tarjetas que parezcan moverse 
+en respuesta al movimiento del cursor o del dispositivo.
+
+Para usar `react-tilt`, primero debes instalarlo como una dependencia en tu proyecto de React. 
+Luego, puedes importar el componente de `react-tilt` y utilizarlo en tu aplicación, 
+pasando el contenido que deseas que tenga el efecto de inclinación como hijo del componente.
+
+EJEMPLO
+
+Aquí hay un ejemplo básico de cómo se podría usar `react-tilt`:
+
+```jsx
+import React from 'react';
+import Tilt from 'react-tilt';
+
+function App() {
+  return (
+    <div className="App">
+      <Tilt className="Tilt" options={{ max: 25 }}>
+        <div className="Tilt-inner">
+          Contenido con efecto de inclinación
+        </div>
+      </Tilt>
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+En este ejemplo, el contenido dentro del componente `Tilt` tendrá un efecto de inclinación. 
+Puedes ajustar las opciones, como el ángulo máximo de inclinación, para personalizar el 
+comportamiento del efecto.
+
+En resumen, `react-tilt` es una biblioteca de React que te permite crear efectos de inclinación 
+interactivos en elementos HTML, agregando una sensación tridimensional y dinámica a 
+tus interfaces de usuario.
+
+
+
+
+
+
+

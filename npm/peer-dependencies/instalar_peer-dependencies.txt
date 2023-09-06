@@ -1,0 +1,28 @@
+El comando que has proporcionado:
+
+```bash
+npm install --legacy-peer-deps react-tilt react-router-dom framer-motion
+```
+
+es similar al comando anterior, pero incluye la opción `--legacy-peer-deps`. 
+Esta opción permite que npm instale las dependencias de pares heredadas incluso 
+si no cumplen con las verificaciones de compatibilidad de versión estándar.
+
+Las dependencias de pares heredadas son dependencias que son requeridas por más 
+de un paquete en tu proyecto, pero la versión requerida por un paquete no es 
+compatible con la versión requerida por otro paquete. Por lo tanto, cuando intentas 
+instalar las dependencias, npm suele lanzar un error para asegurarse de que las 
+versiones sean compatibles y evitar conflictos.
+
+Al utilizar la opción `--legacy-peer-deps`, estás indicando a npm que omita estas 
+verificaciones e instale las dependencias de pares heredadas incluso si hay 
+incompatibilidades. Esto puede ser útil en situaciones en las que estás tratando 
+con bibliotecas más antiguas que pueden no haber actualizado sus dependencias de 
+pares para ser compatibles con las versiones más recientes.
+
+Sin embargo, es importante tener en cuenta que el uso de `--legacy-peer-deps` puede 
+resultar en problemas y conflictos en el futuro, ya que las incompatibilidades entre 
+las dependencias pueden causar comportamientos inesperados o errores en tu proyecto. 
+Siempre es preferible resolver los conflictos de dependencia de manera adecuada y 
+buscar soluciones actualizadas para garantizar la estabilidad y la compatibilidad 
+en tu proyecto.

@@ -1,0 +1,181 @@
+Existen 2 estándares a la hora de gestionar módulos; CommonJS y ECMAScript6.
+
+CommonJS es el estándar de node mientras que ECMAscript6 es el estándar actual de Jacascript usado por navegadores
+
+Tienen varias diferencias. Vamos parte por parte
+
+-----CONFIGURACIÓN-----
+La declaración del estándar que usaremos se hace en el archivo package.json
+
+Este tiene un atributo "type" que determina el estándar usado.
+
+Puede toamr el valor "common" para CommonJS o "module" para el de ECMAScript.
+
+Normalmente, dicha propiedad o atributo no aparece en el archivo package.json debido
+a que por defecto toma el valor "common"
+
+-----EXTENSIONES .mjs y .cjs----- TERMINAR
+Otra forma de indicar el estándar que se va a utilizar en un archivo específico,
+independientemente de la configuración de package.json es mediante las extensiones
+".cjs" y "mjs".
+
+La primera indica que el archivo sigue el estándar CommonJS, mientras que la 2a ES6
+
+
+-----IMPORTACIONES-----
+
+---CommonJS
+CommonJS utiliza "require()" para importar módulos. Cuando el intérprete se encuentre con require,
+buscará en la carpeta de "node_modules" y si no encuentra lo que busca, seguirá buscando en la ruta
+indicada. Por esta razon no es necesario indicar la ruta hasta la librería o módulo de interés
+de la carpeta "node_modules".
+
+Si encuentra el directorio dentro de "node_modules", lee su index.js
+
+Como dato interesante, CommonJS es capaz de immportar un archivo ".json" directamente
+
+---ES6
+ES6 utiliza las claúsulas "import" y "from".
+
+Hay varias formas de utilizar estas:
+
+import {suma, resta} from "./modulo";
+
+import nombreModulo from "./modulo";
+
+También se pueden usar alias para cambiar nombres con "as":
+
+import {suma as operacion} from "./modulo";
+
+Y en caso de otro tipo de archivos como ".css":
+
+import "./nombreArchivo.css";
+
+
+El beneficio de usar ES6 sobre CommonJS es el treeShaking; es decir, la eliminación
+del código no utilizado de un módulo, reduciendo el tamaño del archivo de salida 
+
+
+---index.js---
+Si un directorio cuenta con un archivo "index.js", y queremos importar este, será
+suficiente con indicar el nombre del direcotorio que lo contiene junto con todos
+los módulos que este tiene importados.
+
+
+-----EXPORTACIONES----- TERMINAR
+
+---CommonJS
+Utiliza el objeto "modules.exports" para exportar los elementos de un módulo. Esto significa que,
+el archivo que importa el contenido del módulo, lo toma de "modules.exports". Esto puede
+parecer obvio pero más adelante veremos por qué es importante*.
+
+También puede usarse la variable"exports", la cual es una REFERENCIA al objeto "module.exports"
+Esto significa, que los valores que guardemos en "exports", se estarán guardando en "module.exports".
+
+*He aquí donde toma relevancia lo dicho antes. Si cambiamos la referencia de "exports" asignandole
+un nuevo objeto, e introducimos en este los elementos que queremos exportar, veremos que
+no se exportó nada al archivo de interés. Esto es porque al cambiar la referencia, "module.exports"
+estará vacío, y como se dijo, es el que el archio usa para importar paquetes
+
+Un ejemplo de esto:
+
+exports = {}
+
+En este momento, "exports" ha sido reasignado con un objeto vacío.
+
+Para evitar esto, hacer
+
+exports.nombreProp = valor
+
+Si queremos asignar los elementos exportados dentro de un objeto directamente, usar "modules.exports" siempre
+
+module.exports = {
+		nombreFuncion,
+		nombreVariable,
+	}
+
+
+Consejo. Mejor usar "modules.export" y así evitamos confusiones
+
+
+---ES6---
+
+ES6 permite exportaciones nombradas, por objeto y por default
+
+Las exportaciones nombradas son aquellas en las que cada elemento se declara de forma
+particular como exportado mediante la palabra reservada "export"
+
+Ejemplo
+
+	export function suma(a, b){
+		return a + b;
+	}
+
+	function resta(a, b){
+		return a - b;
+	}
+
+	export function multiplicacion(a, b){
+		return a * b;
+	}
+
+En este caso suma y multiplicacion serían exportadas, pero resta no.
+
+
+En el caso de usar un objeto, se exportaría un objeto que encapsulara los elementos de interés
+
+Ejemplo
+
+	function suma(a, b){
+		return a + b;
+	}
+
+	function resta(a, b){
+		return a - b;
+	}
+
+	function multiplicacion(a, b){
+		return a * b;
+	}
+
+export {
+	suma,
+	resta,
+	multiplicacion
+	}
+
+De esta forma sólo sería necesario importar mediante destructuring la funcionalidad necesaria
+
+
+Por último; en el caso de default, definimos el/los elementos que van a ser importados
+en caso de hacer una importación genérica del módulo
+
+Ejemplo
+
+MODULO.JS
+	export function suma(a, b){
+		return a + b;
+	}
+
+	export default function resta(a, b){
+		return a + b;
+	}
+
+	export function multiplicacion(a, b){
+		return a + b;
+	}
+
+
+INDEX.JS
+
+import operacion, {suma, multiplicacion} from "./modulo";
+
+
+
+"operacion", será la función "resta". Además, como se ve, podemos importar más elementos.
+
+
+
+
+
+

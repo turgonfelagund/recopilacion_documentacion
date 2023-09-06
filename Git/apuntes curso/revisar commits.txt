@@ -1,0 +1,7 @@
+
+-----REVISAR LOGS DE COMMITS-----
+Revisar commits
+git log
+
+Revisar commits en una línea
+git log --one line

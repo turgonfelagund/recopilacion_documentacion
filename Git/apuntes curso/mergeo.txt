@@ -1,0 +1,3 @@
+---Traer commits y archivos de otra rama a rama actual (mergeo)---
+
+git merge nombreRamaImportada

@@ -1,0 +1,14 @@
+-------EJEMPLO CON MYSQL-------
+
+La clave es añadir el archivo con todas nuestras operaciones de BBDD a
+"docker-entrypoint-initdb.d"
+
+-Ejemplo
+
+FROM mariadb/server:latest
+
+ENV MYSQL_ROOT_PASSWORD=root
+
+ADD sql/db.sql /docker-entrypoint-initdb.d
+
+EXPOSE 3306

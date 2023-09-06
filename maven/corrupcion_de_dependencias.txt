@@ -1,0 +1,19 @@
+Maven puede sufrir una interrupción durante la descarga de dependencias
+
+Esto puede provocar una corrución de las mismas que lanzará el mensaje:
+
+"Could not resolve dependencies for projects ..."
+
+-------SOLUCIÓN--------
+---Opción 1
+
+Para eliminar las dependencias corruptas usamos
+
+mvn dependency_purge-local-repository
+
+Esto elimina; y opcionalmente re-resuelve, los artefactos desde el repositorio local.
+Por defecto serán re-resueltos
+
+---Opción 2
+
+Borrar manualmente el repositorio local .m2, lo cual obligará a redescargar todas las dependencias

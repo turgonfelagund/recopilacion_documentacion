@@ -1,0 +1,179 @@
+Es un archivo de texto que contiene instrucciones para construir una imagen
+
+-------EXEC FORM-------
+Algunas instrucciones pueden ir en forma de exec que siguen la siguiente notacion
+
+<instruction> ["executable", "param1", "param2", ...]
+
+El primer item del array seria el ejecutable, y los demas, argumentos que se le pasan al ejecutable
+
+Los comandos que pueden usar EXEC FORM son:
+RUN
+
+CMD
+
+ENTRYPOINT
+
+ejemplo:
+RUN ["apt-get", "install", "python3"]
+CMD ["/bin/echo", "Hello John"]
+ENTRYPOINT ["/bin/echo", "Hello Anne"]
+
+
+-------CLAUSULAS-------
+
+---FROM
+Vale para indicar la imagen que se va a tomar como base o referencia para creear la imagen
+
+FROM nombreDeLaImage:version
+
+El nombre se obtiene de la propia web de docker, o sea docker hub
+
+---COPY
+Para copiar archivos del pc hacia la imagen
+
+COPY rutaOrigen rutaDestino
+
+---WORKDIR
+Crea una carpeta en el directorio y configura dicho directorio como el direcotrio en el que vamos a trabajar.
+Esto significa que cualquier comando ejecutado, va a ejecutarse dentro del contexto de ese directorio
+
+WORKDIR directorio
+
+
+---RUN
+Corre comandos. No tienen que ser de docker, sino de los disponibles en nuestra imagen del contendor
+
+RUN comando...
+
+ejemplo: RUN dotnet publish -c Release -o dist ConsoleApp.csproj
+
+---ENV
+Declara variables de entorno que pueden ser llamadas con CMD o ENTRYPOINT
+
+ENV nombreVariable valorVariable
+
+ejemplo
+ENV name John Doe
+CMD echo $name
+
+John Doe
+
+
+---CMD
+Ejecuta un comando dentro del contenedor
+
+ejemplo:
+FROM ubuntu:16.04
+CMD["echo Samarkanda"]
+
+docker build -t test
+docker run test
+Samarkanda
+
+*nota.
+Depende del punto de entrada del contenedor (más abajo)
+
+El comando puede ser sobreescrito indicando:
+
+docker run test comando
+
+ejemplo: docker run test /bin/hostname
+
+
+
+---ENTRYPOINT
+Selecciona el ejecutable que se va a usan en el contenedor.
+
+El ENTRYPOINT por defecto es "bin/sh -c"
+
+Ejemplo sin ENTRYPOINT:
+
+FROM ubuntu:16.04
+CMD["/bin/date"]
+
+En este caso se ejecuta /bin/date obre el punto de entrada /bin/sh -c; por lo que el resultado sera:
+
+docker build -t test .
+docker run test
+Tue Dec 19 10:37:43 UTC 2016
+
+Ejemplo con ENTRYPOINT:
+
+FROM ubuntu:16.04
+ENTRYPOINT ["/bin/echo"]
+CMD ["Hello"]
+
+docker built -t test .
+docker run test
+Hello
+
+o
+
+(esto explicado en la nota de la clausula "CMD")
+docker run test Hi 
+Hi
+
+
+-ENTRYPOINT como Shell Form
+Las instrucciones de ENTRYPOINT se ejecutarian como /bin/sh -c comando...
+
+ejemplo:
+
+ENV name John Doe
+ENTRYPOINT echo "Hello, $name"
+Hello, John Doe
+
+
+-ENTRYPOINT como Exec Form
+La forma habitual de usarlo
+
+ejemplo:
+ENV name John Dow
+ENTRYPOINT ["/bin/echo", "Hello, $name"]
+Hello $name
+
+*IMPORTANTE.
+En exec form, ENTRYPOINT no recoge el valor de la variable.
+La instruccion ENTRYPOINT se Ejecuta antes que CMD por lo que:
+
+CMD echo Jose
+ENTRYPOINT ["bin/sh", "Hola"]
+
+Hola Jose
+
+
+-------EJEMPLO-------
+
+---Dockerfile
+FROM debian:jessie-slim
+
+RUN apt-get update                                      
+    apt-get install -y --no-install-recommends             
+        cowsay                                             
+        screenfetch                                     
+    rm -rf /var/lib/apt/lists/*
+
+ENV PATH "$PATH:/usr/games"
+CMD ["cowsay", "Yo, CMD !!"]
+
+
+---Construir
+docker build -t whenry/fedora-jboss:latest ruta/Dockerfile
+
+ejemplo: 
+docker build -t test .
+
+
+*nota.
+Generalmente la ruta suele ser el mismo directorio, por lo que se puede usar simplemente "."
+
+
+
+
+
+
+
+
+
+

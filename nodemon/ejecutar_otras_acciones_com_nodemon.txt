@@ -1,0 +1,7 @@
+Nodemon puede ejecutar mas comandos cada vez que se reinicia el servidor.
+
+Para ello, usamos el argumento "--exec" seguido de su ejecutable
+
+Un ejemplo sería:
+
+nodemon index.js --exec babel-node

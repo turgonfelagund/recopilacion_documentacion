@@ -78,8 +78,6 @@ const prepararDatosModificacion = async (datos)=>{
     let datosUsuario;
 
     await modelo.mostrarUsuarioPorId(datos.id).then(result => { datosUsuario = result });
-    
-    if (datosUsuario.length == 0) return;
 
     if (datosUsuario.length == 0) return;
     
@@ -99,11 +97,9 @@ const prepararDatosModificacion = async (datos)=>{
     const id = arrayPeticion[0];
     const nombre = arrayPeticion[1];
     const edad = arrayPeticion[2];
-    
-    arrayPeticion = [nombre, edad, id];
 
     arrayPeticion = [nombre, edad, id];
-    
+
     return arrayPeticion;
 
 }

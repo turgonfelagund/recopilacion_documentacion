@@ -1,0 +1,36 @@
+
+Se crea una imagen a partir de una aplicación de node.js
+
+-------REQUISITOS PREVIOS-------
+
+Se usa un archivo .dockerignore para evitar copiar archivos que contiene:
+
+node_modules
+npm-debug.log
+
+
+-------CONTENIDO DE DOCKERFILE-------
+
+FROM node:12		#Descargamos la imagen y versión de node requerida
+
+WORKDIR /app		#Creamos el directorio en el que se van a guardar y ejecutar nuestros 
+			#archivos y comandos
+
+COPY package*.json ./   #Copia todos los archivos que comienzan por "package" y acaban en ".json" 
+		        #en el directorio /app
+
+
+RUN npm install		#Ejecuta el comando npm install para instalar dependencias 
+
+COPY . ./		#Copia TODO el contenido del directorio donde se sitúa dockerfile en
+			#en WORKDIR
+
+CMD ["node", "src/index.js"]	#Ejecutamos el comando de la aplicación
+
+
+docker built -t nodeRestApi ./
+
+
+-------EJECUTAMOS NUESTRA IMAGEN-------
+
+docker run -it -p 4000:3000 nodeRestApi

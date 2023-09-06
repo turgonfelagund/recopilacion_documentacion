@@ -1,0 +1,8 @@
+
+En CommonJS podemos usar las variables "__filename" y "__dirname" para obtener la ruta del
+archivo y directorio actual, respectivamente
+
+
+En ES6 podemos usar el objeto import mediante:
+
+import.meta.url

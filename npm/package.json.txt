@@ -17,6 +17,20 @@ El versionamiento sigue la siguiente estructura
 -El segundo es el de versión MINOR y cambia cuando se añaden funciones
 -El tercero es el de versión de PATCH y cambia cuando se solucionan errores
 
+---sombreros y virgulillas
+-El sombrero indica que instale la última versión de bugs (tercer número versión)
+
+^15.2.0 (cambia el 0)
+
+
+-La virgulilla indica que se instale la última versión de funcionalidad (2º número)
+
+~7.8.0 (puede actualizar el 8)
+
+
+Hay que tener cuidado para evitar que los cambios de versión produzcan problemas de
+la funcionalidad. En ocasiones es mejor usar versiones sin ninguno de
+estos caracteres (ni virgulilla ni sombrero)
 
 ---descripcion
 Explica lo que hace nuestro módulo/proyecto

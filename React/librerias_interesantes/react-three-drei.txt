@@ -1,0 +1,13 @@
+"react-three-drei" (abreviado como R3D o Drei) es una biblioteca complementaria 
+para "react-three-fiber". Proporciona una colección de componentes y utilidades 
+predefinidas para la creación de gráficos 3D.
+
+Ofrece componentes reutilizables listos para usar en tus proyectos de Three.js, 
+lo que acelera el proceso de desarrollo de gráficos 3D.
+
+
+-----INSTALACIÓN
+
+Se instala con
+
+npm i @react-three/drei

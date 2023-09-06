@@ -24,3 +24,19 @@ nvm ls-remote
 6. instalar la version con el comando:
 
 nvm install numeroDeLaVersion
+
+---Revisar versiones instaladas de node---
+
+nvm ls
+
+*La que esté señalada con una flecha, será la que se está usando
+
+---Cambiar de versión de node---
+
+nvm use numeroVersion
+
+---Borrar versión---
+
+nvm uninstall numeroVersion
+
+

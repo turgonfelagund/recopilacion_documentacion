@@ -5,12 +5,12 @@ Para Maven 2.0
 Devuelve la version instalada de maven
 
 -mvn clean.
-Borra el directorio de salida (target)
+Borra el directorio de salida (target) y limpia todas las clases compiladas del proyecto
 
 -mvn install
-guarda el proyecto en el repositorio
+Construye el proyecto y guarda los archivos del mismo (JAR, WAR, pom.xml ...) en el repositorio local
 
-CREAR UN PROYECTO
+-------CREAR UN PROYECTO-------
 
 -mvn archetype:create -DgroupId=com.ejemplo.nombreGrupoDeProyecto -DartifactId=NombreProyecto
 crea un proyecto, el grupoid que es el paquete donde se localizan las clases de java y artifactid que es el nombre de proyecto
@@ -21,7 +21,17 @@ crea el proyecto y además indica el tipo de plantilla usada; en este caso web.
 *Ademas de los arquetipos de maven, se pueden crear arquetipos propios. Más información en achivo /archetiposMaven
 o en https://maven.apache.org/guides/mini/guide-creating-archetypes.html
 
-COMPILACIÓN
+-------DESCARGAR DEPENDENCIAS-------
+Las dependencias de descargan mediante el siguiente comando
+
+mvn dependency:resolve
+
+Pero tambien mediante los siguientes, debido a que incluyen el comando anterior:
+
+mvn install
+mvn package
+
+-------COMPILACIÓN-------
 -mvn test
 compila los test y los ejecuta
 
@@ -37,7 +47,7 @@ mvn test
 
 Esto es debido a que maven necestia completar el ciclo del proyecto.
 
-ACTUALIZACION
+-------ACTUALIZACION-------
 
 -mvn clean intall -u
 Limpia el directorio de salida y actualiza dependencias

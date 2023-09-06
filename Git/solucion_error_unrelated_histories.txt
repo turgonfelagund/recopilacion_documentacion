@@ -1,0 +1,4 @@
+
+Usar la siguiente linea:
+
+git pull origin main --allow-unrelated-histories

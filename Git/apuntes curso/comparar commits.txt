@@ -1,0 +1,3 @@
+Para ver las diferencias entre dos commits, se usa el siguiente comando:
+
+git diff id_comit_1 id_commit_2

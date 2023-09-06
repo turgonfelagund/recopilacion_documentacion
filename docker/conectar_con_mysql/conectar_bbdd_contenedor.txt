@@ -12,7 +12,7 @@ el argumento "-e". Esta variable será la contraseña para acceder a la BBDD.
 
 Por último, se descarga la última imagen de mysql.
 
-docker run --name url-project -e MYSQL_ROOT_PASSWORD=rootpw -d -p 127.0.0.1:3500:3306 mariadb/server:latest
+docker run --name url-project -e MYSQL_ROOT_PASSWORD=rootpw -d -p 127.0.0.1:33060:3306 mariadb/server:latest
 
 
 -------EJECUTANDO MYSQL-------
@@ -45,7 +45,6 @@ docker volume create [nombre del volumen]
 ---Listar volúmenes existentes
 docker volume ls
 
-
 ---Agregar volumen
 docker run -d -p 33060:3306 --name mysql-db  -e MYSQL_ROOT_PASSWORD=secret --mount src=mysql-db-data,dst=/var/lib/mysql mysql
 
@@ -59,7 +58,7 @@ con Expres.js y conectar con las bbdd de dicho contenedor
 
 -hostname será en este caso 127.0.0.1 o localhost
 
--port es 3500
+-port es 33060
 
 -username será root
 

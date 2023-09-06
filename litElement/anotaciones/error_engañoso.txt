@@ -1,6 +1,8 @@
 
 -----En este archivo se recogen los errores o bugs extraños que se vayan encontrando y su solución-----
 
+-------ERROR 1-------
+
 De vez en cuando podemos encontrarnos con errores que indican un fallo en la ruta de importación del
 módulo "lit-element". Esto debería solucionarse con un servidor de desarrollo como polymer.
 
@@ -34,3 +36,14 @@ borrarComponente(){
 		let tComponent = document.getElementsByTagName('test-element')[0]
 		return tComponent?? "no existe el componente";
 	}
+
+
+
+
+-------ERROR 2-------
+Si se produce un error en "define" que dice que el nombre de la etiqueta no es válido, será porque
+falta el guión.
+
+IMPORTANTE.
+El guión en el nombre de la etiqueta es indispensable
+

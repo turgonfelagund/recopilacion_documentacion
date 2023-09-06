@@ -68,7 +68,7 @@ var Modulo1 = require('./modulos');
 
 Nota.
 La ruta debe empeza por "./" si importamos un módulo local. Si queremos importar módulos 
-del núcleo de node.js o módulos de de NPM, no hay que especificar la ruta, basta con el nombre
+del núcleo de node.js o módulos de NPM, no hay que especificar la ruta, basta con el nombre
 
 
 -------EXPORTAR MÓDULO-------

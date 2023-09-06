@@ -1,0 +1,10 @@
+
+Si quisieramos utilizar la función require en un archivo declarado configurado como ES6,
+podemos hacerlo mediante el módulo nativo de javascript "module"
+
+
+*nota. "import" es un objeto con propiedades
+
+import.meta.url
+
+Es una propiedad que indica la ruta del archivo actual

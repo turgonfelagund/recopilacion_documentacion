@@ -1,0 +1,58 @@
+Framer Motion es una biblioteca de animación para React que permite crear animaciones 
+sofisticadas y fluidas en aplicaciones web. Está diseñada para ser utilizada junto 
+con React para crear transiciones y animaciones visuales en componentes y elementos 
+de la interfaz de usuario.
+
+Framer Motion ofrece una API intuitiva y flexible que facilita la creación de una 
+amplia variedad de efectos visuales y animaciones, desde simples transiciones hasta 
+animaciones más complejas y dinámicas. Algunas de las características clave de 
+Framer Motion incluyen:
+
+1. **Declarativo y Reactivo**: Framer Motion utiliza un enfoque declarativo que se alinea 
+con el paradigma de desarrollo de React. Puedes definir animaciones directamente en tu 
+JSX y controlar su comportamiento de manera reactiva.
+
+2. **Componentes de Animación**: Proporciona componentes especiales como `motion.div`, 
+`motion.button`, etc., que te permiten animar propiedades como posición, escala, opacidad y más.
+
+3. **Transiciones y Keyframes**: Puedes crear transiciones entre estados y también 
+definir animaciones de keyframes con facilidad.
+
+4. **Físicas y Spring**: Ofrece modelos de animación basados en la física y muelles 
+(spring) para lograr animaciones orgánicas y realistas.
+
+5. **Gestos y Controles**: Incluye soporte para la creación de gestos y controles 
+interactivos, como arrastrar y soltar, tocar y más.
+
+6. **Variants**: Los variants son objetos que definen conjuntos de propiedades y transiciones 
+que pueden ser aplicados a varios elementos para mantener un comportamiento consistente.
+
+7. **SVG Animations**: Puedes animar SVGs y sus atributos de manera sencilla.
+
+
+---EJEMPLO---
+
+```jsx
+import React from 'react';
+import { motion } from 'framer-motion';
+
+function App() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+      Contenido animado con Framer Motion
+    </motion.div>
+  );
+}
+
+export default App;
+```
+
+
+INSTALACIÓN 
+
+nom i framer-motion

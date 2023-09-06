@@ -1,0 +1,5 @@
+fetch baja las ramas en remoto
+
+git fetch
+
+*Para verlas, debe hacerse antes checkout a ellas

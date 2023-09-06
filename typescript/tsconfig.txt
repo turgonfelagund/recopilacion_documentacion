@@ -43,7 +43,7 @@ Cuando no hay anotaciones de tipo para ciertas, TypeScript trata
 de inferir su tipo, pero si no lo consigue, asigna tipo "any".
 
 Si esta propiedad toma el valor "true", el compilador lanzará un 
-cada vez que haya inferido en la compilación "any".
+error cada vez que haya inferido en la compilación "any".
 
 ---noEmitOnError---
 Hace que no emita archivos de salida del compilador como código fuente de 

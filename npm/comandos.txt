@@ -95,6 +95,10 @@ Muestra los paquetes globales que pueden actualizarse
 El parámetro depth=0 hace que se muestre el paquete principal y no sus dependencias
 IMPORTANTE que depth se escriba separado por un espacio de -g en caso de búsqueda global
 
+-------LIMPIAR CACHÉ-------
+
+npm cache clean --force
+
 
 -------NOTAS-------
 Los paquetes se suelen nombrar como @nameSpace/paquete

@@ -1,0 +1,23 @@
+Las dependencias de pares (peer dependencies) son un concepto en el ecosistema de Node.js 
+y NPM (Node Package Manager). Cuando una biblioteca A requiere otra biblioteca B como 
+dependencia, y la biblioteca B necesita ser utilizada y compartida con la versión que ya 
+se encuentra en el proyecto (en lugar de una versión duplicada), la biblioteca A especifica 
+la biblioteca B como una dependencia de pares.
+
+En otras palabras, las dependencias de pares se utilizan cuando dos o más bibliotecas necesitan 
+trabajar juntas pero no se requiere que estén incluidas varias copias de la misma dependencia 
+en el árbol de dependencias. En cambio, se espera que el usuario o el proyecto proporcionen una 
+instancia única de la dependencia compartida.
+
+En relación con "legacy peer dependencies" (dependencias de pares heredadas), podría referirse 
+a una situación en la que una biblioteca está utilizando versiones antiguas de sus dependencias 
+de pares. Esto podría ser problemático si las versiones antiguas de las dependencias de pares no 
+son compatibles con las versiones más recientes de otras bibliotecas que se utilizan en el proyecto.
+
+La gestión de dependencias es un aspecto crítico en el desarrollo de software, y asegurarse de que 
+las versiones de las dependencias sean compatibles es esencial para evitar problemas y conflictos. 
+Si una biblioteca tiene dependencias de pares heredadas, esto podría indicar que la biblioteca en sí 
+no ha sido actualizada para ser compatible con las versiones más recientes de sus dependencias de pares.
+
+En general, es importante mantener actualizadas las dependencias y asegurarse de que todas las partes 
+del proyecto sean compatibles entre sí, incluidas las dependencias de pares.

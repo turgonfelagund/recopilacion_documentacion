@@ -1,0 +1,18 @@
+Cuando queremos denotar que una variable puede utilizar varios tipos,
+empleamos el caracter "|".
+
+
+Ejemplo
+
+let myVariable: string | number; // La variable myVariable puede ser de tipo string o number
+myVariable = "Hola"; // Válido
+myVariable = 10; // Válido
+myVariable = true; // Inválido, ya que boolean no está incluido en la unión de tipos
+
+function printValue(value: string | number) {
+  console.log(value);
+}
+
+printValue("Hola"); // Válido
+printValue(10); // Válido
+printValue(true); // Inválido, ya que boolean no está incluido en la unión de tipos

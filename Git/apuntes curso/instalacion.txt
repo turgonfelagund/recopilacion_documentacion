@@ -1,0 +1,6 @@
+Se puede instalar git en el dispositivo de 2 maneras:
+
+1. Con el instalador de su página web
+
+2. Utilizando un terminal o linea de comandos. Para este caso, si estamos
+   usando windows, se puede emplear el emulador Cygwin terminal

@@ -1,0 +1,17 @@
+
+-----HARD RESET-----
+
+El siguiente comando devuelve a un commit y borra los commits anteriores al elegido
+
+commit reset --hard HEAD~numero_commit
+
+*El primer commit es el 0. Si elegierams el 2, se borrarian los commits 0 y 1.
+El 0 es el último commit (más actual)
+
+-----SOFT RESET-----
+
+Hay otra forma de hacer lo mismo pero conservando los archivos del directorio.
+Esto significa que aunque volvamos a un commit anterior, los archivos del actual se
+mantienen una vez volvamos al commit anterior
+
+commit reset --soft HEAD~numero_commit

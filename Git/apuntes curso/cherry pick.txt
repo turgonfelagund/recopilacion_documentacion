@@ -1,0 +1,6 @@
+
+Con cherry pick podemos un único commit de otra rama a la rama actual
+
+git cherry-pick numeroSHA
+
+El commit desaparecerá de la rama de la que se tomó

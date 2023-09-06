@@ -1,0 +1,26 @@
+
+Guardar eventualmente cambios producidos en una rama antes de cambiar a otra
+
+---Crear memoria temporal que podrá ser recuperada más adelante---
+El stash es una memoria donde se pueden guardar temporalmente cambios de una rama
+Para guardar en un stash usar el comando:
+
+git stash
+
+---Ver contenido del stash---
+Para ver el contenido del stash escribir:
+
+git stash show
+
+---Extraer contenido del stash---
+El stash es un objeto global, es decir, desde una rama se puede acceder a los cambios de otra
+rama almacenados en el stash
+
+Para extraer en una determinada rama los cambios del stash, aplicar en dicha rama:
+
+git stash pop
+
+---limpiar el stash---
+Si queremos vaciar el stash usar:
+
+git stash clear

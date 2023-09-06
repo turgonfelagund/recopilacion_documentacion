@@ -1,0 +1,17 @@
+Cada vez que hagamos un commit, se emplearán los datos configurados de la siguiente manera
+
+-----CONFIGURAR USUARIO Y CORREO-----
+Para configurar un nombre de usuario se utiliza el comando:
+
+git config --global user.name "nombre"
+
+Para configurar un correo:
+
+git config --global user.email "<correo>"
+
+*El correo se escribe entre signos "<" y ">"
+
+-----COMPROBAR USUARIO Y CORREO-----
+Se usa el comando:
+
+git config --list

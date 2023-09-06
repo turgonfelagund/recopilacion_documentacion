@@ -1,0 +1,19 @@
+Cuando instalas dos paquetes que comparten la misma subdependencia en un proyecto Node.js, 
+esa subdependencia se instalará una sola vez y será compartida entre los dos paquetes. 
+Esto se debe a cómo funciona el sistema de manejo de dependencias en Node.js y NPM.
+
+El sistema de manejo de dependencias en Node.js está diseñado para evitar la redundancia y 
+el uso excesivo de recursos. Cuando varios paquetes requieren la misma subdependencia, 
+NPM asegura que se instale solo una instancia de esa subdependencia y que los paquetes la 
+compartan. Esto se logra a través del uso de un árbol de dependencias donde las dependencias 
+se organizan y gestionan de manera eficiente.
+
+Esta característica de compartir subdependencias es fundamental para reducir el tamaño de los 
+proyectos y garantizar la eficiencia en el uso de recursos. Sin embargo, también es importante 
+estar consciente de que si un paquete requiere una versión específica de una subdependencia 
+que no es compatible con la versión requerida por otro paquete, podría haber conflictos 
+y problemas de compatibilidad.
+
+En general, NPM maneja este proceso de manera automática y optimizada para que no necesites 
+preocuparte por la instalación duplicada de subdependencias compartidas. Es uno de los beneficios 
+de utilizar un sistema de manejo de dependencias como NPM en proyectos de Node.js.

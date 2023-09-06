@@ -1,0 +1,48 @@
+
+El import dinámico es una característica que permite cargar módulos de forma asíncrona.
+Funciona tanto en ES como en CommonJS. De hecho, puede usarse para importar
+módulos de ES6 a CommonJS
+
+Ejemplo:
+
+import("./operaciones.cjs").then({suma}=>{console.log(4,5)})
+
+
+Algunos puntos clave sobre la importación dinámica:
+
+
+Asincronía: La función import() devuelve una promesa, por lo que la carga del módulo 
+se realiza de manera asíncrona. Esto significa que el código dentro de .then() se 
+ejecutará una vez que el módulo haya sido cargado exitosamente.
+
+Carga condicional: Puedes utilizar la importación dinámica para cargar módulos basados 
+en condiciones específicas o eventos en tu aplicación.
+
+Beneficios de rendimiento: Esta característica puede mejorar el rendimiento de tu 
+aplicación, ya que no cargas todos los módulos al principio, sino solo cuando 
+son necesarios.
+
+
+*nota. require tambien puede funcionar de forma asíncrona, pero hay que utilizar 
+require.resolve() para obtener una referencia al módulo y luego usar require() 
+para cargarlo. Esto también se realiza de manera asíncrona.
+
+
+Ejemplo
+
+
+document.getElementById('loadModuleBtn').addEventListener('click', () => {
+  try {
+    const modulePath = './modulo-dinamico.js';
+    const resolvedModulePath = require.resolve(modulePath);
+    delete require.cache[resolvedModulePath]; // Limpiar caché (opcional)
+    const modulo = require(resolvedModulePath);
+    modulo.mostrarMensaje();
+  } catch (error) {
+    console.error('Error al cargar el módulo:', error);
+  }
+});
+
+
+Nota que es común limpiar la caché de Node.js para asegurarse de que el 
+módulo se cargue nuevamente si ya ha sido cargado antes.

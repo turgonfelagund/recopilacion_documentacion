@@ -1,6 +1,6 @@
 Crear un proyecto con el comando
 
-npm install
+npm init
 
 Dentro de la carpeta de nuestro proyecto y en la consola escribir el siguiente comando:
 

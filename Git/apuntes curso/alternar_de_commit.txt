@@ -1,0 +1,4 @@
+
+Usar el comando
+
+git checkout numeroSHA
